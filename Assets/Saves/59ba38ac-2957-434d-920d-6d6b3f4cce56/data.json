@@ -1,0 +1,24 @@
+{
+  "story": {
+    "name": "Ranger",
+    "generationPrompt": "This is a Fantasy novel. The setting is Forest, the main problem of the plot is Goblins attack the forest, and the goal is Save the forest. The theme is Heroism, it should shine in the plot. The story should be Life-like in its grimness/darkness. Is there romance in the story=False. Extra details: The player should be able to try the diplomacy route.. "
+  },
+  "player": {
+    "name": "Thomas",
+    "generationPrompt": "The player is Male Young Adult Ranger. Their name is Thomas Woody. They have; Diamond face. Mid-length Ginger Wavy hair. Green Almond eyes. Same as hair color Arched Thick eyebrows. Straight nose, Full lips, Light skin. Average height, Fit weight. Lean. Has a hood and usuallly wears rogue-like clothing. Handsome. This was the description of the player. "
+  },
+  "NPCs": [
+    {
+      "name": "Goblin",
+      "generationPrompt": "This NPC is Adult Male Goblin. Their name is Goblin . Physical details: Very ugly and green skinned. Has a club.. Personality: Cruel and crude. Is this character a romance interest for the player: False. ."
+    },
+    {
+      "name": "Nuada",
+      "generationPrompt": "This NPC is Adult Male Elf. Their name is Nuada . Physical details: Very handsome and fae-like. Blone haired and tall. Personality: Kinf and warm-hearted. Old friend of Thomas. Is this character a romance interest for the player: False. ."
+    }
+  ],
+
+  "backgrounds": {
+    "names": ["forest"]
+  }
+}

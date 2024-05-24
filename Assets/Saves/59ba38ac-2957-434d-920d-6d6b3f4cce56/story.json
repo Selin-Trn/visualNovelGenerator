@@ -1,0 +1,582 @@
+{
+  "a": {
+    "_0_bg": "forest",
+    "_0": "You are Thomas Woody, a skilled ranger who roams the dark and mysterious Forest of Eldoria. As you walk through the dense undergrowth, you hear the rustling of leaves and the distant howls of creatures.",
+    "_0_player": "What is that sound?",
+    "_1": "Suddenly, the ground shakes beneath your feet, and a horde of goblins emerges from the shadows, their sharp teeth glinting in the dim light.",
+    "_0_apr": "Goblin",
+    "_1_apr": "Goblin Chief",
+    "_0_npc": {
+      "name": "Goblin Chief",
+      "txt": "The road must continue from here... Follow me!"
+    },
+    "_1_player": "By the stars, goblins! I must stop them before they cause chaos in this forest.",
+    "_2": "You draw your bow and prepare for battle, knowing that the fate of the forest rests on your shoulders.",
+    "_3": "The air fills with the sharp scent of pine and fear as the goblins begin to encircle you, their eyes hungry and fierce.",
+    "_4": "With a deep breath, you steady your nerves, preparing to make a stand in these hallowed woods.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Engage the goblins in combat!"
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Try to reason with the goblins."
+      }
+    }
+  },
+  "b": {
+    "_0": "With swift movements, you notch an arrow and let it fly towards the nearest goblin. The arrow whizzes through the air, striking true.",
+    "_1": "The goblins howl in anger and charge at you. You backpedal, firing arrow after arrow.",
+    "_0_dspr": "Goblin",
+    "_1_apr": "Goblin Archer",
+    "_0_npc": {
+      "name": "Goblin Warrior",
+      "txt": "For the Goblin King!"
+    },
+    "_1_npc": {
+      "name": "Goblin Archer",
+      "txt": "You'll pay for this, human!"
+    },
+    "_1_player": "This is your end, foul creatures!",
+    "_2": "As the battle rages, you manage to thin their ranks, but their numbers are overwhelming.",
+    "_2_dspr": "Goblin Warrior",
+    "_3_dspr": "Goblin Archer",
+    "_3": "Realizing you might be outnumbered, you consider your next move carefully.",
+    "_jmp": {
+      "chc_0": {
+        "br": "d",
+        "txt": "Continue fighting."
+      },
+      "chc_1": {
+        "br": "e",
+        "txt": "Retreat and find another way to deal with the goblin threat."
+      }
+    }
+  },
+  "c": {
+    "_0": "Lowering your weapon, you step forward with open palms, showing you mean no harm.",
+    "_1": "The goblins hesitantly lower their weapons, curious but cautious.",
+    "_0_apr": "Goblin Diplomat",
+    "_0_npc": {
+      "name": "Goblin Diplomat",
+      "txt": "Why should we trust you, human?"
+    },
+    "_1_player": "I seek peace between our kinds. Let us stop this needless violence.",
+    "_2": "A murmur ripples through the goblin ranks, some nodding in agreement, while others seem suspicious.",
+    "_3": "The Goblin Chief steps forward, eyeing you thoughtfully.",
+    "_1_apr": "Goblin Chief",
+    "_1_npc": {
+      "name": "Goblin Chief",
+      "txt": "You speak of peace in times of war. What can you offer?"
+    },
+    "_2_player": "Let us create a pact. I can ensure the forest provides for us all without conflict.",
+    "_4": "The chief ponders your proposal, the crowd of goblins waiting for his decision.",
+    "_jmp": {
+      "chc_0": {
+        "br": "f",
+        "txt": "Wait for the Goblin Chief's decision."
+      },
+      "chc_1": {
+        "br": "g",
+        "txt": "Offer more terms to sweeten the deal."
+      }
+    }
+  },
+  "d": {
+    "_0": "You continue to fight bravely, but the goblins are relentless.",
+    "_1": "Despite your best efforts, a sneaky goblin manages to slip through your defenses and delivers a painful blow.",
+    "_0_apr": "Goblin Rogue",
+    "_0_npc": {
+      "name": "Goblin Rogue",
+      "txt": "Gotcha, human!"
+    },
+    "_1_player": "Argh! This isn't over yet!",
+    "_2": "Wounded but not defeated, you realize it might be time to rethink your strategy as more goblins join the fray.",
+    "_3": "Pain throbbing through your arm, you glance around for an escape route.",
+    "_1_dspr": "Goblin Rogue",
+    "_jmp": {
+      "chc_0": {
+        "br": "h",
+        "txt": "Make a tactical retreat to regain your strength."
+      },
+      "chc_1": {
+        "br": "i",
+        "txt": "Use the environment to your advantage and turn the tide."
+      }
+    }
+  },
+  "e": {
+    "_0": "Realizing the futility of direct confrontation, you decide to retreat and find another path.",
+    "_1": "As you back away, the goblins jeer but do not pursue, allowing you to escape into the thicker parts of the forest.",
+    "_0_dspr": "Goblin Warrior",
+    "_1_dspr": "Goblin Archer",
+    "_0_npc": {
+      "name": "Goblin Chief",
+      "txt": "Run, human! The forest will be ours soon enough!"
+    },
+    "_1_player": "I'll return, better prepared to protect the forest.",
+    "_2": "Navigating through the dense undergrowth, you plan your next move, determined to save Eldoria from the goblin menace.",
+    "_jmp": {
+      "chc_0": {
+        "br": "j",
+        "txt": "Gather allies from nearby villages."
+      },
+      "chc_1": {
+        "br": "k",
+        "txt": "Seek out the ancient artifacts known to protect the forest."
+      }
+    }
+  },
+  "f": {
+    "_0": "You wait anxiously as the Goblin Chief deliberates with his advisors.",
+    "_1": "After what seems like an eternity, he turns back to you with a decision.",
+    "_0_npc": {
+      "name": "Goblin Chief",
+      "txt": "We accept your offer, human. Let this be a new dawn for goblins and men."
+    },
+    "_1_player": "Thank you. Together, we can ensure peace and prosperity for our lands.",
+    "_2": "With a newfound alliance, you work together with the goblins to implement your plans for coexistence.",
+    "_1_apr": "Goblin Elder",
+    "_2_apr": "Human Envoy",
+    "_2_npc": {
+      "name": "Human Envoy",
+      "txt": "This pact will surely bring great benefits to both our peoples."
+    },
+    "_3_dspr": "Goblin Chief",
+    "_4_dspr": "Goblin Elder",
+    "_5_dspr": "Human Envoy",
+    "_end": "You've successfully negotiated peace with the goblins, securing a bright future for the forest."
+  },
+  "g": {
+    "_0": "You offer additional terms to sweeten the deal, including sharing human farming techniques and offering medical aid.",
+    "_1": "The Goblin Chief listens intently, clearly interested in the benefits you describe.",
+    "_0_apr": "Goblin Healer",
+    "_0_npc": {
+      "name": "Goblin Healer",
+      "txt": "Human medicine could save many lives here."
+    },
+    "_1_player": "Let's work together for the health and well-being of our communities.",
+    "_2": "Impressed by your offerings, the Goblin Chief agrees to the terms.",
+    "_3": "A celebration is held in the forest, marking the beginning of a new era of cooperation.",
+    "_1_dspr": "Goblin Healer",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Help integrate human technology with goblin society."
+      },
+      "chc_1": {
+        "br": "m",
+        "txt": "Focus on strengthening the defenses of both communities."
+      }
+    }
+  },
+  "h": {
+    "_0": "You use your knowledge of the forest to elude the pursuing goblins, finding a hidden grove to catch your breath.",
+    "_1": "As you tend to your wounds, you hear the distant sounds of the goblins searching for you.",
+    "_0_npc": {
+      "name": "Goblin Scout",
+      "txt": "Where did that human go?"
+    },
+    "_1_player": "They won't find me here. Time to plan my next move.",
+    "_2": "Using the grove as a temporary base, you prepare traps and gather resources for the coming battles.",
+    "_0_dspr": "Goblin Scout",
+    "_jmp": {
+      "chc_0": {
+        "br": "n",
+        "txt": "Set traps for the returning goblins."
+      },
+      "chc_1": {
+        "br": "o",
+        "txt": "Scout the goblin encampments for their weaknesses."
+      }
+    }
+  },
+  "i": {
+    "_0": "You climb a large tree, using the high vantage point to launch arrows at the unsuspecting goblins below.",
+    "_1": "Caught off guard, the goblins scatter, unable to pinpoint your location.",
+    "_0_npc": {
+      "name": "Goblin Fighter",
+      "txt": "Retreat! Retreat!"
+    },
+    "_1_player": "Now's my chance to take them down one by one.",
+    "_2": "From your perch, you methodically take out the goblin forces, reclaiming control of the area.",
+    "_1_apr": "Goblin Fighter",
+    "_2_dspr": "Goblin Fighter",
+    "_jmp": {
+      "chc_0": {
+        "br": "p",
+        "txt": "Secure the area and set up defenses."
+      },
+      "chc_1": {
+        "br": "q",
+        "txt": "Track down the fleeing goblins to ensure they don't return."
+      }
+    }
+  },
+  "j": {
+    "_0": "You travel to nearby villages, rallying the locals to your cause.",
+    "_1": "With a group of brave volunteers, you prepare to take back the forest from the goblins.",
+    "_0_npc": {
+      "name": "Village Leader",
+      "txt": "We stand with you, Thomas. Let's reclaim our forest!"
+    },
+    "_1_player": "Together, we are stronger. Thank you for your courage.",
+    "_2": "Armed with local knowledge and reinforced by the villagers, you plan a large-scale assault on the goblin strongholds.",
+    "_0_apr": "Village Leader",
+    "_1_apr": "Human Warrior",
+    "_jmp": {
+      "chc_0": {
+        "br": "r",
+        "txt": "Launch the assault on the goblin strongholds."
+      },
+      "chc_1": {
+        "br": "s",
+        "txt": "Use the cover of night to launch a surprise attack."
+      }
+    }
+  },
+  "k": {
+    "_0": "You delve into ancient lore, seeking artifacts known to protect and heal the forest.",
+    "_1": "After days of searching, you discover the Heart of Eldoria, a powerful gem that radiates magical energy.",
+    "_0_npc": {
+      "name": "Old Hermit",
+      "txt": "With the Heart, you can heal the forest and drive the goblins away."
+    },
+    "_1_player": "This is exactly what we need. Let's bring the forest back to life.",
+    "_2": "With the Heart in hand, you begin to restore the damaged areas of Eldoria, weakening the goblin's influence.",
+    "_0_apr": "Old Hermit",
+    "_1_apr": "Healed Forest Spirit",
+    "_jmp": {
+      "chc_0": {
+        "br": "t",
+        "txt": "Focus on healing more areas of the forest."
+      },
+      "chc_1": {
+        "br": "u",
+        "txt": "Confront the Goblin King with the power of the Heart."
+      }
+    }
+  },
+  "l": {
+    "_0": "You assist the goblins in integrating human technology, improving their agriculture and construction.",
+    "_1": "As the goblins learn and grow, their society begins to flourish, fostering a strong bond between the two races.",
+    "_0_npc": {
+      "name": "Goblin Engineer",
+      "txt": "This technology is incredible! Thank you, human friend!"
+    },
+    "_1_player": "It's my pleasure. Seeing our communities thrive together is a great reward.",
+    "_2": "With continued cooperation, the goblins and humans build a joint settlement as a symbol of their unity.",
+    "_0_apr": "Goblin Engineer",
+    "_1_apr": "Human Builder",
+    "_jmp": {
+      "chc_0": {
+        "br": "v",
+        "txt": "Celebrate the opening of the new settlement."
+      },
+      "chc_1": {
+        "br": "w",
+        "txt": "Plan further expansions and improvements."
+      }
+    }
+  },
+  "m": {
+    "_0": "You focus on strengthening the defenses of both the human and goblin communities, fortifying their positions against future threats.",
+    "_1": "Together, you develop training programs and defensive strategies, ensuring both sides are well-prepared.",
+    "_0_npc": {
+      "name": "Goblin Strategist",
+      "txt": "With these defenses, no one will dare threaten our peace!"
+    },
+    "_1_player": "Exactly. Our strength lies in our unity and preparedness.",
+    "_2": "As the new defensive measures prove effective, other nearby communities seek to join your alliance, impressed by its success.",
+    "_0_apr": "Goblin Strategist",
+    "_1_apr": "Human Commander",
+    "_jmp": {
+      "chc_0": {
+        "br": "x",
+        "txt": "Welcome new allies and expand the alliance."
+      },
+      "chc_1": {
+        "br": "y",
+        "txt": "Focus on deepening the cooperation between existing members."
+      }
+    }
+  },
+  "n": {
+    "_0": "Using your survival skills, you set up a series of clever traps around the grove, using natural elements to your advantage.",
+    "_1": "As the goblins return, they fall prey to the traps, significantly reducing their numbers.",
+    "_0_npc": {
+      "name": "Goblin Hunter",
+      "txt": "What's happening? Watch out for traps!"
+    },
+    "_1_player": "That should thin them out. Time to take the offensive.",
+    "_2": "With the goblins weakened, you launch a counterattack, pushing them back further into the forest.",
+    "_0_apr": "Goblin Hunter",
+    "_1_dspr": "Goblin Hunter",
+    "_jmp": {
+      "chc_0": {
+        "br": "p",
+        "txt": "Secure the area and set up defenses."
+      },
+      "chc_1": {
+        "br": "q",
+        "txt": "Track down the fleeing goblins to ensure they don't return."
+      }
+    }
+  },
+  "o": {
+    "_0": "Disguised in foliage, you stealthily approach the goblin encampments, gathering crucial intelligence on their numbers and defenses.",
+    "_1": "Armed with this knowledge, you devise a plan to dismantle their operations from within.",
+    "_0_npc": {
+      "name": "Goblin Lookout",
+      "txt": "I thought I saw something... Must've been the wind."
+    },
+    "_1_player": "Now that I know their weaknesses, I can strike effectively.",
+    "_2": "Using the cover of darkness, you launch a series of precise strikes, sowing confusion and disarray among the goblins.",
+    "_0_apr": "Goblin Lookout",
+    "_1_dspr": "Goblin Lookout",
+    "_jmp": {
+      "chc_0": {
+        "br": "p",
+        "txt": "Secure the area and set up defenses."
+      },
+      "chc_1": {
+        "br": "q",
+        "txt": "Track down the fleeing goblins to ensure they don't return."
+      }
+    }
+  },
+  "p": {
+    "_0": "Securing the area, you set up defensive perimeters and begin patrols to keep the goblins at bay.",
+    "_1": "With the area under control, you start to train local volunteers in combat and survival tactics.",
+    "_0_npc": {
+      "name": "Human Trainee",
+      "txt": "We're ready to defend our homes, thanks to you."
+    },
+    "_1_player": "Keep up the good work. Together, we'll keep the forest safe.",
+    "_2": "As your efforts bear fruit, the forest becomes a safer place for its inhabitants, inspiring more people to join your cause.",
+    "_0_apr": "Human Trainee",
+    "_1_apr": "Forest Guardian",
+    "_jmp": {
+      "chc_0": {
+        "br": "r",
+        "txt": "Expand your training program to include more volunteers."
+      },
+      "chc_1": {
+        "br": "s",
+        "txt": "Organize a celebration to boost morale and unity."
+      }
+    }
+  },
+  "q": {
+    "_0": "Following the fleeing goblins, you track them down to their hidden enclave deep in the forest.",
+    "_1": "Using the element of surprise, you launch an attack, catching them off guard and significantly weakening their forces.",
+    "_0_npc": {
+      "name": "Goblin Defender",
+      "txt": "We're under attack! Defend the enclave!"
+    },
+    "_1_player": "This ends now. No more threats to the forest.",
+    "_2": "With the goblin enclave dismantled, the remaining goblins flee or surrender, marking a significant victory for the forest's safety.",
+    "_0_apr": "Goblin Defender",
+    "_1_dspr": "Goblin Defender",
+    "_jmp": {
+      "chc_0": {
+        "br": "t",
+        "txt": "Secure the enclave and use it as a base of operations."
+      },
+      "chc_1": {
+        "br": "u",
+        "txt": "Pursue the fleeing goblins to ensure they pose no further threat."
+      }
+    }
+  },
+  "r": {
+    "_0": "With the villagers by your side, you launch a coordinated assault on the goblin strongholds, overwhelming them with sheer numbers and determination.",
+    "_1": "The goblins, caught unprepared, scatter and flee, unable to withstand your united front.",
+    "_0_npc": {
+      "name": "Goblin Warlord",
+      "txt": "Retreat! Save yourselves!"
+    },
+    "_1_player": "We've broken their lines. Let's secure the forest and ensure it remains safe.",
+    "_2": "Following the successful assault, you help to establish regular patrols and secure the forest, earning the gratitude of all who call it home.",
+    "_0_apr": "Goblin Warlord",
+    "_1_dspr": "Goblin Warlord",
+    "_jmp": {
+      "chc_0": {
+        "br": "v",
+        "txt": "Assist in rebuilding the areas damaged by the goblins."
+      },
+      "chc_1": {
+        "br": "w",
+        "txt": "Train the villagers in forest stewardship and defense."
+      }
+    }
+  },
+  "s": {
+    "_0": "Taking advantage of the night, you and your volunteers launch a surprise attack on the goblin encampments.",
+    "_1": "The goblins, asleep and unguarded, are swiftly overwhelmed, and your forces quickly take control.",
+    "_0_npc": {
+      "name": "Sleeping Goblin",
+      "txt": "What's happening? An attack!"
+    },
+    "_1_player": "Silence them quickly. We can't let them regroup.",
+    "_2": "With the encampments under your control, you begin to dismantle the goblin's infrastructure, effectively neutralizing their threat.",
+    "_0_apr": "Sleeping Goblin",
+    "_1_dspr": "Sleeping Goblin",
+    "_jmp": {
+      "chc_0": {
+        "br": "x",
+        "txt": "Consolidate your hold on the encampments and fortify them."
+      },
+      "chc_1": {
+        "br": "y",
+        "txt": "Return to the villages with your victory and plan the next steps."
+      }
+    }
+  },
+  "t": {
+    "_0": "With the Heart of Eldoria in hand, you travel through the forest, restoring the areas most affected by the goblin's presence.",
+    "_1": "As the forest heals, its magical essence begins to repel the goblins, strengthening its natural defenses.",
+    "_0_npc": {
+      "name": "Grateful Forest Spirit",
+      "txt": "Thank you, ranger. The forest feels alive again."
+    },
+    "_1_player": "It's my duty to protect this place. The forest's recovery is my reward.",
+    "_2": "Continuing your journey, you bring life back to Eldoria, ensuring it remains a haven for all its creatures.",
+    "_0_apr": "Grateful Forest Spirit",
+    "_1_apr": "Rejuvenated Animal",
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Confront the Goblin King with the power of the Heart."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Use the Heart to heal the King's lair and transform it into a sanctuary."
+      }
+    }
+  },
+  "u": {
+    "_0": "Armed with the magical power of the Heart, you confront the Goblin King in his lair.",
+    "_1": "The Goblin King, realizing the power you wield, hesitates, giving you the upper hand.",
+    "_0_npc": {
+      "name": "Goblin King",
+      "txt": "You may have the Heart, but you'll never defeat me!"
+    },
+    "_1_player": "It's not about defeat. It's about restoring balance.",
+    "_2": "With a display of magical force, you persuade the Goblin King to retreat, securing a lasting peace for the forest.",
+    "_0_apr": "Goblin King",
+    "_1_dspr": "Goblin King",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Hold a council with the forest creatures to ensure such conflicts do not arise again."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Propose a joint council to oversee the future development of the settlement."
+      }
+    }
+  },
+  "v": {
+    "_0": "You join the celebrations at the new settlement, where goblins and humans together mark a new beginning.",
+    "_1": "With music, dance, and shared stories, the bonds between the two communities strengthen.",
+    "_0_npc": {
+      "name": "Celebrating Human",
+      "txt": "To new beginnings and lasting peace!"
+    },
+    "_1_player": "Let's cherish this moment and work towards a prosperous future together.",
+    "_2": "As the night progresses, plans are made for future collaborations and mutual growth.",
+    "_0_apr": "Celebrating Human",
+    "_1_apr": "Celebrating Goblin",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Take a moment to enjoy the festivities and reflect on the journey."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Propose a joint council to oversee the future development of the settlement."
+      }
+    }
+  },
+  "w": {
+    "_0": "With the goblin threat neutralized and the forest safe, you focus on expanding the newly formed alliances, bringing more villages into the fold.",
+    "_1": "Each new community brings unique skills and resources, enhancing the collective strength and diversity.",
+    "_0_npc": {
+      "name": "New Ally",
+      "txt": "We're honored to join this alliance. Together, we're stronger."
+    },
+    "_1_player": "Welcome! Your contributions are valued here.",
+    "_2": "As the alliance grows, so does its ability to respond to any threat, ensuring the safety and prosperity of the forest.",
+    "_0_apr": "New Ally",
+    "_1_apr": "Forest Council Member",
+    "_jmp": {
+      "chc_0": {
+        "br": "x",
+        "txt": "Propose a joint council to oversee the future development of the settlement."
+      },
+      "chc_1": {
+        "br": "y",
+        "txt": "Take a moment to enjoy the festivities and reflect on the journey."
+      }
+    }
+  },
+  "x": {
+    "_0": "Embracing the spirit of cooperation, you help to form a joint council made up of leaders from both human and goblin communities.",
+    "_1": "The council works together to address issues, resolve disputes, and plan for the future, ensuring a balanced and fair approach for all.",
+    "_0_npc": {
+      "name": "Council Leader",
+      "txt": "Together, we can overcome any challenge that comes our way."
+    },
+    "_1_player": "It's a new era for us all. Let's make it count.",
+    "_2": "With a structured approach to governance, the communities thrive, setting a precedent for others to follow.",
+    "_0_apr": "Council Leader",
+    "_1_apr": "Community Representative",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Host a festival to celebrate the unity and success of the council."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Begin planning for a permanent settlement that represents the unity of the alliance."
+      }
+    }
+  },
+  "y": {
+    "_0": "You spend a quiet moment during the festivities, reflecting on the long journey and the many battles that have led to this point of peace and cooperation.",
+    "_1": "Surrounded by happy faces, you feel a deep sense of accomplishment and hope for the future.",
+    "_0_npc": {
+      "name": "Nuada",
+      "txt": "We've come a long way, Thomas. It's hard to believe."
+    },
+    "_1_player": "Indeed, it's been quite the journey. Here's to many more years of peace.",
+    "_2": "As the night wears on, you make new friends and renew old acquaintances, strengthening the community bonds that will support this peace.",
+    "_0_apr": "Nuada",
+    "_1_apr": "New Friend",
+    "_jmp": {
+      "chc_0": {
+        "br": "z",
+        "txt": "Plan for a future where peace is the norm, not the exception."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Propose a joint council to oversee the future development of the settlement."
+      }
+    }
+  },
+  "z": {
+    "_0": "With your efforts, the forest is fully secured, and the goblin threat is a thing of the past. Eldoria is now a beacon of peace and cooperation.",
+    "_1": "As you walk through the rejuvenated forest, you take pride in knowing your actions have helped create a sanctuary for all its inhabitants.",
+    "_0_npc": {
+      "name": "Forest Guardian",
+      "txt": "Thank you, Thomas. Your courage and wisdom have saved us all."
+    },
+    "_1_player": "It was my duty. Seeing the forest thrive is my greatest reward.",
+    "_2": "With peace established, you decide to explore new lands, seeking new adventures and ways to spread the peace you've fostered in Eldoria.",
+    "_0_apr": "Forest Guardian",
+    "_1_apr": "Adventurous Spirit",
+    "_end": "As you set off on new adventures, Eldoria remains a testament to your legacy, a land of peace and natural beauty."
+  }
+}

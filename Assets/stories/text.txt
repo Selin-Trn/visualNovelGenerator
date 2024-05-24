@@ -1,0 +1,96 @@
+{
+    "a": {
+      "a0": "You are a princess of an old kingdom, looking for adventure. Your name is Aria. One day, you decided to explore the ancient ruins of an abandoned castle. As you entered the crumbling stone walls, you were greeted by a musty scent of decay and the sound of your footsteps echoing through the empty corridors...",
+      "!Aria": "This place gives me the chills. It's like time stood still here.",
+      "a1": "Suddenly, you heard a faint whisper coming from the shadows.",
+      "!Whisper": "Who dares to enter this forbidden",
+      "jmp": {
+        "b": "You turn around and run!",
+        "c": "You decide to approach the sound."
+      }
+    },
+    "b": {
+      "b0": "You start running but hear a chuckle behind you.",
+      "!Whisper": "You shouldn’t have come here...",
+      "b1": "You feel a sudden pain at the back of your head and the world goes dark.",
+      "_died": true
+    },
+    "c": {
+      "c0": "You, with courage, delve deeper into the corridor.",
+      "!Whisper": "Aren’t you brave. Here’s a reward for you.",
+      "c1": "You come face to face with a chest full of gold. With a gasp, you think of what to do.",
+      "_jmp": {
+        "d": "Fill your pockets!",
+        "e": "Leave it alone, it’s a trick."
+      }
+    }
+  }
+
+  this is a text for visual novel. This will be parsed for integration into Unity. 
+  tags: _jmp, _apr, _dspr, _died, _end
+  functions have a _ at the start of their json keys like above.
+  character names have a ! at the start of their names in json keys. Before !, the number of their speech in the branch is written.
+Branches are separated as letters.
+Narrative texts are numbered.
+Every Npc that talk, should appear on the screen (example: "_apr":"Goblin") and should also leave the screen (example: "_dspr":"Goblin") at the approppriate times.
+
+Finish the story below and also make the branch contents longer. (for example, a branch should have at least 8 narrative texts.
+
+  tags: _jmp, _apr, _dspr, _died, _end.
+  functions have a _at the start of their json keys like above.
+  character names have a ! at the start of their names in json keys.
+  
+  {
+    "a": {
+      "0": "You are Thomas Woody, a skilled ranger who roams the dark and mysterious Forest of Eldoria. As you walk through the dense undergrowth, you hear the rustling of leaves and the distant howls of creatures.",
+      "!Thomas": "What is that sound?",
+      "1": "Suddenly, the ground shakes beneath your feet, and a horde of goblins emerges from the shadows, their sharp teeth glinting in the dim light.",
+      "_apr": "Goblin",
+      "!Goblin":"The road must continue from here... Follow me!",
+      "_apr": "Goblin",
+      "_apr": "Goblin", // more goblin appear, so the apr is called two times to populate the screen.
+      "!Thomas": "By the stars, goblins! I must stop them before they cause chaos in this forest.",
+      "2": "You draw your bow and prepare for battle, knowing that the fate of the forest rests on your shoulders.",
+      "_jmp": {
+        "b": "Engage the goblins in combat!",
+        "c": "Try to reason with the goblins."
+      }
+    },
+    "b": {
+      "0": "You raise your bow and unleash a volley of arrows at the approaching goblins. The arrows find their mark, taking down several of the vile creatures.",
+      "_dspr": "Goblin", // one goblin leaves the screen, becaıse it's dead
+      "!Goblin": "Intruder! Kill him!",
+      "1": "The goblins charge at you with their crude weapons, their bloodthirsty eyes locked on you. It's a fight for survival.",
+      "_jmp": {
+        "d": "Continue fighting bravely!",
+        "e": "Consider a strategic retreat."
+      }
+    },
+    "c": {
+      "0": "You step forward, trying to reason with the goblins in hopes of avoiding a bloody conflict.",
+      "!Thomas": "Hey there!",
+      "!Goblin": "Ranger! What brings you to our forest?",
+      "1": "The goblin leader seems intrigued by your peaceful approach, but the other goblins are still wary.",
+      "_jmp": {
+        "f": "Offer to help the goblins with a common enemy.",
+        "g": "Prepare for a potential betrayal."
+      }
+    },
+    "d": {
+      "0": "You fight valiantly, your arrows finding their mark and your sword striking true. The goblins may be many, but you are determined to make a stand.",
+      "!Goblin": "Impudent ranger! You will pay for your interference!",
+      "1": "The battle rages on, the forest echoing with the clash of weapons and the screams of the wounded.",
+      "_jmp": {
+        "h": "Keep fighting till the last goblin falls.",
+        "i": "Look for a way to turn the tide in your favor."
+      }
+    },
+    // other letters until h...
+    "h": {
+      "0": "You try to fend off the goblins, but soon you are overcome by their sheer number.",
+      "_died": "As a crude pike stabs you in the chest, you feel the cold embrace of death. Soon darkness takes you."
+      
+    }
+  }
+  
+  

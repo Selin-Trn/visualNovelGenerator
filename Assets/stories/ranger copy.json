@@ -1,0 +1,228 @@
+{
+  "a": {
+    "_0": "You are Thomas Woody, a skilled ranger who roams the dark and mysterious Forest of Eldoria. As you walk through the dense undergrowth, you hear the rustling of leaves and the distant howls of creatures.",
+    "_0_player": "What is that sound?",
+    "_1": "Suddenly, the ground shakes beneath your feet, and a horde of goblins emerges from the shadows, their sharp teeth glinting in the dim light.",
+    "__0_apr": "Goblin Scout",
+    "__1_apr": "Goblin Chief",
+    "_0_npc": {
+      "name": "Goblin Chief",
+      "text": "The road must continue from here... Follow me!"
+    },
+    "_1_player": "By the stars, goblins! I must stop them before they cause chaos in this forest.",
+    "_2": "You draw your bow and prepare for battle, knowing that the fate of the forest rests on your shoulders.",
+    "_3": "The air fills with the sharp scent of pine and fear as the goblins begin to encircle you, their eyes hungry and fierce.",
+    "_4": "With a deep breath, you steady your nerves, preparing to make a stand in these hallowed woods.",
+    "__jmp": {
+      "b": "Engage the goblins in combat!",
+      "c": "Try to reason with the goblins."
+    }
+  },
+  "b": {
+    "_0": "You raise your bow and unleash a volley of arrows at the approaching goblins. The arrows find their mark, taking down several of the vile creatures.",
+    "__0_dspr": "Goblin",
+    "_1_npc": { "name": "Goblin Chief", "text": "Intruder! Kill him!" },
+    "__1_apr": "Goblin",
+    "_1": "The goblins charge at you with their crude weapons, their bloodthirsty eyes locked on you. It's a fight for survival.",
+    "_2": "Adrenaline surges through your veins as you dodge an oncoming axe, slicing through the air inches from your face.",
+    "_3": "You kick a goblin back, watching as it stumbles into its companion, causing a momentary lapse in their assault.",
+    "_4": "Seizing the opportunity, you sprint to a more strategic position, near an old oak, arrows ready.",
+    "_5": "As you notch another arrow, you can't help but wonder if there might have been another way to handle this encounter.",
+    "_6": "But now, surrounded by fallen goblin bodies and the groans of the injured, you push those thoughts away.",
+    "_7": "Focus. Survive. This is your forest, your home. Protect it.",
+    "__jmp": {
+      "d": "Continue fighting bravely!",
+      "e": "Consider a strategic retreat."
+    }
+  },
+  "c": {
+    "0": "You step forward, trying to reason with the goblins in hopes of avoiding a bloody conflict.",
+    "0_dspr": "Goblin Scout",
+    "0!Thomas": "Hey there!",
+    "0!Goblin Chief": "Ranger! What brings you to our forest?",
+    "1": "The goblin leader seems intrigued by your peaceful approach, but the other goblins are still wary.",
+    "2": "You explain your mission to protect these woods, not to wage war upon its inhabitants.",
+    "3": "The leader's eyes narrow, considering your words with a surprising depth of intelligence.",
+    "4": "Behind him, the restless murmurs of his tribe grow louder, their distrust clear.",
+    "5": "You offer your hand, a gesture of peace, wondering if they will understand the meaning.",
+    "6": "The leader hesitates, then steps forward, his hand extending toward yours.",
+    "7": "A moment of silence passes, heavy with the weight of decision.",
+    "_jmp": {
+      "f": "Offer to help the goblins with a common enemy.",
+      "g": "Prepare for a potential betrayal."
+    }
+  },
+  "d": {
+    "0": "You fight valiantly, your arrows finding their mark and your sword striking true. The goblins may be many, but you are determined to make a stand.",
+    "0_dspr": "Goblin",
+    "0!Goblin Chief": "Impudent ranger! You will pay for your interference!",
+    "1": "The battle rages on, the forest echoing with the clash of weapons and the screams of the wounded.",
+    "2": "You move like a shadow among trees, your every strike precise and deadly.",
+    "3": "The Goblin Chief clashes directly with you, his crude sword raised high.",
+    "4": "The duel is fierce, testing every ounce of your skill and resolve.",
+    "5": "With a deft parry, you disarm the chief, sending his weapon flying into the underbrush.",
+    "6": "The chief kneels, defeated, his eyes filled with a grudging respect.",
+    "7": "You offer him mercy, a chance to retreat, hoping this will end the conflict.",
+    "_jmp": {
+      "h": "Keep fighting till the last goblin falls.",
+      "i": "Look for a way to turn the tide in your favor."
+    }
+  },
+  "e": {
+    "0": "Realizing the futility of continued combat, you decide a strategic retreat might be the best option.",
+    "0!Thomas": "This isn't worth the bloodshed. I need to pull back and think this through.",
+    "1": "You begin to slowly back away, keeping your eyes on the goblins, who seem puzzled but ready to chase.",
+    "2": "As you retreat, you notice a narrow path that could serve as a quick escape route.",
+    "3": "Without a second thought, you turn and sprint down the path, the sound of goblin shouts fading behind you.",
+    "4": "After several minutes of running, you find yourself deep in an unexplored part of the forest, safe for the moment.",
+    "5": "You catch your breath and assess your situation, realizing you may have stumbled upon something significant.",
+    "6": "In front of you lies an ancient ruin, its stones covered in moss and ivy, a forgotten part of Eldoria.",
+    "7": "Curiosity piqued, you decide to explore the ruins, hoping to uncover secrets that may help against the goblins.",
+    "_jmp": {
+      "j": "Explore the ruins thoroughly.",
+      "k": "Return to the village for reinforcements."
+    }
+  },
+  "f": {
+    "0": "You offer to help the goblins find a common enemy, suggesting that working together could benefit both parties.",
+    "0!Thomas": "We both face threats from the darker forces within these woods. Perhaps an alliance could be beneficial?",
+    "1!Goblin Chief": "Alliance? With a human? Unheard of, but... perhaps necessary.",
+    "1_apr": "Goblin Shaman",
+    "1": "A Goblin Shaman steps forward, nodding in agreement, offering a potion as a token of trust.",
+    "2": "You hesitantly accept the potion, aware of the risks but also the potential for a powerful alliance.",
+    "3": "The Shaman explains its effects, capable of healing wounds instantly, a valuable asset in the forest.",
+    "4": "With the new alliance formed, you begin planning a strategy to confront the mutual threats.",
+    "5": "The goblins share their knowledge of the forest, revealing hidden paths and dangerous areas.",
+    "6": "Together, you map out potential hotspots for ambushes and plan coordinated attacks.",
+    "7": "The feeling of unity grows, but you remain cautious, aware of the delicate balance of this new relationship.",
+    "_jmp": {
+      "l": "Launch an attack on a common foe.",
+      "m": "Continue to strengthen bonds and gather more allies."
+    }
+  },
+  "g": {
+    "0": "Despite the leader's interest, you prepare for the possibility of betrayal, knowing the treacherous nature of goblins.",
+    "0!Thomas": "I must stay vigilant. Trust is earned, not given freely, especially here.",
+    "1": "Your hand rests on your weapon, ready to draw at the first sign of treachery.",
+    "2": "The goblin's eyes flicker with a hint of deceit, confirming your suspicions.",
+    "3": "Suddenly, a group of goblins leaps from the shadows, their weapons drawn.",
+    "4": "You react swiftly, parrying a blow and counterattacking, your readiness saving your life.",
+    "5": "The skirmish is brief but intense, with you managing to subdue the assailants without lethal force.",
+    "6": "The leader, seeing your skill and preparedness, calls off the rest of the attack, a new respect formed.",
+    "7": "You discuss terms again, this time with clear boundaries and mutual respect established.",
+    "_jmp": {
+      "n": "Negotiate a tentative truce.",
+      "o": "Leave the area to avoid further conflict."
+    }
+  },
+  "h": {
+    "0": "Determined to end the threat, you engage each goblin with precision, refusing to back down.",
+    "0!Thomas": "This ends now! For Eldoria!",
+    "1": "Your strikes are relentless, driving the goblins back step by step.",
+    "2": "The forest itself seems to rally behind you, the winds and sounds intimidating the goblins.",
+    "3": "One by one, the goblins fall, until only the Goblin Chief remains.",
+    "4": "He stands defiant, but the weariness in his eyes tells of the inevitable.",
+    "5": "With a final, decisive blow, you disarm the chief, the battle drawing to a close.",
+    "6": "Surveying the aftermath, you realize the cost of this victory, both to you and the forest.",
+    "7": "With the goblin threat diminished, you vow to heal the forest and prevent such conflicts in the future.",
+    "_end": true
+  },
+  "i": {
+    "0": "As the battle wears on, you look for an advantage, noticing a high ridge nearby.",
+    "0!Thomas": "If I can reach that ridge, I can turn this fight around.",
+    "1": "You cover your retreat with smoke bombs, obscuring the goblin's vision and allowing you to move.",
+    "2": "Reaching the ridge, you set up a makeshift defense, preparing for the goblin's next move.",
+    "3": "The high ground gives you a clear view, and your arrows strike with deadly efficiency.",
+    "4": "The goblins, confused and demoralized by the smoke and your elevated position, begin to falter.",
+    "5": "Taking advantage of their disarray, you launch a series of precise shots, thinning their ranks.",
+    "6": "The goblin chief, seeing the tide turn, signals a retreat, unwilling to sacrifice more of his troops.",
+    "7": "As the goblins retreat, you stay your hand, choosing to watch them leave rather than pursue.",
+    "_end": true
+  },
+  "j": {
+    "0": "You cautiously enter the ruins, the air thick with the scent of ancient secrets and forgotten magic.",
+    "0!Thomas": "There's something powerful here, I can feel it in my bones.",
+    "1": "As you delve deeper, you discover murals depicting an ancient battle between elves and goblins.",
+    "2": "You realize that these ruins might be the key to understanding the current conflict in the forest.",
+    "3": "Further exploration reveals a hidden chamber, sealed for centuries, now accessible to you.",
+    "4": "Inside, you find artifacts and old tomes, their knowledge potentially beneficial to your quest.",
+    "5": "You take careful notes, planning to share this newfound knowledge with your allies back home.",
+    "6": "The day grows late, and you decide to camp in the safety of the ruins, the secrets of the past watching over you.",
+    "7": "During the night, you reflect on the history of Eldoria, realizing how little you knew before.",
+    "_end": true
+  },
+  "k": {
+    "0": "Deciding the ruins hold no immediate threat, you head back to the village to gather reinforcements.",
+    "0!Thomas": "I need more hands if we're to explore this thoroughly and safely.",
+    "1": "Your return to the village is met with relief and curiosity about your findings.",
+    "2": "You rally the villagers, sharing the importance of the ruins and the need for a united effort.",
+    "3": "Equipped with tools and supplies, you lead a larger group back to the ruins, ready to uncover its secrets.",
+    "4": "Together, you work to clear debris and catalog findings, the community's spirit bolstered by the adventure.",
+    "5": "The efforts reveal more about the forest's history and its magical properties, valuable to all.",
+    "6": "As night falls, you set up camp, the villagers sharing stories of Eldoria under the starlight.",
+    "7": "A sense of unity and purpose fills the air, strengthening the bonds between you and the villagers.",
+    "_end": true
+  },
+  "l": {
+    "0": "Armed with new allies and the trust of the Goblin Chief, you plan a raid against a notorious bandit group that has plagued both your lands.",
+    "0!Thomas": "With our combined forces, we can finally rid the forest of these pests.",
+    "1_apr": "Goblin Chief",
+    "1!Goblin Chief": "Yes, for too long they've taken from us all. No more.",
+    "2": "Under the cover of night, you and your goblin allies set out, moving silently towards the bandit camp.",
+    "3": "The element of surprise is on your side as you surround the camp, preparing to strike.",
+    "4": "A swift and coordinated attack begins, catching the bandits off guard and quickly turning the tide in your favor.",
+    "5": "The battle is fierce but brief, with the bandits overwhelmed by your unexpected alliance.",
+    "6": "After securing the camp, you find a cache of stolen goods and artifacts, rightful treasures of the forest.",
+    "7": "Victory brings a moment of celebration, and the bonds between you and the goblins strengthen.",
+    "_end": true
+  },
+  "m": {
+    "0": "Choosing to deepen ties with the goblins, you spend the next few weeks living among them, learning their ways and sharing your own.",
+    "0!Thomas": "There's much we can learn from each other. Together, we're stronger.",
+    "1_apr": "Goblin Shaman",
+    "1!Goblin Shaman": "And so you shall be part of us, ranger. Learn our magics, know our earth.",
+    "2": "You participate in their rituals, gaining insight into their deep connection with the forest.",
+    "3": "The Shaman teaches you ancient spells once known only to goblins, enhancing your abilities.",
+    "4": "In return, you teach the goblins advanced tracking and hunting techniques, honing their skills.",
+    "5": "This cultural exchange not only solidifies your alliance but fosters a mutual respect rarely seen between humans and goblins.",
+    "6": "A great feast is held in your honor, marking you as an honorary member of the tribe.",
+    "7": "As you sit by the fire, listening to the goblins' songs, you feel a profound connection to these misunderstood creatures.",
+    "_end": true
+  },
+  "n": {
+    "0": "After a tense confrontation, both sides agree to a truce, setting terms for coexistence in the forest.",
+    "0!Thomas": "Let this be a new beginning, for both our peoples.",
+    "1!Goblin Chief": "Aye, let us walk these woods in peace, at least for now.",
+    "2": "A contract is drawn up, outlining the boundaries and rules of engagement between you and the goblins.",
+    "3": "Both parties sign, marking the first formal agreement of its kind in Eldoria.",
+    "4": "Peace brings prosperity, and over time, the forest thrives as a shared territory.",
+    "5": "Trade routes open, cultural exchanges occur, and slowly, old prejudices begin to fade.",
+    "6": "The forest becomes a symbol of unity and cooperation, a beacon of hope for others.",
+    "7": "As years pass, you remain a key figure in maintaining the peace, respected by all.",
+    "_end": true
+  },
+  "o": {
+    "0": "Realizing that continued conflict would only lead to unnecessary losses, you decide to leave the goblin territory.",
+    "0!Thomas": "I've done what I could. It's time for me to move on.",
+    "1": "You gather your belongings and take one last look at the forest that has been your home.",
+    "2": "As you leave, the goblins watch silently, their expressions a mix of respect and sadness.",
+    "3": "You travel to new lands, seeking new adventures and challenges, but the memories of Eldoria stay with you.",
+    "4": "Years later, you hear tales of the goblins, how they have maintained the peace and prospered.",
+    "5": "Though you never return, the legacy of your efforts lives on, influencing future generations.",
+    "6": "Your story becomes a legend, told around campfires and in the halls of kings.",
+    "7": "You find new forests, new allies, and new adventures, but the Forest of Eldoria remains your greatest legacy.",
+    "_end": true
+  },
+  "p": {
+    "0": "In your exploration of the ruins, you uncover an ancient artifact, a relic of immense power and mystery.",
+    "0!Thomas": "This could change everything. I must ensure it's used wisely.",
+    "1": "You consult with historians and scholars, learning more about the artifact's potential uses and dangers.",
+    "2": "Realizing the risk of such power falling into the wrong hands, you decide to secure it.",
+    "3": "With the help of trusted allies, you create a secret order dedicated to protecting the artifact.",
+    "4": "The order grows, attracting those of noble heart and strong will, sworn to defend the forest and its secrets.",
+    "5": "Your actions spawn a new era of guardianship, where the balance of power is carefully maintained.",
+    "6": "As the order's founder, you oversee its growth from a small group to a formidable force.",
+    "7": "The forest knows peace, but beneath the surface, the responsibility of guarding such power weighs heavily on you.",
+    "_end": true
+  }
+}

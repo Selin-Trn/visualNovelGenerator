@@ -1,0 +1,24 @@
+{
+  "story": {
+    "name": "Ranger",
+    "generationPrompt": "prompt is here"
+  },
+  "player": {
+    "name": "Thomas",
+    "generationPrompt": "Ranger. Red hair. Tall. Handsome"
+  },
+  "NPCs": [
+    {
+      "name": "Goblin",
+      "generationPrompt": "Ugly green goblin with tattered clothing."
+    },
+    {
+      "name": "Nuada",
+      "generationPrompt": "Beautiful elf man with cascading locks."
+    }
+  ],
+
+  "backgrounds": {
+    "names": ["castle", "forest"]
+  }
+}
