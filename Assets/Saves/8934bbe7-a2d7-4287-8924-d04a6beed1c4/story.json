@@ -1,0 +1,312 @@
+{
+  "a": {
+    "_0_bg": "kingdom",
+    "_0": "You are a prince, a brave and determined leader in the Kingdom. As you walk through the bustling streets, you hear distant roars and see smoke rising from the horizon.",
+    "_0_player": "What is happening? Are we under attack?",
+    "_1": "Suddenly, your loyal advisor, the kind and caring sorcerer Merlin, rushes towards you with a worried expression.",
+    "_1_apr": "Merlin",
+    "_0_npc": {
+      "name": "Merlin",
+      "txt": "Your Highness, the dragon has returned! It’s wreaking havoc on the outskirts of the kingdom."
+    },
+    "_1_player": "We must stop the dragon before it destroys everything we hold dear.",
+    "_2": "You and Merlin quickly make your way to the castle, where you gather your knights and prepare for battle.",
+    "_3": "The air is filled with tension as you stand at the gates, ready to face the monstrous dragon.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Lead the charge against the dragon!"
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Seek Merlin's advice on how to defeat the dragon."
+      },
+      "chc_2": {
+        "br": "d",
+        "txt": "Try to negotiate with the dragon."
+      }
+    }
+  },
+  "b": {
+    "_0": "With a fierce determination, you lead your knights into battle. The dragon roars and breathes fire, but you and your knights hold your ground.",
+    "_1": "The fight is intense, with the dragon's flames scorching the earth and your arrows flying through the air.",
+    "_2": "As you fight, you notice Merlin casting powerful spells to protect the knights and weaken the dragon.",
+    "_jmp": {
+      "chc_0": {
+        "br": "e",
+        "txt": "Coordinate an attack with Merlin."
+      },
+      "chc_1": {
+        "br": "f",
+        "txt": "Charge at the dragon yourself."
+      }
+    }
+  },
+  "c": {
+    "_0": "You turn to Merlin, seeking his wisdom.",
+    "_1": "Merlin looks at you with concern but nods.",
+    "_0_npc": {
+      "name": "Merlin",
+      "txt": "Your Highness, the dragon is a creature of pure evil. It will not be easy to defeat, but together we can do it."
+    },
+    "_1_player": "What do you suggest we do?",
+    "_2": "Merlin's eyes light up with determination.",
+    "_1_npc": {
+      "name": "Merlin",
+      "txt": "We must use both strength and strategy. If we can distract the dragon, I can cast a powerful spell to weaken it."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Agree with Merlin's plan."
+      },
+      "chc_1": {
+        "br": "h",
+        "txt": "Suggest a different strategy."
+      }
+    }
+  },
+  "d": {
+    "_0": "You decide to try and negotiate with the dragon, hoping to find some way to stop the destruction.",
+    "_1": "As you approach, the dragon's red eyes fixate on you, and it snarls menacingly.",
+    "_0_apr": "Dragon",
+    "_0_npc": {
+      "name": "Dragon",
+      "txt": "Why do you come to me, human? Do you wish to be burned to ashes?"
+    },
+    "_1_player": "I come in peace. Can we not find a way to coexist without violence?",
+    "_2": "The dragon's laughter echoes through the air, sending chills down your spine.",
+    "_1_npc": {
+      "name": "Dragon",
+      "txt": "Foolish prince! There is no peace for those who stand in my way. Prepare to be destroyed!"
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "i",
+        "txt": "Prepare to fight the dragon."
+      },
+      "chc_1": {
+        "br": "j",
+        "txt": "Try to escape."
+      }
+    }
+  },
+  "e": {
+    "_0": "You and Merlin coordinate your attacks, combining your skills to strike at the dragon.",
+    "_1": "Merlin casts a powerful spell, and you charge forward with your sword.",
+    "_2": "The dragon roars in pain as your combined efforts begin to weaken it.",
+    "_jmp": {
+      "chc_0": {
+        "br": "k",
+        "txt": "Continue the assault."
+      },
+      "chc_1": {
+        "br": "l",
+        "txt": "Look for an opportunity to finish the dragon."
+      }
+    }
+  },
+  "f": {
+    "_0": "With a burst of courage, you charge at the dragon yourself, aiming for its vulnerable spots.",
+    "_1": "The dragon breathes fire, but you dodge and strike with precision.",
+    "_2": "Your bravery inspires the knights, and they rally behind you, fighting with renewed vigor.",
+    "_jmp": {
+      "chc_0": {
+        "br": "m",
+        "txt": "Press the attack."
+      },
+      "chc_1": {
+        "br": "n",
+        "txt": "Call for Merlin's assistance."
+      }
+    }
+  },
+  "g": {
+    "_0": "You agree with Merlin's plan and prepare to distract the dragon while he casts his spell.",
+    "_1": "As you engage the dragon, Merlin begins chanting, his hands glowing with magical energy.",
+    "_2": "The dragon roars and turns its attention to you, giving Merlin the time he needs.",
+    "_jmp": {
+      "chc_0": {
+        "br": "o",
+        "txt": "Keep the dragon distracted."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Signal Merlin to cast the spell."
+      }
+    }
+  },
+  "h": {
+    "_0": "You suggest a different strategy, hoping to outsmart the dragon.",
+    "_1": "Merlin listens carefully and nods in agreement.",
+    "_0_npc": {
+      "name": "Merlin",
+      "txt": "Very well, Your Highness. Let's put your plan into action."
+    },
+    "_1_player": "We will create a diversion and attack from multiple sides.",
+    "_2": "The knights and Merlin spread out, ready to execute the new plan.",
+    "_jmp": {
+      "chc_0": {
+        "br": "q",
+        "txt": "Lead the diversion."
+      },
+      "chc_1": {
+        "br": "r",
+        "txt": "Coordinate the attack."
+      }
+    }
+  },
+  "i": {
+    "_0": "Realizing that negotiation is futile, you prepare to fight the dragon.",
+    "_1": "The dragon lunges at you with its fiery breath, and you barely manage to dodge.",
+    "_2": "Drawing your sword, you face the dragon with determination.",
+    "_jmp": {
+      "chc_0": {
+        "br": "s",
+        "txt": "Attack the dragon head-on."
+      },
+      "chc_1": {
+        "br": "t",
+        "txt": "Look for a weak spot."
+      }
+    }
+  },
+  "j": {
+    "_0": "Deciding that escape is the only option, you turn and run.",
+    "_1": "The dragon's fiery breath scorches the ground behind you as you flee.",
+    "_2": "You manage to escape, but the dragon continues its rampage.",
+    "_died": "You escape with your life, but the kingdom suffers greatly from the dragon's wrath."
+  },
+  "k": {
+    "_0": "You and Merlin continue the assault, wearing down the dragon bit by bit.",
+    "_1": "Finally, with a powerful strike, you land a critical blow on the dragon.",
+    "_2": "The dragon roars in agony and collapses, defeated at last.",
+    "_end": "You have saved the kingdom and brought peace to the land."
+  },
+  "l": {
+    "_0": "Looking for an opportunity, you spot a weak point on the dragon's underbelly.",
+    "_1": "With a swift and precise strike, you pierce the dragon's heart.",
+    "_2": "The dragon lets out a final roar and falls to the ground, lifeless.",
+    "_end": "The kingdom is safe, and you are hailed as a hero."
+  },
+  "m": {
+    "_0": "Pressing the attack, you and your knights overwhelm the dragon.",
+    "_1": "With each strike, the dragon weakens, until it can no longer fight back.",
+    "_2": "The dragon collapses, defeated by your bravery and skill.",
+    "_end": "The kingdom is saved, and peace is restored."
+  },
+  "n": {
+    "_0": "Calling for Merlin's assistance, you fight the dragon with renewed strength.",
+    "_1": "Merlin casts a powerful spell, weakening the dragon further.",
+    "_2": "Together, you and Merlin deliver the final blow, defeating the dragon once and for all.",
+    "_end": "The kingdom is safe, and you and Merlin share a moment of triumph."
+  },
+  "o": {
+    "_0": "You keep the dragon distracted, dodging its attacks and taunting it.",
+    "_1": "Merlin's spell reaches its peak, and with a final chant, he unleashes a powerful blast of magic.",
+    "_2": "The dragon is hit by the spell and roars in pain, giving you a chance to strike.",
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Deliver the finishing blow."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Let Merlin cast another spell."
+      }
+    }
+  },
+  "p": {
+    "_0": "You signal Merlin to cast the spell, and he unleashes his magic on the dragon.",
+    "_1": "The dragon is hit by the spell and roars in pain.",
+    "_2": "With the dragon weakened, you seize the opportunity to strike.",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Attack the dragon."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Wait for another spell."
+      }
+    }
+  },
+  "q": {
+    "_0": "Leading the diversion, you draw the dragon's attention away from the main attack.",
+    "_1": "The dragon follows you, leaving itself vulnerable to the knights' and Merlin's attacks.",
+    "_2": "With the dragon distracted, the attack is a success.",
+    "_end": "The kingdom is saved, and your strategy is praised by all."
+  },
+  "r": {
+    "_0": "Coordinating the attack, you ensure that every strike is well-timed and effective.",
+    "_1": "The dragon is overwhelmed by the combined efforts of you, the knights, and Merlin.",
+    "_2": "With a final coordinated strike, the dragon is defeated.",
+    "_end": "The kingdom is safe, and you are hailed as a brilliant strategist."
+  },
+  "s": {
+    "_0": "Attacking the dragon head-on, you fight with all your might.",
+    "_1": "The dragon's fiery breath and sharp claws are fearsome, but you stand your ground.",
+    "_2": "With a powerful strike, you wound the dragon, giving you a chance to finish it off.",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Deliver the final blow."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Call for reinforcements."
+      }
+    }
+  },
+  "t": {
+    "_0": "Looking for a weak spot, you carefully observe the dragon's movements.",
+    "_1": "You notice a vulnerable area on its underbelly and prepare to strike.",
+    "_2": "With precision and skill, you land a critical blow on the dragon.",
+    "_end": "The dragon is defeated, and the kingdom is safe."
+  },
+  "u": {
+    "_0": "Seizing the opportunity, you deliver the finishing blow to the dragon.",
+    "_1": "The dragon roars in agony and collapses, defeated at last.",
+    "_2": "Merlin smiles at you, his eyes filled with pride and admiration.",
+    "_end": "The kingdom is saved, and you and Merlin share a moment of triumph."
+  },
+  "v": {
+    "_0": "You let Merlin cast another spell, further weakening the dragon.",
+    "_1": "The dragon roars in pain, giving you another chance to strike.",
+    "_2": "With a powerful blow, you defeat the dragon.",
+    "_end": "The kingdom is saved, and you and Merlin share a moment of triumph."
+  },
+  "w": {
+    "_0": "Attacking the dragon, you fight with all your might.",
+    "_1": "The dragon's fiery breath and sharp claws are fearsome, but you stand your ground.",
+    "_2": "With a powerful strike, you wound the dragon, giving you a chance to finish it off.",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Deliver the final blow."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Call for reinforcements."
+      }
+    }
+  },
+  "x": {
+    "_0": "Waiting for another spell, you keep the dragon distracted.",
+    "_1": "Merlin casts another powerful spell, further weakening the dragon.",
+    "_2": "With the dragon vulnerable, you strike with all your might.",
+    "_end": "The dragon is defeated, and the kingdom is safe."
+  },
+  "y": {
+    "_0": "Delivering the final blow, you defeat the dragon with a powerful strike.",
+    "_1": "The dragon collapses, and the kingdom is saved.",
+    "_2": "Merlin smiles at you, his eyes filled with pride and admiration.",
+    "_end": "The kingdom is safe, and you and Merlin share a moment of triumph."
+  },
+  "z": {
+    "_0": "Calling for reinforcements, you and the knights fight with renewed strength.",
+    "_1": "The dragon is overwhelmed by the combined efforts of you, the knights, and Merlin.",
+    "_2": "With a final coordinated strike, the dragon is defeated.",
+    "_end": "The kingdom is safe, and you are hailed as a brilliant strategist."
+  }
+}

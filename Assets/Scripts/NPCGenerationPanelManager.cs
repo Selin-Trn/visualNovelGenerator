@@ -5,9 +5,12 @@ using TMPro;
 
 public class NPCGenerationPanelManager : MonoBehaviour
 {
+    public GameObject imageZoomScreen;
+    public Image zoomImage;
     [SerializeField] private NPCGenerationsManager npcGenerationsManager;
     [SerializeField] private GameObject npcGenerationPanelButtonPrefab;
     [SerializeField] private GameObject npcGenerationPanelFieldsObjectPrefab;
+    [SerializeField] private Transform npcRetouchScreensContainer;
     [SerializeField] private Transform npcGenerationPanelButtonContainer;
     [SerializeField] private GameObject npcGenerationPanelContainer;
 
@@ -31,17 +34,22 @@ public class NPCGenerationPanelManager : MonoBehaviour
             fieldsObject.name = buttonObj.name + "_Fields";
             npcGenerationPanelFieldsObjects.Add(fieldsObject);
 
-            // Here, let's assume the form object has a script attached that can manage its fields
             NPCGenerationPanelObjectScript fieldsScript = fieldsObject.GetComponent<NPCGenerationPanelObjectScript>();
             if (fieldsScript != null)
             {
-                // Here, you need to fetch and set data
-                NPCGenerationOptions data = npcForm.GetComponent<NPCGenerationOptions>(); // Assuming NPCData script holds data
+                NPCGenerationOptions data = npcForm.GetComponent<NPCGenerationOptions>();
                 if (data != null)
                 {
                     fieldsScript.npcSummary.text = data.GetNPCNovelPrompt();
                     fieldsScript.npcImagePrompt = data.GetNPCImagePrompt();
                     fieldsScript.npcImageCompletePrompt = data.GetNPCImageCompletePrompt();
+                    fieldsScript.npcName = data.GetNPCName();
+                    fieldsScript.imageZoomScreen = imageZoomScreen;
+                    fieldsScript.zoomImage = zoomImage;
+
+                    fieldsScript.npcRetouchScreensContainer = npcRetouchScreensContainer;
+                    npcButton.onClick.AddListener(() => ShowNPCFieldsObject(buttonObj.name));
+
                 }
             }
         }
@@ -108,5 +116,4 @@ public class NPCGenerationPanelManager : MonoBehaviour
         // Clear the list after destroying the GameObjects
         npcGenerationPanelButtons.Clear();
     }
-
 }

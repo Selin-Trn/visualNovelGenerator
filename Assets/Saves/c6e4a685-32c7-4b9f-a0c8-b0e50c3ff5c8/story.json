@@ -14,16 +14,7 @@
     "_2": "You draw your bow and prepare for battle, knowing that the fate of the forest rests on your shoulders.",
     "_3": "The air fills with the sharp scent of pine and fear as the goblins begin to encircle you, their eyes hungry and fierce.",
     "_4": "With a deep breath, you steady your nerves, preparing to make a stand in these hallowed woods.",
-    "_jmp": {
-      "chc_0": {
-        "br": "b",
-        "txt": "Engage the goblins in combat!"
-      },
-      "chc_1": {
-        "br": "c",
-        "txt": "Try to reason with the goblins."
-      }
-    }
+    "_died": "As you set off on new adventures, Eldoria remains a testament to your legacy, a land of peace and natural beauty."
   },
   "b": {
     "_0": "With swift movements, you notch an arrow and let it fly towards the nearest goblin. The arrow whizzes through the air, striking true.",

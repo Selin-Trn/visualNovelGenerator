@@ -9,7 +9,7 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField] public Image backgroundImage;
     public void SwitchBackgroundImage(string backgroundName)
     {
-        string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"{backgroundName}.jpg");
+        string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"{backgroundName}.png");
         Texture2D texture = LoadTexture(imagePath);
         if (texture != null)
         {
@@ -17,7 +17,7 @@ public class BackgroundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Failed to load texture at path: " + imagePath);
+            Debug.Log("Failed to load background texture at path: " + imagePath);
         }
     }
 

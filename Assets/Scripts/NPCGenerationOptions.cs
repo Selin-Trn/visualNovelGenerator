@@ -15,7 +15,7 @@ public class NPCGenerationOptions : MonoBehaviour
     public TMP_InputField personality_details;
     // Gender,Age,Title,physicalDetails
     private string promptNPCImageStringTemplate = "{0} {1} {2}. Physical details: {3}. Personality: {4}" +
-    "A full body image of this character from shoulders up, that's all.";
+    "A full body image of this character from yhips to head! NO PORTRAITS OR FLOATING HEADS! The background should be completely pure white without any effects. There should be one single whole body and not several ones! No clouse-up faces. The body should be in the middle of the image. Just give me an extreme long shot of the character body starting from the to the head.";
 
     // Gender,Age,Title,name, surname physicalDetails, personalityDetails, name
     private string promptNPCNovelStringTemplate = "This NPC is {0} {1} {2}. Their name is {3} {4}. Physical details: {5}. Personality: {6}" +
@@ -56,7 +56,7 @@ public class NPCGenerationOptions : MonoBehaviour
             };
         }
     }
-    public NPCOptions GetPlayerData()
+    public NPCOptions GetNPCData()
     {
         NPCOptions npcData = NPCOptionsData.CreateFromUI(npc_title, npc_name, npc_surname, age, gender, romance_interest, physical_details, personality_details);
 
@@ -65,13 +65,13 @@ public class NPCGenerationOptions : MonoBehaviour
     }
     public string GetNPCName()
     {
-        NPCOptions npcData = GetPlayerData();
+        NPCOptions npcData = GetNPCData();
         return npcData.NPCName;
 
     }
     public string GetNPCNovelPrompt()
     {
-        NPCOptions npcData = GetPlayerData();
+        NPCOptions npcData = GetNPCData();
         string prompt = string.Format(promptNPCNovelStringTemplate,
         npcData.Gender,
         npcData.Age,
@@ -86,7 +86,7 @@ public class NPCGenerationOptions : MonoBehaviour
     }
     public string GetNPCImagePrompt()
     {
-        NPCOptions npcData = GetPlayerData();
+        NPCOptions npcData = GetNPCData();
         string prompt = string.Format(promptNPCImageStringTemplate,
         npcData.Gender,
         npcData.Age,
@@ -98,10 +98,10 @@ public class NPCGenerationOptions : MonoBehaviour
     }
     public string GetNPCImageCompletePrompt()
     {
-        string playerPrompt = GetNPCImagePrompt();
-        string settingDetail = GenerationCommonPrompts.characterPromptSettingDetail;
-        string completePlayerPrompt = playerPrompt + settingDetail;
-        return completePlayerPrompt;
+        string npcPrompt = GetNPCImagePrompt();
+        string settingDetail = GeneratedContentHolder.novelSettingPrompt;
+        string completeNPCPrompt = npcPrompt + settingDetail;
+        return completeNPCPrompt;
 
     }
 

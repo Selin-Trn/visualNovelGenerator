@@ -27,7 +27,7 @@ public class NovelGenerationOptions : MonoBehaviour
     "Is there romance in the story={6}. Extra details: {7}. ";
 
     // DarknessSetting, Category, ArtStyle
-    private string promptCharacterSettingDetailStringTemplate = "Grimness/darkness of the novel is {0}. Character is from a {1} story. The art sytle is {2}";
+    private string promptCharacterSettingDetailStringTemplate = " Character is from a {0} novel. Grimness/darkness of the novel is {1}. The art sytle is {2}. The setting of the novel is in {3}, the main problem of the plot is {4}, and the goal is {5}.";
     public class Novel
     {
         public string NovelName { get; set; }
@@ -91,7 +91,7 @@ public class NovelGenerationOptions : MonoBehaviour
     public string GetCharacterPromptSettingDetail()
     {
         Novel novelData = GetNovelData();
-        string detail = string.Format(promptCharacterSettingDetailStringTemplate, novelData.DarknessSetting, novelData.Category, novelData.ArtStyle);
+        string detail = string.Format(promptCharacterSettingDetailStringTemplate, novelData.Category, novelData.DarknessSetting, novelData.ArtStyle, novelData.PlotSetting, novelData.PlotProblem, novelData.PlotGoal);
 
         return detail;
     }

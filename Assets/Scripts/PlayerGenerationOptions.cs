@@ -38,7 +38,7 @@ public class PlayerGenerationOptions : MonoBehaviour
     "{15} height, {16} weight. " +
     "{17}. " +
     "{18}. " +
-    "A portrait of this character from shoulders up, that's all. ";
+    "A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head!";
 
     // Gender,Age,Title,name,surname,FaceShape,HairLength,HairColor,HairTexture,EyeColor,EyeShape,EyebrowColor,EyebrowShape,EyebrowThickness,NoseShape,LipsShape,Skin,Height,Weight,Muscle,AdditionalDetails
     private string promptPlayerNovelStringTemplate = "The player is {0} {1} {2}. Their name is {3} {4}. They have; {5} face. " +

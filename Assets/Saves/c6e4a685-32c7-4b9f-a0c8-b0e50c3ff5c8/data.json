@@ -1,6 +1,6 @@
 {
   "story": {
-    "name": "Ranger",
+    "name": "Princess and the Assassin",
     "generationPrompt": "prompt is here"
   },
   "player": {
@@ -10,6 +10,10 @@
   "NPCs": [
     {
       "name": "Goblin",
+      "generationPrompt": "Ugly green goblin with tattered clothing."
+    },
+    {
+      "name": "Goblin Chief",
       "generationPrompt": "Ugly green goblin with tattered clothing."
     },
     {

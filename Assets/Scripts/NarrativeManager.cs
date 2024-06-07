@@ -8,6 +8,7 @@ using static NarrativeParser;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class NarrativeManager : MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class NarrativeManager : MonoBehaviour
     [SerializeField] public Button choiceButtonPrefab;
 
 
+    [Header("Ending Fade Screen")]
+    public GameObject endingWindow;
+    public Image endingPanel;
+    public TextMeshProUGUI endingTypeText;
     void Start()
     {
         narrativeParser = GetComponent<NarrativeParser>();
@@ -61,6 +66,7 @@ public class NarrativeManager : MonoBehaviour
 
     private void StartStory()
     {
+        endingWindow.SetActive(false);
         GetStoryData();
         GetStoryText();
 
@@ -310,10 +316,16 @@ public class NarrativeManager : MonoBehaviour
                 else if (currentKey == narrativeParser.endKey)
                 {
                     // END MANAGEMENT
+                    endingWindow.SetActive(true);
+                    endingTypeText.text = "The End.";
+                    endingPanel.color = UnityEngine.Color.gray;
                 }
                 else if (currentKey == narrativeParser.diedKey)
                 {
                     // DIED MANAGEMENT
+                    endingWindow.SetActive(true);
+                    endingTypeText.text = "You Died.";
+                    endingPanel.color = UnityEngine.Color.black;
                 }
             }
         }
@@ -399,5 +411,16 @@ public class NarrativeManager : MonoBehaviour
         PropertyInfo propertyInfo = currentBranch.GetType().GetProperty(currentKey);
         object value = propertyInfo.GetValue(currentBranch);
         return value;
+    }
+
+    public void ReplayGame()
+    {
+
+        SceneManager.LoadScene("Game");
+    }
+    public void BackToNovels()
+    {
+
+        SceneManager.LoadScene("StoriesScene");
     }
 }

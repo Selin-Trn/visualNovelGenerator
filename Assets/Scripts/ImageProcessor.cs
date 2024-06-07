@@ -94,4 +94,19 @@ public class ImageProcessor : MonoBehaviour
             }
         }
     }
+
+    public byte[] GenerateTransparentMask(int width, int height)
+    {
+        // Create a new transparent texture with the same dimensions as the original image
+        Texture2D maskTexture = new Texture2D(width, height, TextureFormat.ARGB32, false);
+        Color[] transparentPixels = new Color[width * height];
+        for (int i = 0; i < transparentPixels.Length; i++)
+        {
+            transparentPixels[i] = new Color(0, 0, 0, 0);
+        }
+        maskTexture.SetPixels(transparentPixels);
+        maskTexture.Apply();
+
+        return maskTexture.EncodeToPNG();
+    }
 }

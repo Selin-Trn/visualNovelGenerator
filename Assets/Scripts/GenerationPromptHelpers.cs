@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class GenerationPromptHelper : MonoBehaviour
 {
-  public static string novelFormatExplanation = @"
-You need to generate a text in JSON format for a visual novel. The text will be parsed for integration into Unity. 
-(All keys: _jmp for branch jumps, _number_apr and _number_dspr for npc appearances, _number_bg for background switches, _died and _end for endings, _number for narrative text, _number_player for player speech, _number_npc for npc speech). 
-Branches are separated by letters (a, b, c..). Narrative texts are numbered (_0, _1, _2…). 
-Player speech is numbered (_0_player, _1_player…). NPC speech (_0_npc, _1_npc…) and npc speech format is like  '_0_npc': {'name': 'Goblin Chief', 'txt': 'The road must continue from here... Follow me!'} with a name and txt key in it. Every single Npc given in the prompt must have some dialogue and must appear on the screen (example: '_number_apr':'Goblin') and should also leave the screen (example: '_number_dspr':'Goblin') at the appropriate times. For example, when the narrative goes, 'The princess walked into the room.',  '_number_apr':'Princess' item should come after that narrative text. Or, if the narrative says 'You shot the guard down!', '_number_dspr':'Guard' and guard should leave the screen because he was taken down. Be careful not to call _number_dspr on characters that are not on the screen or _number_apr on characters that are not in the novel prompt above. _num_bg key switches the background. This key should ALWAYS be the first key of the first branch as it sets the background. Background can be switched a few times through the novel but don’t exceed 3 different backgrounds (let’s say you used 'forest' background at branch a and then used 'castle room' background at branch d. If you want to use the background 'forest' again at branch z, make sure to use the exact same name as the visual novel has to generate a new background if you use a different name).  _jmp key comes at the end of the current branch and gives the user several choices. The choice, jumps the storyline to another branch. _died key means the player has died and _end key means the story has ended but the player is not dead. There must be several endings throughout the novel, some can be _died and some can be _end. They can be used as '_end':'You saved the kingdom and now can enjoy the peace.' and '_died':'The blade slid into your chest and before long, your world was in darkness.'. Jumps can't be made to old branches so make sure the branches do not jump to unrelated branches upon making a choice. Also, make sure there are no loops between branches. Be very careful not to have any duplicate keys in a branch! The keys are all supposed to be different! Or there will be problems during parsing. At total, there must be 26 branches in total as there are 26 letters in the alphabet. WRITE 26 BRANCHES! NO LESS! Write a story in this format with the story setting of =";
-  public static string novelExampleJson = @"
-    
-    Example novel extract for formatting=
+  public static string gptExplanation = @"You create JSON-formatted texts for visual novels depending on user prompt. The keys include:
+_jmp for branching,
+chc_number for branching choices,  (5 max per branch: 0...4)
+_number_apr and _number_dspr for NPC appearances and disappearances,
+_number_bg for background changes (limit to 3),
+_died and _end for endings,
+_number for narrative text, (15 max per branch: 0...14)
+_number_player for player speech, (11 max per branch: 0...10)
+_number_npc for NPC dialogue, structured as {name, txt}. (11 max per branch: 0...10)
+Branches, labeled a-z, should not loop or jump to previous sections. All choices should eventually lead to an ending! 
+All NPCs mentioned must appear and exit correctly relative to narrative cues. Background names must be consistent across the novel to avoid generating new scenes. 
+_number_bg key should ALWAYS be the first key of the first branch as it sets the background. 
+Implement multiple endings using _died and _end even in the early branches. 
+Ensure all 26 branches are included and do not exceed 26 branches (use only single characters from the alphabet a...z for branch names)!.
+Only give me the story json, don't add any commentary at the start or the end! do not add  ""json = {..."" or ```json...``` just give {story}.
+Make sure to give me a complete JSON!! Don't leave it unfinished!
+Do not forget the commmas between branches and their elements!
+Here's an example novel extract for formatting=
 {
   ""a"": {
     ""_0_bg"": ""forest"",
     ""_0"": ""You are Thomas Woody, a skilled ranger who roams the dark and mysterious Forest of Eldoria. As you walk through the dense undergrowth, you hear the rustling of leaves and the distant howls of creatures."",
     ""_0_player"": ""What is that sound?"",
     ""_1"": ""Suddenly, the ground shakes beneath your feet, and a horde of goblins emerges from the shadows, their sharp teeth glinting in the dim light."",
-    ""_1_apr"": ""Goblin Chief"",
+    ""_0_apr"": ""Goblin"",
     ""_0_npc"": {
-      ""name"": ""Goblin Chief"",
+      ""name"": ""Goblin"",
       ""txt"": ""The road must continue from here... Follow me!""
     },
     ""_1_player"": ""By the stars, goblins! I must stop them before they cause chaos in this forest."",
@@ -76,5 +86,20 @@ Player speech is numbered (_0_player, _1_player…). NPC speech (_0_npc, _1_npc�
       }
     }
   },
-etc.";
+  ... (other branches),
+  ""z"": {
+    ""_0"": ""With your efforts, the forest is fully secured, and the goblin threat is a thing of the past. Eldoria is now a beacon of peace and cooperation."",
+    ""_1"": ""As you walk through the rejuvenated forest, you take pride in knowing your actions have helped create a sanctuary for all its inhabitants."",
+    ""_0_npc"": {
+      ""name"": ""Forest Guardian"",
+      ""txt"": ""Thank you, Thomas. Your courage and wisdom have saved us all.""
+    },
+    ""_1_player"": ""It was my duty. Seeing the forest thrive is my greatest reward."",
+    ""_2"": ""With peace established, you decide to explore new lands, seeking new adventures and ways to spread the peace you've fostered in Eldoria."",
+    ""_0_apr"": ""Forest Guardian"",
+    ""_1_apr"": ""Adventurous Spirit"",
+    ""_end"": ""As you set off on new adventures, Eldoria remains a testament to your legacy, a land of peace and natural beauty.""
+  }
+}";
+
 }

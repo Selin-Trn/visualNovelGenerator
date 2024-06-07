@@ -1,0 +1,29 @@
+{
+  "story": {
+    "name": "Heart of The Forest",
+    "generationPrompt": "This is a Fantasy novel. The setting is magical forest, the main problem of the plot is magic disappearing, and the goal is find put why and stop the reason. The theme is Good vs evil, it should shine in the plot. The story should be Light (almost none) in its grimness/darkness. Is there romance in the story=True. Extra details: the magic stems from the oldest tree of the forest. There should be fight scenes.. "
+  },
+  "player": {
+    "name": "Mae",
+    "generationPrompt": "Female Young Adult Druid. Round face. Long Ginger Straight hair. Green Round eyes. Same as hair color Rounded Normal eyebrows. Button nose, Full lips, Light skin. Average height, Fit weight. Slightly muscled. wears druid robes and wears an antler crown. A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head! Character is from a Fantasy novel. Grimness/darkness of the novel is Light (almost none). The art sytle is Illustration (ink-like). The setting of the novel is in magical forest, the main problem of the plot is magic disappearing, and the goal is find put why and stop the reason."
+  },
+  "NPCs": [
+    {
+      "name": "Laila",
+      "generationPrompt": "This NPC is Young Adult Female Nymph. Their name is Laila . Physical details: a wood nymph with green skin, green hair and green eyes. A fullbody image! From afar. Personality: kind and wise. Helps Mae in her quest Is this character a romance interest for the player: False. "
+    },
+    {
+      "name": "Maelor",
+      "generationPrompt": "This NPC is Young Adult Male Fae. Their name is Maelor . Physical details: Brunet fairy with blue eyes and wings. wears classic fairy clothes. barefoot. Personality: sarcastic bu smart. likely the one to figure out what the problem is Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Agni",
+      "generationPrompt": "This NPC is Middle Age Female Witch. Their name is Agni . Physical details: red haired and red eyed. wears witch robes. Personality: evil, wants to consume the magic of the forest for power Is this character a romance interest for the player: False. "
+    }
+  ],
+  "backgrounds": {
+    "names": [
+      "magical_forest"
+    ]
+  }
+}

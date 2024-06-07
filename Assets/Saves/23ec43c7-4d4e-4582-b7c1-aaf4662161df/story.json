@@ -1,0 +1,404 @@
+{
+  "a": {
+    "_0_bg": "cyberpunk_city",
+    "_0": "You are Vitra, a skilled young hacker with a sharp mind and a loyalty to the Blood Rain gang. The neon lights of the Cyberpunk city flicker around you as you navigate the dark alleys, your mind always on the edge, ready for the next move.",
+    "_0_player": "This city is a battlefield, and I need to be prepared.",
+    "_1": "As you step into the HQ of Blood Rain, you see Kira, your boss, waiting for you. Her scarred face shows a hint of relief as she sees you.",
+    "_0_apr": "Kira",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "Vitra, we need your skills. Jirou's gang is planning something big, and we can't afford to be caught off guard."
+    },
+    "_1_player": "I'm ready, Kira. What's the plan?",
+    "_2": "Kira hands you a data chip, her eyes filled with determination.",
+    "_1_npc": {
+      "name": "Kira",
+      "txt": "This chip contains crucial information about their next move. We need you to hack into their systems and disrupt their plans."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Accept the mission and head to your hacking rig."
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Question Kira about the specifics of the mission."
+      }
+    }
+  },
+  "b": {
+    "_0": "You nod and quickly head to your hacking rig. The dark room is illuminated by the glow of your screens as you plug in the data chip.",
+    "_1": "Lines of code flash before your eyes as you start to break through Jirou's security systems.",
+    "_2_apr": "Mirai",
+    "_0_npc": {
+      "name": "Mirai",
+      "txt": "You always were good with tech, Vitra. Too bad you're on the wrong side."
+    },
+    "_1_player": "Mirai? What are you doing here?",
+    "_3": "Mirai steps out of the shadows, her eyes cold and calculating.",
+    "_1_npc": {
+      "name": "Mirai",
+      "txt": "Jirou sent me to stop you. He knew you'd try something like this."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "d",
+        "txt": "Engage Mirai in combat."
+      },
+      "chc_1": {
+        "br": "e",
+        "txt": "Try to reason with Mirai."
+      }
+    }
+  },
+  "c": {
+    "_0": "You hesitate for a moment, looking at Kira with a questioning gaze.",
+    "_1": "Kira's expression hardens, and she steps closer to you.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "We have intel that Jirou is planning a major attack. We can't allow that to happen. We need to hit them first."
+    },
+    "_1_player": "Understood. I'll make sure they don't see it coming.",
+    "_2": "With renewed determination, you head to your hacking rig, ready to take on the challenge.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Head to your hacking rig."
+      },
+      "chc_1": {
+        "br": "f",
+        "txt": "Gather more information before proceeding."
+      }
+    }
+  },
+  "d": {
+    "_0": "You don't waste a second and launch yourself at Mirai, your fists flying.",
+    "_1": "The room is filled with the sounds of your struggle, each of you trying to gain the upper hand.",
+    "_2": "Mirai's strength is formidable, but your agility and determination keep you in the fight.",
+    "_3": "With a final, powerful blow, you manage to knock Mirai out.",
+    "_4": "Panting, you return to your hacking rig, knowing you've bought yourself some time.",
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Continue hacking Jirou's system."
+      },
+      "chc_1": {
+        "br": "h",
+        "txt": "Alert Kira about Mirai's intrusion."
+      }
+    }
+  },
+  "e": {
+    "_0": "You hold up your hands, trying to show you're not a threat.",
+    "_1": "Mirai's eyes narrow, but she doesn't attack.",
+    "_2_player": "Mirai, we used to be friends. Why are you doing this?",
+    "_2": "Mirai's expression softens for a moment, but then hardens again.",
+    "_0_npc": {
+      "name": "Mirai",
+      "txt": "Because you betrayed me, Vitra. You chose Blood Rain over our friendship."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "i",
+        "txt": "Explain your reasons to Mirai."
+      },
+      "chc_1": {
+        "br": "j",
+        "txt": "Attack Mirai while she's distracted."
+      }
+    }
+  },
+  "f": {
+    "_0": "You decide to gather more information before diving into the mission.",
+    "_1": "You head to the intel room, where other members of Blood Rain are working tirelessly.",
+    "_0_apr": "Blood Rain Member",
+    "_0_npc": {
+      "name": "Blood Rain Member",
+      "txt": "Vitra, we have some new intel on Jirou's plans."
+    },
+    "_1_player": "Show me.",
+    "_2": "They hand you a tablet with detailed information about Jirou's next move.",
+    "_jmp": {
+      "chc_0": {
+        "br": "k",
+        "txt": "Study the intel carefully."
+      },
+      "chc_1": {
+        "br": "l",
+        "txt": "Head back to your hacking rig with the new intel."
+      }
+    }
+  },
+  "g": {
+    "_0": "You return to your hacking rig and continue your work. The lines of code are more complex now, but you manage to break through.",
+    "_1": "You find the plans for Jirou's attack and start to disrupt them, causing chaos in their systems.",
+    "_2": "Just as you're about to finish, alarms start blaring. Jirou's gang has detected your intrusion.",
+    "_jmp": {
+      "chc_0": {
+        "br": "m",
+        "txt": "Try to cover your tracks and escape."
+      },
+      "chc_1": {
+        "br": "n",
+        "txt": "Face the consequences head-on."
+      }
+    }
+  },
+  "h": {
+    "_0": "You quickly alert Kira about Mirai's intrusion.",
+    "_1": "Kira rushes into the room, her eyes filled with anger.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "Mirai, you dare betray us?"
+    },
+    "_2": "Mirai stands up, her expression defiant.",
+    "_1_npc": {
+      "name": "Mirai",
+      "txt": "I made my choice long ago, Kira."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "o",
+        "txt": "Stand by Kira and prepare for the confrontation."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Try to defuse the situation."
+      }
+    }
+  },
+  "i": {
+    "_0": "You take a deep breath and explain your reasons to Mirai.",
+    "_1_player": "I chose Blood Rain because they needed me. I never wanted to betray you.",
+    "_2": "Mirai's expression softens, but she remains wary.",
+    "_0_npc": {
+      "name": "Mirai",
+      "txt": "I... I don't know if I can trust you again, Vitra."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "q",
+        "txt": "Convince Mirai to join you."
+      },
+      "chc_1": {
+        "br": "r",
+        "txt": "Let Mirai go and continue the mission."
+      }
+    }
+  },
+  "j": {
+    "_0": "While Mirai is distracted, you launch a surprise attack.",
+    "_1": "The fight is quick and brutal, but you manage to subdue her.",
+    "_2": "With Mirai out of the way, you return to your hacking rig and continue your work.",
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Continue hacking Jirou's system."
+      },
+      "chc_1": {
+        "br": "s",
+        "txt": "Alert Kira about Mirai's intrusion."
+      }
+    }
+  },
+  "k": {
+    "_0": "You study the intel carefully, noting the key points and vulnerabilities in Jirou's plan.",
+    "_1": "With this new information, you feel more confident in your ability to disrupt their plans.",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Head back to your hacking rig with the new intel."
+      },
+      "chc_1": {
+        "br": "t",
+        "txt": "Share the intel with Kira before proceeding."
+      }
+    }
+  },
+  "l": {
+    "_0": "Armed with the new intel, you return to your hacking rig and get to work.",
+    "_1": "The lines of code are more complex, but you manage to break through and start disrupting Jirou's plans.",
+    "_2": "Just as you're about to finish, alarms start blaring. Jirou's gang has detected your intrusion.",
+    "_jmp": {
+      "chc_0": {
+        "br": "m",
+        "txt": "Try to cover your tracks and escape."
+      },
+      "chc_1": {
+        "br": "n",
+        "txt": "Face the consequences head-on."
+      }
+    }
+  },
+  "m": {
+    "_0": "You quickly try to cover your tracks, erasing any signs of your intrusion.",
+    "_1": "As the alarms continue to blare, you make your escape, hoping you weren't too late.",
+    "_2": "Back at Blood Rain HQ, you report your success to Kira.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "Good job, Vitra. You've bought us some time."
+    },
+    "_1_player": "What's our next move?",
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Plan the next attack with Kira."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Take a moment to rest and regroup."
+      }
+    }
+  },
+  "n": {
+    "_0": "You decide to face the consequences head-on, knowing that running would only make things worse.",
+    "_1": "Jirou's gang storms into the room, guns drawn.",
+    "_2": "You fight back with everything you've got, but their numbers are overwhelming.",
+    "_died": "A hail of bullets cuts you down. The last thing you see is the grim satisfaction on Jirou's face as darkness takes you."
+  },
+  "o": {
+    "_0": "You stand by Kira, ready for the confrontation.",
+    "_1": "The tension in the room is palpable as Kira and Mirai face off.",
+    "_2": "Before either can make a move, a sudden explosion rocks the building. Jirou's gang is attacking.",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Defend the HQ from the attack."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Use the chaos to escape and regroup."
+      }
+    }
+  },
+  "p": {
+    "_0": "You step between Kira and Mirai, trying to defuse the situation.",
+    "_1_player": "We don't have to do this. There's a bigger enemy out there.",
+    "_2": "Kira and Mirai exchange a tense look, but neither lowers their guard.",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Convince them to work together against Jirou."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Fail to defuse the situation and face the fallout."
+      }
+    }
+  },
+  "q": {
+    "_0": "You try to convince Mirai to join you.",
+    "_1_player": "We can take down Jirou together. We were unstoppable once, we can be again.",
+    "_2": "Mirai hesitates, her eyes searching yours for any sign of deceit.",
+    "_0_npc": {
+      "name": "Mirai",
+      "txt": "Alright, Vitra. I'll trust you one last time."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "aa",
+        "txt": "Plan the attack on Jirou with Mirai."
+      },
+      "chc_1": {
+        "br": "ab",
+        "txt": "Inform Kira about Mirai's decision."
+      }
+    }
+  },
+  "r": {
+    "_0": "You let Mirai go, knowing that trust can't be rebuilt in a day.",
+    "_1": "Returning to your hacking rig, you continue your mission, determined to prove yourself.",
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Continue hacking Jirou's system."
+      },
+      "chc_1": {
+        "br": "s",
+        "txt": "Alert Kira about Mirai's intrusion."
+      }
+    }
+  },
+  "s": {
+    "_0": "You quickly alert Kira about Mirai's intrusion.",
+    "_1": "Kira rushes into the room, her eyes filled with anger.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "Mirai, you dare betray us?"
+    },
+    "_2": "Mirai stands up, her expression defiant.",
+    "_1_npc": {
+      "name": "Mirai",
+      "txt": "I made my choice long ago, Kira."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "o",
+        "txt": "Stand by Kira and prepare for the confrontation."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Try to defuse the situation."
+      }
+    }
+  },
+  "t": {
+    "_0": "You decide to share the intel with Kira before proceeding.",
+    "_1": "Kira looks over the information, her expression grim.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "This is worse than we thought. We need to act fast."
+    },
+    "_1_player": "I'll get back to hacking. We can't let them get the upper hand.",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Head back to your hacking rig with the new intel."
+      },
+      "chc_1": {
+        "br": "aa",
+        "txt": "Plan the attack on Jirou with Kira."
+      }
+    }
+  },
+  "u": {
+    "_0": "You sit down with Kira to plan the next attack.",
+    "_1": "The room is filled with tension as you discuss the strategy.",
+    "_0_npc": {
+      "name": "Kira",
+      "txt": "We'll strike at their weakest point. They won't see it coming."
+    },
+    "_1_player": "I'll be ready. Let's show them what Blood Rain is made of.",
+    "_jmp": {
+      "chc_0": {
+        "br": "v",
+        "txt": "Take a moment to rest and regroup."
+      },
+      "chc_1": {
+        "br": "ab",
+        "txt": "Inform the rest of the gang about the plan."
+      }
+    }
+  },
+  "v": {
+    "_0": "You take a moment to rest and regroup, knowing the battle ahead will be tough.",
+    "_1": "The weight of the city's future rests on your shoulders.",
+    "_2": "As you close your eyes for a brief moment, you hear the distant sounds of gunfire. The war is far from over.",
+    "_jmp": {
+      "chc_0": {
+        "br": "aa",
+        "txt": "Plan the attack on Jirou with Kira."
+      },
+      "chc_1": {
+        "br": "ac",
+        "txt": "Head out to gather more intel on Jirou's movements."
+      }
+    }
+  },
+  "w": {
+    "_0": "You quickly gather the Blood Rain members and prepare to defend the HQ.",
+    "_1": "The building shakes as explosions and gunfire rip through the air.",
+    "_2": "You fight alongside your gang, your skills as a hacker and fighter put to the test.",
+    "_died": "In the chaos, a stray bullet finds its mark. You collapse, your vision fading to black as the sounds of war continue around you."
+  }
+}

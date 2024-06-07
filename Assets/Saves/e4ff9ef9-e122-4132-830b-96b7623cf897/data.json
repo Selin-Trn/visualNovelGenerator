@@ -1,0 +1,29 @@
+{
+  "story": {
+    "name": "a Tree in Need",
+    "generationPrompt": "This is a Fantasy novel. The setting is magical forest, the main problem of the plot is magic is disappearing, and the goal is find out why and stop the reason. The theme is Good vs evil, it should shine in the plot. The story should be Light (almost none) in its grimness/darkness. Is there romance in the story=True. Extra details: the magic stems from the oldest tree in the forest. "
+  },
+  "player": {
+    "name": "Mae",
+    "generationPrompt": "Female Young Adult Druid. Round face. Long Ginger Straight hair. Green Round eyes. Same as hair color Rounded Normal eyebrows. Button nose, Full lips, Light skin. Average height, Thin weight. Slightly muscled. wears druid robes and an antler crown. A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head! Character is from a Fantasy novel. Grimness/darkness of the novel is Light (almost none). The art sytle is Illustration (ink-like). The setting of the novel is in magical forest, the main problem of the plot is magic is disappearing, and the goal is find out why and stop the reason."
+  },
+  "NPCs": [
+    {
+      "name": "Kayla",
+      "generationPrompt": "This NPC is Young Adult Female Nymph. Their name is Kayla . Physical details: A wood nymph with green hair, skin and eyes. Personality: Kind and wise. Helps Mae in her quest Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Maelor",
+      "generationPrompt": "This NPC is Young Adult Male Fae. Their name is Maelor . Physical details: A brunet fairy with blue eyes and wings. I want an image from hips to head.. Personality: Sarcastic but very smart. Likely the first one to figure out what is going on Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Agni",
+      "generationPrompt": "This NPC is Middle Age Female Witch. Their name is Agni . Physical details: Red haired and red eyes. Wears witch robes. I want an image from hips to head. Personality: Evil, wants to comsume the magic of the forest Is this character a romance interest for the player: True. "
+    }
+  ],
+  "backgrounds": {
+    "names": [
+      "magical_forest"
+    ]
+  }
+}

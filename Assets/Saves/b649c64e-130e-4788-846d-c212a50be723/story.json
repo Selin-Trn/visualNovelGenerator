@@ -1,0 +1,347 @@
+{
+  "a": {
+    "_0_bg": "magical_forest",
+    "_0": "You are Mae, a young druid with ginger hair and green eyes. Wearing your druid robes and antler crown, you roam the magical forest, feeling the dwindling magic in the air.",
+    "_1": "The forest seems quieter than usual, the flora and fauna less vibrant. You know that the magic stems from the oldest tree in the forest, and something must be wrong.",
+    "_2": "As you walk deeper into the woods, you sense a presence. A nymph named Laila appears, her green skin blending with the foliage.",
+    "_2_apr": "Laila",
+    "_0_npc": {
+      "name": "Laila",
+      "txt": "Mae, the forest's magic is fading. We must find out why!"
+    },
+    "_0_player": "Laila, do you know where we should start looking?",
+    "_3": "Laila nods and points towards the heart of the forest where the oldest tree stands.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Head straight to the oldest tree."
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Scout the area for clues first."
+      }
+    }
+  },
+  "b": {
+    "_0": "You and Laila make your way to the oldest tree, the heart of the forest's magic. The tree looks sickly, its leaves wilting.",
+    "_1": "Suddenly, you hear a rustle behind you. A fae named Maelor appears, his blue eyes sharp and wings glistening.",
+    "_1_apr": "Maelor",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Mae, it seems someone is draining the magic. We need to act fast."
+    },
+    "_0_player": "Maelor, do you have any idea who might be behind this?",
+    "_jmp": {
+      "chc_0": {
+        "br": "d",
+        "txt": "Search the area around the tree."
+      },
+      "chc_1": {
+        "br": "e",
+        "txt": "Confront the witch Agni, she might be the one."
+      }
+    }
+  },
+  "c": {
+    "_0": "You and Laila decide to scout the area for clues. As you walk, you come across some strange footprints leading deeper into the forest.",
+    "_1": "Following the footprints, you hear a malicious cackle. Agni, a red-haired witch, stands before you, her eyes glowing with dark magic.",
+    "_1_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "So you found me, little druid. The magic of this forest will be mine!"
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "f",
+        "txt": "Fight Agni."
+      },
+      "chc_1": {
+        "br": "g",
+        "txt": "Try to reason with Agni."
+      }
+    }
+  },
+  "d": {
+    "_0": "You and Maelor search the area around the tree. You find traces of dark magic and a broken amulet.",
+    "_1": "Maelor examines the amulet and frowns.",
+    "_1_npc": {
+      "name": "Maelor",
+      "txt": "This belongs to Agni. She must be behind this."
+    },
+    "_0_player": "We need to stop her before it's too late!",
+    "_jmp": {
+      "chc_0": {
+        "br": "h",
+        "txt": "Head to Agni's lair."
+      },
+      "chc_1": {
+        "br": "i",
+        "txt": "Set a trap for Agni."
+      }
+    }
+  },
+  "e": {
+    "_0": "You decide to confront Agni directly. You and Maelor head to her lair.",
+    "_1": "As you approach, Agni steps out, a wicked smile on her face.",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "So, you've come to stop me? How amusing."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "j",
+        "txt": "Challenge Agni to a duel."
+      },
+      "chc_1": {
+        "br": "k",
+        "txt": "Try to outsmart Agni."
+      }
+    }
+  },
+  "f": {
+    "_0": "You prepare yourself for battle. With Laila by your side, you face off against Agni.",
+    "_1": "Agni cackles and casts a spell, but you counter with your druidic magic.",
+    "_2": "The fight is intense, but with Laila's help, you manage to overpower Agni.",
+    "_died": "Agni lets out a final scream as she is consumed by her own dark magic."
+  },
+  "g": {
+    "_0": "You try to reason with Agni, hoping to appeal to any remaining goodness in her heart.",
+    "_1": "Agni hesitates for a moment, but then her eyes harden.",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "Foolish druid, there is no place for kindness in my plans!"
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "f",
+        "txt": "Fight Agni."
+      },
+      "chc_1": {
+        "br": "l",
+        "txt": "Escape and regroup."
+      }
+    }
+  },
+  "h": {
+    "_0": "You and Maelor head to Agni's lair, determined to end her evil plans.",
+    "_1": "As you enter, you find Agni preparing a ritual to drain the forest's magic completely.",
+    "_jmp": {
+      "chc_0": {
+        "br": "m",
+        "txt": "Interrupt the ritual."
+      },
+      "chc_1": {
+        "br": "n",
+        "txt": "Destroy her magical artifacts."
+      }
+    }
+  },
+  "i": {
+    "_0": "You and Maelor set a trap for Agni, using the broken amulet as bait.",
+    "_1": "Agni soon arrives, drawn by the amulet's magic.",
+    "_2": "As she steps into the trap, you and Maelor spring into action.",
+    "_jmp": {
+      "chc_0": {
+        "br": "o",
+        "txt": "Capture Agni."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Fight Agni."
+      }
+    }
+  },
+  "j": {
+    "_0": "You challenge Agni to a duel, hoping to end her tyranny once and for all.",
+    "_1": "Agni accepts, and a fierce battle ensues.",
+    "_jmp": {
+      "chc_0": {
+        "br": "q",
+        "txt": "Defeat Agni."
+      },
+      "chc_1": {
+        "br": "r",
+        "txt": "Be defeated."
+      }
+    }
+  },
+  "k": {
+    "_0": "You try to outsmart Agni, using the forest's magic to create illusions.",
+    "_1": "Agni becomes confused, unsure of where you are.",
+    "_jmp": {
+      "chc_0": {
+        "br": "s",
+        "txt": "Use the opportunity to attack."
+      },
+      "chc_1": {
+        "br": "t",
+        "txt": "Escape while she's distracted."
+      }
+    }
+  },
+  "l": {
+    "_0": "You decide to escape and regroup, knowing you need more help to defeat Agni.",
+    "_1": "As you retreat, Maelor stays behind to cover your escape.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Go, Mae! I'll hold her off!"
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Return with reinforcements."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Find another way to stop Agni."
+      }
+    }
+  },
+  "m": {
+    "_0": "You interrupt Agni's ritual, causing her to lose control of the magic.",
+    "_1": "The resulting backlash weakens her, giving you an opening to strike.",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Defeat Agni."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Rescue the forest's magic."
+      }
+    }
+  },
+  "n": {
+    "_0": "You and Maelor destroy Agni's magical artifacts, cutting off her power source.",
+    "_1": "Agni screams in rage as her magic fades.",
+    "_jmp": {
+      "chc_0": {
+        "br": "y",
+        "txt": "Capture Agni."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Banish Agni from the forest."
+      }
+    }
+  },
+  "o": {
+    "_0": "You manage to capture Agni, binding her with enchanted vines.",
+    "_1": "With Agni subdued, the forest's magic begins to recover.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "We did it, Mae. The forest is safe."
+    },
+    "_0_player": "Yes, and with Agni captured, she can't threaten the forest again.",
+    "_end": "The forest's magic is restored, and you continue to protect it with Maelor by your side."
+  },
+  "p": {
+    "_0": "You and Maelor engage Agni in battle. Despite your best efforts, Agni's dark magic overpowers you.",
+    "_died": "Agni laughs as you fall to the ground, the last of the forest's magic slipping away."
+  },
+  "q": {
+    "_0": "With a final surge of strength, you defeat Agni, her dark magic dissipating into the air.",
+    "_1": "The forest's magic begins to return, its vibrancy restored.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "You've done it, Mae. The forest is safe once more."
+    },
+    "_0_player": "We did it together, Maelor. Thank you.",
+    "_end": "You and Maelor stand together, watching as the forest flourishes with magic once more."
+  },
+  "r": {
+    "_0": "Despite your best efforts, Agni proves too powerful. She defeats you, and the forest's magic continues to fade.",
+    "_died": "Agni's laughter echoes in your ears as darkness envelops you."
+  },
+  "s": {
+    "_0": "Using the forest's magic, you attack Agni while she's distracted.",
+    "_1": "The surprise attack catches her off guard, and you manage to weaken her.",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Defeat Agni."
+      },
+      "chc_1": {
+        "br": "x",
+        "txt": "Rescue the forest's magic."
+      }
+    }
+  },
+  "t": {
+    "_0": "While Agni is distracted by the illusions, you make your escape.",
+    "_1": "Returning to the heart of the forest, you regroup with Laila and Maelor.",
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Return with reinforcements."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Find another way to stop Agni."
+      }
+    }
+  },
+  "u": {
+    "_0": "You return with reinforcements, ready to face Agni once more.",
+    "_1": "With the combined strength of the forest's inhabitants, you confront Agni at her lair.",
+    "_jmp": {
+      "chc_0": {
+        "br": "w",
+        "txt": "Defeat Agni."
+      },
+      "chc_1": {
+        "br": "y",
+        "txt": "Capture Agni."
+      }
+    }
+  },
+  "v": {
+    "_0": "You search for another way to stop Agni, exploring ancient druidic texts for a solution.",
+    "_1": "With Maelor's help, you discover a spell that can restore the forest's magic.",
+    "_jmp": {
+      "chc_0": {
+        "br": "x",
+        "txt": "Perform the spell."
+      },
+      "chc_1": {
+        "br": "z",
+        "txt": "Combine the spell with Maelor's magic."
+      }
+    }
+  },
+  "w": {
+    "_0": "With a final effort, you and your allies defeat Agni, her dark magic fading away.",
+    "_1": "The forest's magic is restored, and the inhabitants celebrate their victory.",
+    "_end": "You stand with Maelor, knowing that the forest is safe and its magic will flourish once more."
+  },
+  "x": {
+    "_0": "You perform the spell, channeling the forest's magic to restore its vibrancy.",
+    "_1": "The spell works, and the forest begins to thrive once more.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Amazing, Mae. You've saved the forest."
+    },
+    "_0_player": "I couldn't have done it without you, Maelor.",
+    "_end": "With the forest's magic restored, you and Maelor continue to protect it, your bond growing stronger."
+  },
+  "y": {
+    "_0": "You capture Agni, binding her with enchanted vines.",
+    "_1": "With Agni subdued, the forest's magic begins to recover.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "We did it, Mae. The forest is safe."
+    },
+    "_0_player": "Yes, and with Agni captured, she can't threaten the forest again.",
+    "_end": "The forest's magic is restored, and you continue to protect it with Maelor by your side."
+  },
+  "z": {
+    "_0": "You combine the spell with Maelor's magic, creating a powerful force that restores the forest's magic.",
+    "_1": "The forest flourishes, its magic stronger than ever.",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Incredible, Mae. Together, we've saved the forest."
+    },
+    "_0_player": "Yes, Maelor. Together, we can achieve anything.",
+    "_end": "With the forest's magic restored, you and Maelor continue to protect it, your bond growing ever stronger."
+  }
+}

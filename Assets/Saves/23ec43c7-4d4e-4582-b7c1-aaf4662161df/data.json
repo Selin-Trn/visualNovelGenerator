@@ -1,0 +1,29 @@
+{
+  "story": {
+    "name": "Gang Wars",
+    "generationPrompt": "This is a Sci-fi novel. The setting is Cyberpunk city, the main problem of the plot is gang wars, and the goal is win the war. The theme is War, it should shine in the plot. The story should be Dark in its grimness/darkness. Is there romance in the story=False. Extra details: there are 2 main opposing gangs. The player is a member to one fo them. Her gang is called called the Blood Rain. "
+  },
+  "player": {
+    "name": "Vitra",
+    "generationPrompt": "Female Young Adult Hacker. Square face. Short Blue Straight hair. Black Almond eyes. Same as hair color Arched Normal eyebrows. Straight nose, Pursed lips, Deathly pale skin. Average height, Thin weight. Slightly muscled. Wears harajuku styled cyberpunk clothing. A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head! Character is from a Sci-fi novel. Grimness/darkness of the novel is Dark. The art sytle is Animation. The setting of the novel is in Cyberpunk city, the main problem of the plot is gang wars, and the goal is win the war."
+  },
+  "NPCs": [
+    {
+      "name": "Kira",
+      "generationPrompt": "This NPC is Middle Age Female Boss. Their name is Kira . Physical details: Black hair and eyes. Wears a cyberpunk styled brawler clothing. Has scars on her face.. Personality: The boss of the Blood Rain. Smart and cunning. Vitra is her hacker. Is this character a romance interest for the player: False. "
+    },
+    {
+      "name": "Jirou",
+      "generationPrompt": "This NPC is Middle Age Male Boss. Their name is Jirou . Physical details: White haired and yellow eyed. Wears a cyuberpunk styled suit. Has sunglasses. Image from hips to head. Personality: Ruthless. Wants to crush Blood Rain and absorb it to his gang. Is this character a romance interest for the player: False. "
+    },
+    {
+      "name": "Mirai",
+      "generationPrompt": "This NPC is Young Adult Female Brawler. Their name is Mirai . Physical details: Blue haired and blue eyed. Tall and muscular. Has a prepetual frown. Wears cyberpunk styled brawler clothing.. Personality: Used to be the best friend of Vitra before they became estranged. Now is a member of Jirou's gang Is this character a romance interest for the player: False. "
+    }
+  ],
+  "backgrounds": {
+    "names": [
+      "cyberpunk_city"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "story": {
+    "name": "Dragon Fire",
+    "generationPrompt": "This is a Action/Adventure novel. The setting is , the main problem of the plot is , and the goal is . The theme is Abuse of power, it should shine in the plot. The story should be Life-like in its grimness/darkness. Is there romance in the story=True. Extra details: . "
+  },
+  "player": {
+    "name": "Arthur",
+    "generationPrompt": "Female Young Adult Prince. Round face. Short Black Straight hair. Black Down-turned eyes. Same as hair color Arched Normal eyebrows. Straight nose, Thin lips, Mid-tone skin. Average height, Average weight. Average. . A portrait of this character from shoulders up. White only background. Grimness/darkness of the novel is Life-like. Character is from a Action/Adventure story. The art sytle is Animation"
+  },
+  "NPCs": [
+    {
+      "name": "Merlin",
+      "generationPrompt": "This NPC is Young Adult Female Sorcerer. Their name is Merlin . Physical details: . Personality:  Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Dragon",
+      "generationPrompt": "This NPC is Young Adult Female Red. Their name is Dragon . Physical details: . Personality:  Is this character a romance interest for the player: True. "
+    }
+  ],
+  "backgrounds": {
+    "names": ["kingdom"]
+  }
+}

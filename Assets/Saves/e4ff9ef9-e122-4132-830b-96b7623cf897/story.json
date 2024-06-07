@@ -1,0 +1,304 @@
+{
+  "a": {
+    "_0_bg": "magical_forest",
+    "_0": "You are Mae, a young druid with a deep connection to the magic of the forest. The once vibrant and thriving forest is now fading, its magic disappearing.",
+    "_1": "As you walk through the forest, you notice the leaves turning brown and the flowers wilting.",
+    "_0_player": "Something is terribly wrong. I must find the source of this decay and stop it.",
+    "_2": "You come across Kayla, a wood nymph with green hair, skin, and eyes. She looks troubled.",
+    "_0_apr": "Kayla",
+    "_0_npc": {
+      "name": "Kayla",
+      "txt": "Mae, the forest's magic is vanishing. We need to find out why and stop it."
+    },
+    "_1_player": "You're right, Kayla. Let's work together to save our home.",
+    "_3": "The two of you set off deeper into the forest, determined to uncover the cause of the problem.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Follow the trail of dying plants."
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Seek out the oldest tree in the forest."
+      },
+      "chc_2": {
+        "br": "d",
+        "txt": "Look for other magical creatures for clues."
+      }
+    }
+  },
+  "b": {
+    "_0": "You and Kayla follow the trail of dying plants, hoping it will lead you to the source of the problem.",
+    "_1": "As you walk, the forest becomes darker and more lifeless.",
+    "_2": "Suddenly, you hear a rustling in the bushes and see Maelor, a brunet fairy with blue eyes and wings.",
+    "_0_apr": "Maelor",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Mae, Kayla, I've been looking for you. I think I know what's happening."
+    },
+    "_1_player": "Maelor, what have you discovered?",
+    "_3": "Maelor explains that he believes an evil witch is consuming the forest's magic.",
+    "_4": "You and Kayla decide to confront the witch and put an end to her evil plans.",
+    "_jmp": {
+      "chc_0": {
+        "br": "e",
+        "txt": "Confront the witch directly."
+      },
+      "chc_1": {
+        "br": "f",
+        "txt": "Try to gather more information first."
+      }
+    }
+  },
+  "c": {
+    "_0": "You and Kayla decide to seek out the oldest tree in the forest, believing it to be the source of the magic.",
+    "_1": "As you approach the ancient tree, you feel a sense of power and wisdom emanating from it.",
+    "_2": "Suddenly, you see Maelor flying towards you with a worried expression.",
+    "_0_apr": "Maelor",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Mae, Kayla, we have a problem. An evil witch is draining the magic from the forest."
+    },
+    "_1_player": "We must stop her. The oldest tree holds the key to our magic. We can't let her consume it.",
+    "_3": "Together, you decide to confront the witch and protect the tree.",
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Head to the witch's lair."
+      },
+      "chc_1": {
+        "br": "h",
+        "txt": "Set a trap for the witch at the tree."
+      }
+    }
+  },
+  "d": {
+    "_0": "You and Kayla decide to look for other magical creatures in the forest, hoping they might have clues about the disappearing magic.",
+    "_1": "As you search, you come across Maelor, who seems to be in a hurry.",
+    "_0_apr": "Maelor",
+    "_0_npc": {
+      "name": "Maelor",
+      "txt": "Mae, Kayla, we need to act fast. An evil witch is behind the forest's plight."
+    },
+    "_1_player": "We must stop her before it's too late. Do you know where she is?",
+    "_3": "Maelor nods and leads you to the witch's lair.",
+    "_jmp": {
+      "chc_0": {
+        "br": "i",
+        "txt": "Confront the witch immediately."
+      },
+      "chc_1": {
+        "br": "j",
+        "txt": "Plan a strategy before attacking."
+      }
+    }
+  },
+  "e": {
+    "_0": "You and your companions march towards the witch's lair, determined to confront her directly.",
+    "_1": "As you enter the lair, you see Agni, the red-haired witch with red eyes, standing over a cauldron of swirling magic.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "Ah, the druid and her friends. You're too late. The forest's magic will be mine."
+    },
+    "_1_player": "We won't let you get away with this, Agni!",
+    "_2": "A fierce battle ensues. You and your friends fight bravely, but Agni is powerful.",
+    "_3": "With a final, desperate spell, you manage to banish Agni and save the forest's magic.",
+    "_0_dspr": "Agni",
+    "_4": "The forest begins to heal, its magic returning.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "f": {
+    "_0": "You decide to gather more information before confronting the witch.",
+    "_1": "Kayla and Maelor spread out to find clues while you meditate near the ancient tree.",
+    "_2": "In a vision, the tree reveals that the witch's power comes from a dark artifact hidden in the forest.",
+    "_3": "You reunite with your friends and share your discovery.",
+    "_jmp": {
+      "chc_0": {
+        "br": "k",
+        "txt": "Search for the dark artifact."
+      },
+      "chc_1": {
+        "br": "l",
+        "txt": "Set a trap for the witch using the artifact."
+      }
+    }
+  },
+  "g": {
+    "_0": "You head to the witch's lair with determination.",
+    "_1": "As you approach, you see Agni, the red-haired witch, performing a dark ritual.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "So, you've found me. But it's too late. The forest's magic will be mine."
+    },
+    "_1_player": "We won't let you destroy our home, Agni!",
+    "_2": "A battle ensues, with spells and magic flying through the air.",
+    "_3": "With the combined efforts of Kayla and Maelor, you manage to overpower Agni and break her hold on the forest.",
+    "_0_dspr": "Agni",
+    "_4": "The forest's magic is restored, and peace returns.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "h": {
+    "_0": "You decide to set a trap for the witch at the oldest tree, hoping to catch her off guard.",
+    "_1": "With the help of Kayla and Maelor, you prepare a powerful spell to trap Agni.",
+    "_2": "As night falls, Agni approaches the tree, drawn by its powerful magic.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "The magic of this tree will be mine!"
+    },
+    "_1_player": "Now, Kayla! Maelor! Spring the trap!",
+    "_3": "The trap is sprung, and Agni is caught in a web of magic.",
+    "_4": "With her powers neutralized, you confront Agni and banish her from the forest.",
+    "_0_dspr": "Agni",
+    "_5": "The forest begins to heal, its magic returning.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "i": {
+    "_0": "You decide to confront the witch immediately, hoping to catch her off guard.",
+    "_1": "As you enter her lair, you see Agni, the red-haired witch, draining the magic from a crystal.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "So, the druid and her friends have come to stop me. How amusing."
+    },
+    "_1_player": "We won't let you destroy the forest, Agni!",
+    "_2": "A fierce battle ensues, with spells and magic flying through the air.",
+    "_3": "With the combined efforts of Kayla and Maelor, you manage to overpower Agni and shatter the crystal.",
+    "_0_dspr": "Agni",
+    "_4": "The forest's magic is restored, and peace returns.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "j": {
+    "_0": "You decide to plan a strategy before attacking the witch, hoping to increase your chances of success.",
+    "_1": "Kayla suggests using the power of the oldest tree to weaken Agni.",
+    "_2": "Maelor agrees and adds that a direct confrontation might be too dangerous.",
+    "_3": "Together, you come up with a plan to lure Agni to the tree and use its magic to trap her.",
+    "_jmp": {
+      "chc_0": {
+        "br": "m",
+        "txt": "Lure Agni to the tree."
+      },
+      "chc_1": {
+        "br": "n",
+        "txt": "Prepare the tree's magic for the confrontation."
+      }
+    }
+  },
+  "k": {
+    "_0": "You decide to search for the dark artifact that the witch is using to drain the forest's magic.",
+    "_1": "With the help of Kayla and Maelor, you scour the forest for clues.",
+    "_2": "After hours of searching, you find the artifact hidden in a cave.",
+    "_3": "Using your druidic powers, you cleanse the artifact and break its hold on the forest.",
+    "_4": "The forest's magic begins to return, and you feel a sense of relief.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "l": {
+    "_0": "You decide to set a trap for the witch using the dark artifact.",
+    "_1": "With the help of Kayla and Maelor, you prepare a powerful spell to neutralize the artifact's magic.",
+    "_2": "As night falls, Agni approaches the artifact, drawn by its dark power.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "The magic of this artifact will be mine!"
+    },
+    "_1_player": "Now, Kayla! Maelor! Spring the trap!",
+    "_3": "The trap is sprung, and Agni is caught in a web of magic.",
+    "_4": "With her powers neutralized, you confront Agni and banish her from the forest.",
+    "_0_dspr": "Agni",
+    "_5": "The forest begins to heal, its magic returning.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "m": {
+    "_0": "You decide to lure Agni to the oldest tree, hoping to use its magic to trap her.",
+    "_1": "With the help of Kayla and Maelor, you prepare a powerful spell to trap Agni.",
+    "_2": "As night falls, Agni approaches the tree, drawn by its powerful magic.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "The magic of this tree will be mine!"
+    },
+    "_1_player": "Now, Kayla! Maelor! Spring the trap!",
+    "_3": "The trap is sprung, and Agni is caught in a web of magic.",
+    "_4": "With her powers neutralized, you confront Agni and banish her from the forest.",
+    "_0_dspr": "Agni",
+    "_5": "The forest begins to heal, its magic returning.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "n": {
+    "_0": "You decide to prepare the tree's magic for the confrontation, hoping to weaken Agni.",
+    "_1": "With the help of Kayla and Maelor, you channel the tree's magic into a powerful spell.",
+    "_2": "As night falls, Agni approaches the tree, drawn by its powerful magic.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "The magic of this tree will be mine!"
+    },
+    "_1_player": "Now, Kayla! Maelor! Spring the trap!",
+    "_3": "The trap is sprung, and Agni is caught in a web of magic.",
+    "_4": "With her powers neutralized, you confront Agni and banish her from the forest.",
+    "_0_dspr": "Agni",
+    "_5": "The forest begins to heal, its magic returning.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "o": {
+    "_0": "As you delve deeper into the forest, you and your companions find yourselves on the edge of a mystical glade.",
+    "_1": "The air is thick with residual magic, and you feel a strange presence nearby.",
+    "_2": "Suddenly, Agni appears, her eyes burning with malice.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "You meddling fools! You cannot stop me."
+    },
+    "_1_player": "We will protect this forest at all costs!",
+    "_3": "A fierce battle ensues, with spells and magic flying through the air.",
+    "_4": "With the combined efforts of Kayla and Maelor, you manage to overpower Agni and break her hold on the forest.",
+    "_0_dspr": "Agni",
+    "_5": "The forest's magic is restored, and peace returns.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "p": {
+    "_0": "As you explore the forest, you come across a group of magical creatures who are also suffering from the loss of magic.",
+    "_1": "They tell you that the source of the problem lies deep within the heart of the forest.",
+    "_2": "Determined to save your home, you and your companions set off towards the heart of the forest.",
+    "_3": "Along the way, you encounter Agni, who is draining the magic from the forest.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "You cannot stop me. The magic will be mine."
+    },
+    "_1_player": "We will protect our home and its magic!",
+    "_4": "A fierce battle ensues, with spells and magic flying through the air.",
+    "_5": "With the combined efforts of Kayla and Maelor, you manage to overpower Agni and break her hold on the forest.",
+    "_0_dspr": "Agni",
+    "_6": "The forest's magic is restored, and peace returns.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "q": {
+    "_0": "You and your companions find a hidden grove that seems untouched by the loss of magic.",
+    "_1": "In the center of the grove, you find a magical spring that seems to be the source of the forest's magic.",
+    "_2": "As you approach the spring, Agni appears, her eyes burning with malice.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "You cannot stop me. The magic will be mine."
+    },
+    "_1_player": "We will protect this forest at all costs!",
+    "_3": "A fierce battle ensues, with spells and magic flying through the air.",
+    "_4": "With the combined efforts of Kayla and Maelor, you manage to overpower Agni and protect the spring.",
+    "_0_dspr": "Agni",
+    "_5": "The forest's magic begins to return, and you feel a sense of relief.",
+    "_end": "You have saved the forest and restored its magic. Peace and harmony return to the land."
+  },
+  "r": {
+    "_0": "As you explore the forest, you come across an ancient stone circle that seems to be a focal point for the forest's magic.",
+    "_1": "In the center of the circle, you find a crystal that seems to be absorbing the forest's magic.",
+    "_2": "As you approach the crystal, Agni appears, her eyes burning with malice.",
+    "_0_apr": "Agni",
+    "_0_npc": {
+      "name": "Agni",
+      "txt": "You cannot stop me. The magic will be mine."
+    }
+  }
+}

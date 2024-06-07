@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void LoadPlayerImage()
     {
-        string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"player.jpg");
+        string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"player.png");
         Texture2D texture = LoadTexture(imagePath);
         if (texture != null)
         {
@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Failed to load texture at path: " + imagePath);
+            Debug.LogError("Failed to load player texture at: " + imagePath);
         }
     }
 

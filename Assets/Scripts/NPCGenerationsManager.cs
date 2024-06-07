@@ -97,7 +97,7 @@ public class NPCGenerationsManager : MonoBehaviour
         Destroy(inputForm);
     }
 
-    public List<string> GetAllNPCImagePrompts()
+    public List<string> GetAllNPCNovelPrompts()
     {
         List<string> prompts = new List<string>();
         foreach (GameObject form in npcInputForms)
