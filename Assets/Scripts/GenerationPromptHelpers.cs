@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this explains the structure of the story.json to the model
 public class GenerationPromptHelper : MonoBehaviour
 {
   public static string gptExplanation = @"You create JSON-formatted texts for visual novels depending on user prompt. The keys include:

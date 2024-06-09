@@ -7,18 +7,19 @@ using UnityEngine.UI;
 
 public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    public RawImage rawImage;
-    public Texture2D baseTexture;
-    private Texture2D combinedTexture;
-    private Texture2D maskTexture;
-    public Color paintColor = Color.black;
-    public int brushSize;
-    public Slider brushSizeSlider;
+    public RawImage rawImage; // The UI element to display the texture
+    public Texture2D baseTexture; // The base texture on which to paint
+    private Texture2D combinedTexture; // The combined texture of base and mask
+    private Texture2D maskTexture; // The mask texture for painting
+    public Color paintColor = Color.black; // The color to paint with
+    public int brushSize; // The size of the brush
+    public Slider brushSizeSlider; // Slider to control brush size
 
-    private bool isPainting = false;
+    private bool isPainting = false; // Flag to track if painting is active
 
     void Start()
     {
+        // Add listener to brush size slider
         if (brushSizeSlider != null)
         {
             brushSizeSlider.onValueChanged.AddListener(UpdateBrushSize);
@@ -27,6 +28,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         CleanCanvas();
     }
 
+    // Reset and initialize the textures
     public void CleanCanvas()
     {
         InitializeTextures();
@@ -34,6 +36,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         rawImage.texture = combinedTexture;
     }
 
+    // Initialize base, mask, and combined textures
     private void InitializeTextures()
     {
         if (baseTexture == null)
@@ -41,7 +44,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             return;
         }
 
-        // Initialize the mask texture
+        // Initialize the mask texture with transparent pixels
         maskTexture = new Texture2D(baseTexture.width, baseTexture.height, TextureFormat.ARGB32, false);
         Color[] pixels = new Color[maskTexture.width * maskTexture.height];
         for (int i = 0; i < pixels.Length; i++)
@@ -55,17 +58,20 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         combinedTexture = new Texture2D(baseTexture.width, baseTexture.height, TextureFormat.ARGB32, false);
     }
 
+    // Start painting when the pointer is pressed down
     public void OnPointerDown(PointerEventData eventData)
     {
         isPainting = true;
         Paint(eventData.position);
     }
 
+    // Stop painting when the pointer is released
     public void OnPointerUp(PointerEventData eventData)
     {
         isPainting = false;
     }
 
+    // Continue painting as the pointer is dragged
     public void OnDrag(PointerEventData eventData)
     {
         if (isPainting)
@@ -74,8 +80,10 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
+    // Paint on the mask texture at the specified screen position
     private void Paint(Vector2 screenPosition)
     {
+        // Convert screen position to local coordinates
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rawImage.rectTransform, screenPosition, null, out Vector2 localPoint);
         Vector2 textureCoord = new Vector2((localPoint.x + rawImage.rectTransform.rect.width / 2) / rawImage.rectTransform.rect.width,
                                            (localPoint.y + rawImage.rectTransform.rect.height / 2) / rawImage.rectTransform.rect.height);
@@ -83,6 +91,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         int x = Mathf.FloorToInt(textureCoord.x * baseTexture.width);
         int y = Mathf.FloorToInt(textureCoord.y * baseTexture.height);
 
+        // Paint on the mask texture using the brush size and color
         for (int i = -brushSize; i < brushSize; i++)
         {
             for (int j = -brushSize; j < brushSize; j++)
@@ -101,6 +110,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         UpdateCombinedTexture();
     }
 
+    // Update the combined texture with the base and mask textures
     private void UpdateCombinedTexture()
     {
         for (int y = 0; y < baseTexture.height; y++)
@@ -116,6 +126,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         rawImage.texture = combinedTexture;
     }
 
+    // Erase painted areas on the base texture
     public Texture2D ErasePaintedAreas()
     {
         Color[] maskPixels = maskTexture.GetPixels();
@@ -133,6 +144,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         return baseTexture;
     }
 
+    // Get the mask texture as a PNG byte array
     public byte[] GetMaskBytes()
     {
         // Create a new texture for the mask with painted areas transparent
@@ -154,12 +166,14 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         return finalMaskTexture.EncodeToPNG();
     }
 
+    // Save the mask texture to a file
     public void SaveMask()
     {
         byte[] maskBytes = GetMaskBytes();
         File.WriteAllBytes(Path.Combine(Application.dataPath, "Saves", "temp", "npcMask.png"), maskBytes);
     }
 
+    // Update the base texture and reinitialize textures
     public void UpdateBaseTexture(Texture2D newTexture)
     {
         baseTexture = newTexture;
@@ -168,6 +182,7 @@ public class MaskPainter : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         rawImage.texture = combinedTexture;
     }
 
+    // Update the brush size
     public void UpdateBrushSize(float newSize)
     {
         brushSize = Mathf.FloorToInt(newSize);

@@ -4,9 +4,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Manager for loading/switching backgrounds in-game
 public class BackgroundManager : MonoBehaviour
 {
     [SerializeField] public Image backgroundImage;
+
+    // takes the background image name, finds in the save folder and loads it
     public void SwitchBackgroundImage(string backgroundName)
     {
         string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"{backgroundName}.png");
@@ -21,6 +24,7 @@ public class BackgroundManager : MonoBehaviour
         }
     }
 
+    // load texture utility function
     private Texture2D LoadTexture(string filePath)
     {
         if (File.Exists(filePath))

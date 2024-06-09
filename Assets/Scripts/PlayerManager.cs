@@ -8,6 +8,7 @@ using TMPro;
 using System.Linq;
 using System.IO;
 
+// in-game player image manager
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] public Image playerPortait;

@@ -109,22 +109,23 @@ public class GenerationManager : MonoBehaviour
     }
 
 
+    // Initialize the UI elements and add listeners for buttons
     void Start()
     {
-
         imageZoomScreen.SetActive(false);
-        finishFadeScreen.gameObject.SetActive(false);
+        finishFadeScreen.SetActive(false);
         playerRetouchScreen.SetActive(false);
         retouchEraseAreasPlayerPortraitButton.onClick.AddListener(EraseAreasOnImage);
 
-        generateNovelButton.onClick.AddListener(onGenerateNovelAsync);
-        generatePlayerPortraitButton.onClick.AddListener(onGeneratePlayerPortraitAsync);
+        generateNovelButton.onClick.AddListener(OnGenerateNovelAsync);
+        generatePlayerPortraitButton.onClick.AddListener(OnGeneratePlayerPortraitAsync);
 
         ZoomImageButtons();
 
         CleanLeftoverStaticData();
     }
 
+    // Add listeners to zoom image (when clicked on player image) buttons
     private void ZoomImageButtons()
     {
         var playerImageZoomButton = playerImageComponent.GetComponent<Button>();
@@ -139,16 +140,18 @@ public class GenerationManager : MonoBehaviour
             imageZoomScreenButton.onClick.AddListener(OnZoomScreenClick);
         }
     }
-    public void onClickGenerationButton()
+
+    // This is called when clicking generation tab
+    public void OnClickGenerationButton()
     {
         npcGenerationPanelManager.DeleteAllButtons();
-        prepareNovelPromptsAndSummary();
-        preparePlayerPromptsAndSummary();
-        prepareNPCsPromptsAndSummary();
+        PrepareNovelPromptsAndSummary();
+        PreparePlayerPromptsAndSummary();
+        PrepareNPCsPromptsAndSummary();
         npcGenerationPanelManager.AddNPCsToTheGenerationPanel();
     }
 
-    private void preparePlayerPromptsAndSummary()
+    private void PreparePlayerPromptsAndSummary()
     {
         playerPrompt = playerGenerationOptions.GetPlayerPortraitCompletePrompt();
         playerSummary.text = playerGenerationOptions.GetPlayerNovelPrompt();
@@ -156,7 +159,7 @@ public class GenerationManager : MonoBehaviour
         GeneratedContentHolder.playerName = playerGenerationOptions.GetPlayerName();
 
     }
-    private void prepareNovelPromptsAndSummary()
+    private void PrepareNovelPromptsAndSummary()
     {
         novelName = novelGenerationOptions.GetNovelName();
         novelPrompt = novelGenerationOptions.GetNovelPrompt();
@@ -165,7 +168,7 @@ public class GenerationManager : MonoBehaviour
         GeneratedContentHolder.novelName = novelGenerationOptions.GetNovelName();
         GeneratedContentHolder.novelSettingPrompt = novelGenerationOptions.GetCharacterPromptSettingDetail();
     }
-    private void prepareNPCsPromptsAndSummary()
+    private void PrepareNPCsPromptsAndSummary()
     {
 
         npcImagePrompts = npcGenerationsManagers.GetAllNPCCompleteImagePrompts();
@@ -178,23 +181,28 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-    public async void onClickFinishAndSaveGame()
+    // this is called after all the generation is done and the user is ready to prepare the game for play
+    public async void OnClickFinishAndSaveGame()
     {
-        finishFadeScreen.gameObject.SetActive(true);
+        finishFadeScreen.SetActive(true);
+
+        // create the save folder with a unique UUID
         GeneratedContentHolder.generatedStorySaveFolderPath = storyDataManager.CreateSaveFolderWithUUID();
+
+        // get the paths for moving process
         string tempSavePath = Path.Combine(Application.dataPath, "Saves", "temp");
         string imagesPath = Path.Combine(GeneratedContentHolder.generatedStorySaveFolderPath, "images");
 
-        // Move images to the orignal folder
+        // Move images to the original folder
         storyDataManager.moveNpcImages(tempSavePath, imagesPath);
         storyDataManager.movePlayerPortrait(tempSavePath, imagesPath);
 
         // Backgrounds are directly generated into original save folder!
-        saveBackgroundNamesToHolder();
-        await generateBackgroundImagesAsync();
+        SaveBackgroundNamesToHolder();
+        await GenerateBackgroundImagesAsync();
 
         // generate and save data.json
-        generateAndSaveDataJSONFile();
+        GenerateAndSaveDataJSONFile();
 
         // move story.json
         storyDataManager.moveStoryJSON(tempSavePath, GeneratedContentHolder.generatedStorySaveFolderPath);
@@ -206,6 +214,7 @@ public class GenerationManager : MonoBehaviour
         PlayGeneratedStory();
     }
 
+    // clean the temp folder and the static data for new game generation
     private void CleanLeftoverStaticData()
     {
         storyDataManager.DeleteAllContentsInTemp();
@@ -216,6 +225,8 @@ public class GenerationManager : MonoBehaviour
         ChosenStoryManager.chosenStorySaveFolderUUID = null;
         ChosenStoryManager.chosenStorySaveFolderPath = null;
     }
+
+    // loading the Game Scene after the generation is done
     public void PlayGeneratedStory()
     {
 
@@ -230,29 +241,29 @@ public class GenerationManager : MonoBehaviour
             Debug.LogError($"Failed to load story.json");
         }
     }
-    public async void onGeneratePlayerPortraitAsync()
+    public async void OnGeneratePlayerPortraitAsync()
     {
         loadingCircleManager.SetLoading(true, "player");
-        string playerImageUrl = await generateImage(playerPrompt, "1024", "1024");
+        string playerImageUrl = await GenerateImage(playerPrompt, "1024", "1024");
         StartCoroutine(GetAndAssignPlayerPortrait(playerImageUrl));
 
     }
-    public void openRetouchPlayerPortrait()
+    public void OpenRetouchPlayerPortrait()
     {
         playerRetouchScreen.SetActive(true);
     }
-    public void closeRetouchPlayerPortrait()
+    public void CloseRetouchPlayerPortrait()
     {
         playerRetouchScreen.SetActive(false);
     }
-    public async void onRetouchPlayerPortraitAsync()
+    public async void OnRetouchPlayerPortraitAsync()
     {
         loadingCircleManager.SetLoading(true, "playerRetouch");
-        string playerImageUrl = await retouchImage(retouchPlayerPortraitTextField.text, "1024", "1024");
+        string playerImageUrl = await RetouchImage(retouchPlayerPortraitTextField.text, "1024", "1024");
         StartCoroutine(GetAndAssignPlayerPortrait(playerImageUrl));
 
     }
-    public void onGenerateNovelAsync()
+    public void OnGenerateNovelAsync()
     {
         loadingCircleManager.SetLoading(true, "novel");
         string concatNpcNovelPrompts = "";
@@ -265,7 +276,9 @@ public class GenerationManager : MonoBehaviour
         string novelPromptWithChars = $"{novelPrompt}. The player = {playerPrompt}. NPCs = {concatNpcNovelPrompts}";
         StartCoroutine(GenerateAndDisplayStory(novelPromptWithChars));
     }
-    private async Task<string> generateImage(string prompt, string width, string height)
+
+    // Image generation using DALL-E 3
+    private async Task<string> GenerateImage(string prompt, string width, string height)
     {
         var client = new HttpClient();
 
@@ -301,49 +314,58 @@ public class GenerationManager : MonoBehaviour
             throw new HttpRequestException($"Request failed with status code {response.StatusCode}");
         }
     }
-    private async Task<string> retouchImage(string prompt, string width, string height)
+    private async Task<string> RetouchImage(string prompt, string width, string height)
     {
-
+        // Get the image bytes from the local file
         byte[] imageBytes = GetImage();
         if (imageBytes == null)
         {
             throw new Exception("Image data is null.");
         }
 
+        // Get the mask bytes created by the player mask painter
         byte[] maskBytes = playerMaskPainter.GetMaskBytes();
 
         using (var client = new HttpClient())
         {
+            // Add the authorization header with the API key
             client.DefaultRequestHeaders.Add("Authorization", Keys.apiKey);
 
+            // Prepare the multipart form data content
             var formData = new MultipartFormDataContent
         {
-            { new StringContent(prompt), "prompt" },
-            { new StringContent($"{width}x{height}"), "size" },
-            { new StringContent("dall-e-2"), "model" },
-            { new StringContent("1"), "n" }
+            { new StringContent(prompt), "prompt" }, // Add the prompt
+            { new StringContent($"{width}x{height}"), "size" }, // Add the size
+            { new StringContent("dall-e-2"), "model" }, // Add the model type
+            { new StringContent("1"), "n" } // Specify the number of images to generate
         };
 
+            // Add the image content as a PNG file
             var imageContent = new ByteArrayContent(imageBytes);
             imageContent.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/png");
             formData.Add(imageContent, "image", "image.png");
 
+            // Add the mask content as a PNG file
             var maskContent = new ByteArrayContent(maskBytes);
             maskContent.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/png");
             formData.Add(maskContent, "mask", "mask.png");
 
+            // Send the request to OpenAI's API
             HttpResponseMessage response = await client.PostAsync(
                 "https://api.openai.com/v1/images/edits",
                 formData);
 
+            // Check if the response is successful
             if (response.IsSuccessStatusCode)
             {
+                // Read and parse the response
                 string responseString = await response.Content.ReadAsStringAsync();
                 PortraitData portraitData = JsonUtility.FromJson<PortraitData>(responseString);
-                return portraitData.data[0].url;
+                return portraitData.data[0].url; // Return the URL of the retouched image
             }
             else
             {
+                // Handle error by setting loading indicators off and logging the error
                 loadingCircleManager.SetLoading(false, "player");
                 loadingCircleManager.SetLoading(false, "playerRetouch");
                 string errorContent = await response.Content.ReadAsStringAsync();
@@ -408,55 +430,60 @@ public class GenerationManager : MonoBehaviour
     }
     private async Task<string> GenerateNovel(string prompt)
     {
+
+        // Create a new HttpClient to send the request
         var client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Authorization", Keys.apiKey);
+        client.DefaultRequestHeaders.Add("Authorization", Keys.apiKey); // Add the authorization header with the API key
 
         // Prepare the JSON payload for the request
         var payload = new JObject
         {
-            ["model"] = "gpt-4o",
+            ["model"] = "gpt-4o", // Specify the model to use
             ["messages"] = new JArray
         {
             new JObject
             {
-                ["role"] = "system",
+                ["role"] = "system", // Add the system role with the explanation content
                 ["content"] = GenerationPromptHelper.gptExplanation
             },
             new JObject
             {
-                ["role"] = "user",
+                ["role"] = "user", // Add the user role with the prompt content
                 ["content"] = prompt
             }
         },
-            ["temperature"] = 0.7,
-            ["max_tokens"] = 4025
+            ["temperature"] = 0.7, // Set the temperature for the generation
+            ["max_tokens"] = 4025 // Set the maximum number of tokens
         };
 
+        // Convert the payload to a JSON string
         string jsonContent = payload.ToString();
         Debug.Log("JSON Payload: " + jsonContent);
-        var requestContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+        var requestContent = new StringContent(jsonContent, Encoding.UTF8, "application/json"); // Create the request content
 
         // Send the request to OpenAI's API
         HttpResponseMessage response = await client.PostAsync(
             "https://api.openai.com/v1/chat/completions",
             requestContent);
 
+        // Check if the response is successful
         if (response.IsSuccessStatusCode)
         {
+            // Read and parse the response
             string responseString = await response.Content.ReadAsStringAsync();
             Debug.Log(responseString);
 
-            // Assuming the response JSON structure and extracting the story text
+            // Extracting the story text from the response JSON structure
             var jsonResponse = JsonUtility.FromJson<OpenAIResponse>(responseString);
 
-            var storyJsonString = jsonResponse.choices[0].message.content;
-            string cleansedStoryJsonString = CleanseJsonString(storyJsonString);
+            var storyJsonString = jsonResponse.choices[0].message.content; // Get the generated story content
+            string cleansedStoryJsonString = CleanseJsonString(storyJsonString); // Cleanse the JSON string
 
+            // Saving the story.json to the temp folder
             string path = Path.Combine(Application.dataPath, "Saves", "temp", "story.json");
-            storyDataManager.SaveJsonToFile(cleansedStoryJsonString, path);
+            storyDataManager.SaveJsonToFile(cleansedStoryJsonString, path); // Save the JSON string to a file
 
-
-            return storyJsonString;
+            return storyJsonString; // Return the generated story content
         }
         else
         {
@@ -479,7 +506,7 @@ public class GenerationManager : MonoBehaviour
         return jsonString.Trim();
     }
 
-    public async Task generateBackgroundImagesAsync()
+    public async Task GenerateBackgroundImagesAsync()
     {
         foreach (string bgImageName in GeneratedContentHolder.backgroundNames)
         {
@@ -487,13 +514,16 @@ public class GenerationManager : MonoBehaviour
             "I want you to draw a background for this background with the given settings. The background = " +
             bgImageName;
 
-            string bgImageUrl = await generateImage(backgroundPrompt, "1792", "1024");
+            string bgImageUrl = await GenerateImage(backgroundPrompt, "1792", "1024");
             StartCoroutine(GetAndSaveBackgroundImage(bgImageUrl, bgImageName));
 
         }
 
     }
-    private void generateAndSaveDataJSONFile()
+
+
+    // generation of data.json file (meta data of the novel)
+    private void GenerateAndSaveDataJSONFile()
     {
 
         var npcsArray = new JArray();
@@ -531,7 +561,7 @@ public class GenerationManager : MonoBehaviour
 
     }
 
-    public void saveBackgroundNamesToHolder()
+    public void SaveBackgroundNamesToHolder()
     {
         var backgroundNames = new List<string>();
 
@@ -614,17 +644,22 @@ public class GenerationManager : MonoBehaviour
         }
     }
 
-
     public void EraseAreasOnImage()
     {
+        // Erase the painted areas on the image and get the cleaned texture
         Texture2D cleanedTexture = playerMaskPainter.ErasePaintedAreas();
 
+        // Update the raw image texture in the player mask painter with the cleaned texture
         playerMaskPainter.rawImage.texture = cleanedTexture;
 
         string path = Path.Combine(Application.dataPath, "Saves", "temp", "player.png");
+
         imageProcessor.SaveTexture(cleanedTexture, path);
 
         Sprite sprite = Sprite.Create(cleanedTexture, new Rect(0, 0, cleanedTexture.width, cleanedTexture.height), new Vector2(0.5f, 0.5f));
+
+        // Update the player image component with the new sprite
         playerImageComponent.sprite = sprite;
+
     }
 }

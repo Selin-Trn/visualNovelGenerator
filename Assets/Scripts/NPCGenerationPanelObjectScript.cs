@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 public class NPCGenerationPanelObjectScript : MonoBehaviour
 {
-
+    // Public fields and references to other components
     public ImageProcessor imageProcessor;
     public TextMeshProUGUI npcSummary;
     public Image npcImageComponent;
@@ -35,9 +35,9 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
     public string npcImagePrompt;
     public string npcImageCompletePrompt;
     public string npcNovelPrompt;
-
     public string npcName;
 
+    // Serializable classes for portrait data
     [System.Serializable]
     public class PortraitData
     {
@@ -51,11 +51,15 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         public string revised_prompt;
         public string url;
     }
+
+    // Initialize the component
     void Start()
     {
+        // Instantiate the retouch screen
         GameObject npcRetouchScreenInstance = Instantiate(npcRetouchScreenPrefab, npcRetouchScreensContainer);
         npcRetouchScreenScript = npcRetouchScreenInstance.GetComponent<NPCRetouchScreenScript>();
 
+        // Add listeners to buttons
         generateNpcPortraitButton.onClick.AddListener(onGenerateNPCPortraitAsync);
         npcRetouchScreenScript.retouchNpcPortraitButton.onClick.AddListener(onRetouchNPCPortraitAsync);
         npcRetouchScreenScript.retouchEraseAreasNpcPortraitButton.onClick.AddListener(EraseAreasOnImage);
@@ -64,6 +68,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         npcRetouchScreenScript.npcRetouchScreen.SetActive(false);
         npcRetouchScreenInstance.SetActive(false);
 
+        // Load and assign image
         LoadAndAssignImage(npcName);
         SetLoading(false);
         SetRetouchLoading(false);
@@ -74,10 +79,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             button.onClick.AddListener(OnNpcImageClick);
         }
 
-
         npcRetouchScreenScript.retouchNpcPortraitButton.onClick.AddListener(onRetouchNPCPortraitAsync);
     }
 
+    // Generate NPC portrait asynchronously
     public async void onGenerateNPCPortraitAsync()
     {
         SetLoading(true);
@@ -92,6 +97,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             SetLoading(false);
         }
     }
+
+    // Retouch NPC portrait asynchronously
     public async void onRetouchNPCPortraitAsync()
     {
         SetRetouchLoading(true);
@@ -106,6 +113,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             SetRetouchLoading(false);
         }
     }
+
+    // Generate an image using a prompt
     private async Task<string> generateImage(string prompt, string width, string height)
     {
         using (var client = new HttpClient())
@@ -131,9 +140,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             }
         }
     }
+
+    // Retouch an image using a prompt and mask
     private async Task<string> retouchImage(string prompt, string width, string height)
     {
-
         byte[] imageBytes = GetImage(npcName);
         if (imageBytes == null)
         {
@@ -147,12 +157,12 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             client.DefaultRequestHeaders.Add("Authorization", Keys.apiKey);
 
             var formData = new MultipartFormDataContent
-        {
-            { new StringContent(prompt), "prompt" },
-            { new StringContent($"{width}x{height}"), "size" },
-            { new StringContent("dall-e-2"), "model" },
-            { new StringContent("1"), "n" }
-        };
+            {
+                { new StringContent(prompt), "prompt" },
+                { new StringContent($"{width}x{height}"), "size" },
+                { new StringContent("dall-e-2"), "model" },
+                { new StringContent("1"), "n" }
+            };
 
             var imageContent = new ByteArrayContent(imageBytes);
             imageContent.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("image/png");
@@ -180,6 +190,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             }
         }
     }
+
+    // Get and assign NPC portrait from a URL
     private IEnumerator GetAndAssignNPCPortrait(string imageUrl)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
@@ -208,13 +220,11 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-
+    // Set loading state for the main loading circle
     public void SetLoading(bool isLoading)
     {
-
         if (isLoading)
         {
-
             loadingCircleNPC.gameObject.SetActive(true);
             if (rotationCoroutine == null)
             {
@@ -223,7 +233,6 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
         else
         {
-            // Hide the loading circle and stop rotating
             loadingCircleNPC.gameObject.SetActive(false);
             if (rotationCoroutine != null)
             {
@@ -233,6 +242,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
+    // Set loading state for the retouch loading circle
     public void SetRetouchLoading(bool isLoading)
     {
         if (isLoading)
@@ -254,6 +264,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
+    // Coroutine to rotate the main loading circle
     private IEnumerator RotateLoadingCircle()
     {
         while (true)
@@ -263,6 +274,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
+    // Coroutine to rotate the retouch loading circle
     private IEnumerator RotateRetouchLoadingCircle()
     {
         while (true)
@@ -271,6 +283,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             yield return null;
         }
     }
+
+    // Load and assign image to the NPC image component
     public void LoadAndAssignImage(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -301,6 +315,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             Debug.Log($"File not found at path: {filePath}");
         }
     }
+
+    // Get image bytes from a file
     public byte[] GetImage(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -316,6 +332,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             return null;
         }
     }
+
+    // Get a Texture2D from a file
     public Texture2D GetImageTexture(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -341,6 +359,8 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             return null;
         }
     }
+
+    // Handle NPC image click to zoom the image
     private void OnNpcImageClick()
     {
         if (npcImageComponent.sprite != null)
@@ -353,18 +373,21 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             Debug.LogWarning("NPC image component has no sprite assigned.");
         }
     }
+
+    // Open the NPC retouch screen
     public void OpenRetouchNPCImage()
     {
         npcRetouchScreenScript.npcRetouchScreen.SetActive(true);
         npcRetouchScreenScript.npcMaskPainter.UpdateBaseTexture(GetImageTexture(npcName));
-
     }
+
+    // Close the NPC retouch screen
     public void CloseRetouchNPCImage()
     {
         npcRetouchScreenScript.npcRetouchScreen.SetActive(false);
-
     }
 
+    // Erase painted areas on the image
     public void EraseAreasOnImage()
     {
         Texture2D cleanedTexture = npcRetouchScreenScript.npcMaskPainter.ErasePaintedAreas();
@@ -377,5 +400,4 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         Sprite sprite = Sprite.Create(cleanedTexture, new Rect(0, 0, cleanedTexture.width, cleanedTexture.height), new Vector2(0.5f, 0.5f));
         npcImageComponent.sprite = sprite;
     }
-
 }

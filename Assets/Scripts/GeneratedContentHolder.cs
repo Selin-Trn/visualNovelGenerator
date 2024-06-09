@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this is to communicate the generation variables in-between scripts
+// static variables shares value among all objects at the class level, therefore it remains constant
 public class GeneratedContentHolder : MonoBehaviour
 {
     public static string generatedStorySaveFolderPath;

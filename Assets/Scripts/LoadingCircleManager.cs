@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+// manager foor circles that turn when an iamge is being generated/retouched or novel text generated
 public class LoadingCircleManager : MonoBehaviour
 {
     public Image loadingCircleNovel;

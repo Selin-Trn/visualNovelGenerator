@@ -5,11 +5,25 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
+// this is mostly for handling the background for NPCs
+// DALL-E is unable to create images with alpha value (transparency)
+// therefore, I created a logic where the background is generated white and
+// an algorithm detects the white background and erases it
 public class ImageProcessor : MonoBehaviour
 {
     private Color backgroundColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
+
+    /*
+    * This removes a specified background color from an image by making pixels with that color transparent 
+    * it starts by creating a new texture identical to the original and uses a flood fill algorithm to traverse and process pixels
+    * it enqueues all edge pixels and checks if their color matches the target color within a defined tolerance
+    * if a pixel matches, it is set to transparent, and its neighboring pixels are added to the queue for further processing
+    * this continues until all relevant pixels are processed
+    * finally, the changes are applied to the new texture, which is then returned with the background color removed
+    */
     public Texture2D RemoveBackgroundColor(Texture2D originalTexture)
     {
+        // Define the target color and tolerance for background removal
         Color targetColor = backgroundColor;
         int tolerance = 40; // Adjust this tolerance as needed
 
@@ -20,7 +34,7 @@ public class ImageProcessor : MonoBehaviour
         // Flood fill from the edges
         Queue<Vector2Int> pixels = new Queue<Vector2Int>();
 
-        // Add edge pixels
+        // Add edge pixels to the queue
         for (int x = 0; x < newTexture.width; x++)
         {
             pixels.Enqueue(new Vector2Int(x, 0)); // Top edge
@@ -32,6 +46,7 @@ public class ImageProcessor : MonoBehaviour
             pixels.Enqueue(new Vector2Int(newTexture.width - 1, y)); // Right edge
         }
 
+        // Process the queue and set the target color pixels to transparent
         while (pixels.Count > 0)
         {
             Vector2Int point = pixels.Dequeue();
@@ -50,6 +65,7 @@ public class ImageProcessor : MonoBehaviour
         return newTexture;
     }
 
+    // Check if a pixel color matches the target color within a given tolerance
     private bool IsTargetColor(Color pixelColor, Color targetColor, int tolerance)
     {
         return Mathf.Abs(pixelColor.r - targetColor.r) * 255 <= tolerance &&
@@ -57,6 +73,7 @@ public class ImageProcessor : MonoBehaviour
                Mathf.Abs(pixelColor.b - targetColor.b) * 255 <= tolerance;
     }
 
+    // Add valid neighboring pixels to the queue
     private void EnqueueIfValid(Queue<Vector2Int> queue, int x, int y, int width, int height)
     {
         if (x >= 0 && x < width && y >= 0 && y < height)
@@ -65,6 +82,7 @@ public class ImageProcessor : MonoBehaviour
         }
     }
 
+    // Load a texture from a file
     public Texture2D LoadTexture(string filePath)
     {
         byte[] fileData = File.ReadAllBytes(filePath);
@@ -74,12 +92,14 @@ public class ImageProcessor : MonoBehaviour
         return null;
     }
 
+    // Save a texture to a file in PNG format
     public void SaveTexture(Texture2D texture, string filePath)
     {
         byte[] bytes = texture.EncodeToPNG(); // Encode the texture into PNG format
         File.WriteAllBytes(filePath, bytes); // Write to file
     }
 
+    // Download an image from a URL and save it to a file
     public IEnumerator DownloadAndSaveImage(string imageUrl, string savePath, Action<Texture2D> onSuccess, Action<string> onFailure)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
@@ -87,17 +107,20 @@ public class ImageProcessor : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
+            // Save the downloaded texture and invoke the success callback
             Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             SaveTexture(texture, savePath);
             onSuccess?.Invoke(texture);
         }
         else
         {
+            // Log the error and invoke the failure callback
             Debug.LogError($"Failed to download image from {imageUrl}. Error: {request.error}");
             onFailure?.Invoke(request.error);
         }
     }
 
+    // Generate a transparent mask with the specified width and height
     public byte[] GenerateTransparentMask(int width, int height)
     {
         // Create a new transparent texture with the same dimensions as the original image
@@ -112,4 +135,5 @@ public class ImageProcessor : MonoBehaviour
 
         return maskTexture.EncodeToPNG();
     }
+
 }

@@ -4235,7 +4235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.4999924, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173854851
@@ -4586,7 +4586,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 185055376}
         m_TargetAssemblyTypeName: GenerationManager, Assembly-CSharp
-        m_MethodName: closeRetouchPlayerPortrait
+        m_MethodName: CloseRetouchPlayerPortrait
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9724,7 +9724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.5000153, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391331816
@@ -23628,7 +23628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 185055376}
         m_TargetAssemblyTypeName: GenerationManager, Assembly-CSharp
-        m_MethodName: onRetouchPlayerPortraitAsync
+        m_MethodName: OnRetouchPlayerPortraitAsync
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24606,7 +24606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.5000153, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965461891
@@ -26618,7 +26618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.5000153, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059994764
@@ -29911,7 +29911,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 185055376}
         m_TargetAssemblyTypeName: GenerationManager, Assembly-CSharp
-        m_MethodName: onClickFinishAndSaveGame
+        m_MethodName: OnClickFinishAndSaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34721,7 +34721,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 185055376}
         m_TargetAssemblyTypeName: GenerationManager, Assembly-CSharp
-        m_MethodName: onClickGenerationButton
+        m_MethodName: OnClickGenerationButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43459,7 +43459,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 578654652}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.012962097
+  m_Size: 0.010643913
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -43663,7 +43663,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 185055376}
         m_TargetAssemblyTypeName: GenerationManager, Assembly-CSharp
-        m_MethodName: openRetouchPlayerPortrait
+        m_MethodName: OpenRetouchPlayerPortrait
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
