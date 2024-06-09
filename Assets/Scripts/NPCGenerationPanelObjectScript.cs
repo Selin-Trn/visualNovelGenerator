@@ -30,6 +30,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
     [SerializeField] private GameObject npcRetouchScreenPrefab;
     [SerializeField] public Transform npcRetouchScreensContainer;
     private Coroutine rotationCoroutine;
+    private Coroutine retouchRotationCoroutine;
 
     public string npcImagePrompt;
     public string npcImageCompletePrompt;
@@ -96,7 +97,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         SetRetouchLoading(true);
         try
         {
-            string npcImageUrl = await retouchImage(npcRetouchScreenScript.retouchNpcPortraitTextField.text + " Make the image background pure white without any effects no matter what.", "1024", "1024");
+            string npcImageUrl = await retouchImage(npcRetouchScreenScript.retouchNpcPortraitTextField.text + " Make the image background RGB color (137, 144, 143) without any effects no matter what.", "1024", "1024");
             StartCoroutine(GetAndAssignNPCPortrait(npcImageUrl));
         }
         catch (Exception ex)
@@ -187,7 +188,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
-            Texture2D cleanedNpcTexture = imageProcessor.RemoveWhiteBackground(texture);
+            Texture2D cleanedNpcTexture = imageProcessor.RemoveBackgroundColor(texture);
 
             npcRetouchScreenScript.npcMaskPainter.UpdateBaseTexture(cleanedNpcTexture);
 
@@ -234,27 +235,25 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
 
     public void SetRetouchLoading(bool isLoading)
     {
-
         if (isLoading)
         {
-
             npcRetouchScreenScript.retouchLoadingCircleNPC.gameObject.SetActive(true);
-            if (rotationCoroutine == null)
+            if (retouchRotationCoroutine == null)
             {
-                rotationCoroutine = StartCoroutine(RotateRetouchLoadingCircle());
+                retouchRotationCoroutine = StartCoroutine(RotateRetouchLoadingCircle());
             }
         }
         else
         {
-            // Hide the loading circle and stop rotating
-            npcRetouchScreenScript.retouchLoadingCircleNPC.gameObject.SetActive(false);
-            if (rotationCoroutine != null)
+            if (retouchRotationCoroutine != null)
             {
-                StopCoroutine(rotationCoroutine);
-                rotationCoroutine = null;
+                StopCoroutine(retouchRotationCoroutine);
+                retouchRotationCoroutine = null;
             }
+            npcRetouchScreenScript.retouchLoadingCircleNPC.gameObject.SetActive(false);
         }
     }
+
     private IEnumerator RotateLoadingCircle()
     {
         while (true)
@@ -263,6 +262,7 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
             yield return null;
         }
     }
+
     private IEnumerator RotateRetouchLoadingCircle()
     {
         while (true)

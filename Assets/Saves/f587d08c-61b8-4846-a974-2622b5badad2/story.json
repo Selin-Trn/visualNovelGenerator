@@ -1,0 +1,375 @@
+{
+  "a": {
+    "_0_bg": "city_night",
+    "_0": "The city's neon lights flicker ominously as you walk its dark streets. You are Bob, a hitman with a dangerous reputation. Tonight, the city feels colder and crueler.",
+    "_1": "Your heart aches as you think of Daisy, your loyal companion, who was brutally taken from you. She was a gift from your late wife, a symbol of the love and peace you once had.",
+    "_2": "Now, there is only darkness and the burning desire for revenge. You know who is responsible: Ivan, the son of the ruthless mob boss Vladimir, and his bodyguard, Kevin, the one who killed Daisy.",
+    "_0_player": "They will pay for what they've done. This city will run red with their blood.",
+    "_3": "You tighten your grip on your weapon and set out to find your targets. The night is young, and your vengeance will be swift.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Head to the nightclub where Ivan is known to hang out."
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Gather intel from the streets."
+      }
+    }
+  },
+  "b": {
+    "_0_bg": "nightclub",
+    "_0": "The nightclub is loud and chaotic, a stark contrast to the silence of your grief. You slip through the crowd, eyes scanning for Ivan.",
+    "_1": "Underneath the flashing lights, you spot Kevin, Ivan's bodyguard, standing near the VIP section. He hasn't seen you yet.",
+    "_0_apr": "Kevin",
+    "_0_npc": {
+      "name": "Kevin",
+      "txt": "Stay alert. We can't let anyone through."
+    },
+    "_jmp": {
+      "chc_0": {
+        "br": "d",
+        "txt": "Confront Kevin directly."
+      },
+      "chc_1": {
+        "br": "e",
+        "txt": "Sneak past Kevin to get to Ivan."
+      }
+    }
+  },
+  "c": {
+    "_0_bg": "alley",
+    "_0": "The back alleys of the city are filled with whispers and secrets. You approach a known informant who owes you a favor.",
+    "_0_apr": "Informant",
+    "_0_npc": {
+      "name": "Informant",
+      "txt": "Bob, I heard about Daisy. I'm sorry. What do you need?"
+    },
+    "_0_player": "I need to know where Ivan is hiding. And I need to know now.",
+    "_1": "The informant nods, understanding the gravity of your request.",
+    "_1_npc": {
+      "name": "Informant",
+      "txt": "He's been laying low at the old warehouse by the docks. Be careful, Bob. They're expecting trouble."
+    },
+    "_2": "With the information you need, you prepare to head to the docks. The thought of revenge fuels your every step.",
+    "_jmp": {
+      "chc_0": {
+        "br": "f",
+        "txt": "Head to the docks to confront Ivan."
+      },
+      "chc_1": {
+        "br": "g",
+        "txt": "Take a detour to gather more weapons."
+      }
+    }
+  },
+  "d": {
+    "_0": "You push through the crowd, eyes locked on Kevin. As you approach, he finally notices you, his hand moving to his gun.",
+    "_1_npc": {
+      "name": "Kevin",
+      "txt": "Bob! You shouldn't have come here."
+    },
+    "_1_player": "You killed Daisy. You're going to pay for that.",
+    "_2": "Kevin draws his gun, but you're faster. The nightclub patrons scatter as gunfire erupts. You take cover and return fire.",
+    "_2_apr": "Ivan",
+    "_3": "In the chaos, you see Ivan trying to escape through a back door. You can't let him get away.",
+    "_jmp": {
+      "chc_0": {
+        "br": "h",
+        "txt": "Chase after Ivan."
+      },
+      "chc_1": {
+        "br": "i",
+        "txt": "Finish off Kevin first."
+      }
+    }
+  },
+  "e": {
+    "_0": "You blend into the crowd, moving silently towards the VIP section. Kevin is distracted, his eyes scanning the room but not seeing you.",
+    "_1": "You slip past him and into the VIP area, where Ivan sits surrounded by his entourage. He looks up, surprised to see you.",
+    "_2_apr": "Ivan",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob! What are you doing here?"
+    },
+    "_1_player": "You know exactly why I'm here.",
+    "_jmp": {
+      "chc_0": {
+        "br": "j",
+        "txt": "Shoot Ivan on the spot."
+      },
+      "chc_1": {
+        "br": "k",
+        "txt": "Take Ivan hostage."
+      }
+    }
+  },
+  "f": {
+    "_0_bg": "docks",
+    "_0": "The docks are eerily quiet, the sound of waves crashing against the pier the only noise. You move stealthily, eyes scanning for any sign of Ivan or his men.",
+    "_1": "You spot a group of armed men patrolling the area. They're on high alert, expecting trouble.",
+    "_0_apr": "Bodyguards",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Take out the guards silently."
+      },
+      "chc_1": {
+        "br": "m",
+        "txt": "Create a distraction to draw them away."
+      }
+    }
+  },
+  "g": {
+    "_0_bg": "armory",
+    "_0": "You head to a hidden armory, a place where you once stored weapons and supplies. It's dusty and forgotten, but the weapons are still there.",
+    "_1": "You arm yourself with everything you need for a bloody confrontation.",
+    "_jmp": {
+      "chc_0": {
+        "br": "n",
+        "txt": "Head to the docks."
+      },
+      "chc_1": {
+        "br": "o",
+        "txt": "Go back to the nightclub."
+      }
+    }
+  },
+  "h": {
+    "_0": "You burst through the back door, chasing after Ivan. He stumbles, fear in his eyes as he realizes he can't escape.",
+    "_0_apr": "Ivan",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Please, Bob! It wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_2": "You raise your weapon and fire. Ivan's body crumples to the ground, lifeless.",
+    "_end": "You feel a grim satisfaction as you stand over Ivan's body. Daisy is avenged, but the darkness inside you remains."
+  },
+  "i": {
+    "_0": "You turn your attention to Kevin, determined to make him pay for what he did.",
+    "_1": "The firefight is intense, but you manage to get the upper hand. Kevin falls, a bullet in his chest.",
+    "_0_dspr": "Kevin",
+    "_2": "With Kevin dealt with, you turn to see Ivan escaping through the back door.",
+    "_jmp": {
+      "chc_0": {
+        "br": "h",
+        "txt": "Chase after Ivan."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Let him go. Focus on escaping."
+      }
+    }
+  },
+  "j": {
+    "_0": "Without hesitation, you draw your gun and shoot Ivan. The room erupts in chaos as his men react.",
+    "_0_dspr": "Ivan",
+    "_1": "You fight your way out, the nightclub turning into a warzone. By the time you escape, you're covered in blood, but Ivan is dead.",
+    "_end": "Revenge is yours, but the cost is high. The darkness in your heart remains."
+  },
+  "k": {
+    "_0": "You grab Ivan and hold him at gunpoint. His men hesitate, unsure of what to do.",
+    "_1": "Kevin rushes in, gun drawn, but he stops when he sees you have Ivan.",
+    "_jmp": {
+      "chc_0": {
+        "br": "q",
+        "txt": "Negotiate with Kevin."
+      },
+      "chc_1": {
+        "br": "r",
+        "txt": "Kill Ivan and take on the rest."
+      }
+    }
+  },
+  "l": {
+    "_0": "You move silently, taking out the guards one by one. Their bodies fall into the shadows, unnoticed by their comrades.",
+    "_0_dspr": "Bodyguards",
+    "_1": "With the guards dealt with, you move deeper into the docks, closer to your target.",
+    "_jmp": {
+      "chc_0": {
+        "br": "t",
+        "txt": "Confront Ivan."
+      },
+      "chc_1": {
+        "br": "u",
+        "txt": "Set a trap for Ivan."
+      }
+    }
+  },
+  "m": {
+    "_0": "You create a distraction, drawing the guards away from their posts. They rush to investigate, leaving Ivan vulnerable.",
+    "_1": "You slip past the commotion and make your way to Ivan's hiding spot.",
+    "_jmp": {
+      "chc_0": {
+        "br": "v",
+        "txt": "Confront Ivan."
+      },
+      "chc_1": {
+        "br": "w",
+        "txt": "Ambush Ivan."
+      }
+    }
+  },
+  "n": {
+    "_0_bg": "docks",
+    "_0": "You head to the docks, armed and ready for the final confrontation. The sound of waves crashing against the pier fills the air.",
+    "_1": "You move stealthily, eyes scanning for any sign of Ivan or his men.",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Take out the guards silently."
+      },
+      "chc_1": {
+        "br": "m",
+        "txt": "Create a distraction to draw them away."
+      }
+    }
+  },
+  "o": {
+    "_0_bg": "nightclub",
+    "_0": "You return to the nightclub, determined to finish what you started. The place is still chaotic, but you move with purpose.",
+    "_1": "You spot Kevin near the VIP section, eyes scanning the room.",
+    "_0_apr": "Kevin",
+    "_jmp": {
+      "chc_0": {
+        "br": "d",
+        "txt": "Confront Kevin directly."
+      },
+      "chc_1": {
+        "br": "e",
+        "txt": "Sneak past Kevin to get to Ivan."
+      }
+    }
+  },
+  "p": {
+    "_0": "You decide to let Ivan go, knowing that the chaos will cover your escape.",
+    "_1": "You make your way through the nightclub, avoiding the panicked patrons and slipping out into the night.",
+    "_end": "You escape the nightclub, but the darkness in your heart remains. Daisy is avenged, but at what cost?"
+  },
+  "q": {
+    "_0": "You hold Ivan at gunpoint and turn to Kevin.",
+    "_1_player": "Tell your men to stand down, or he dies.",
+    "_1_npc": {
+      "name": "Kevin",
+      "txt": "Alright, alright. Stand down, everyone."
+    },
+    "_2": "The room falls silent as Kevin's men lower their weapons. You have control, for now.",
+    "_jmp": {
+      "chc_0": {
+        "br": "x",
+        "txt": "Escape with Ivan as a hostage."
+      },
+      "chc_1": {
+        "br": "y",
+        "txt": "Kill Ivan and make your escape."
+      }
+    }
+  },
+  "r": {
+    "_0": "You decide to end it here and now. You shoot Ivan, the sound of the gun echoing through the room.",
+    "_0_dspr": "Ivan",
+    "_1": "Kevin and his men react, but you're already moving, fighting your way out of the nightclub.",
+    "_end": "You escape, covered in blood, but Ivan is dead. Daisy is avenged, but the darkness in your heart remains."
+  },
+  "s": {
+    "_0": "You hide in the shadows, waiting for the cover of night. When the time is right, you move silently through the city.",
+    "_1": "You reach the docks, the sound of waves crashing against the pier filling the air.",
+    "_jmp": {
+      "chc_0": {
+        "br": "l",
+        "txt": "Take out the guards silently."
+      },
+      "chc_1": {
+        "br": "m",
+        "txt": "Create a distraction to draw them away."
+      }
+    }
+  },
+  "t": {
+    "_0": "You move deeper into the docks, finding Ivan hiding in an old warehouse.",
+    "_0_apr": "Ivan",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob! Please, it wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_2": "You raise your weapon and fire. Ivan's body crumples to the ground, lifeless.",
+    "_end": "You feel a grim satisfaction as you stand over Ivan's body. Daisy is avenged, but the darkness inside you remains."
+  },
+  "u": {
+    "_0": "You set a trap, waiting for Ivan to walk into it. The sound of footsteps echoes as he approaches.",
+    "_0_apr": "Ivan",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob! Please, it wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_2": "You spring the trap, taking Ivan down with ruthless efficiency.",
+    "_end": "Ivan is dead, and Daisy is avenged. But the darkness in your heart remains."
+  },
+  "v": {
+    "_0": "You find Ivan hiding in an old warehouse. He looks up, fear in his eyes as he sees you.",
+    "_0_apr": "Ivan",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob! Please, it wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_jmp": {
+      "chc_0": {
+        "br": "t",
+        "txt": "Kill Ivan on the spot."
+      },
+      "chc_1": {
+        "br": "u",
+        "txt": "Set a trap for Ivan."
+      }
+    }
+  },
+  "w": {
+    "_0": "You wait in the shadows, setting up an ambush for Ivan. When he finally arrives, you strike with deadly precision.",
+    "_1": "Ivan falls to the ground, his life ending in an instant.",
+    "_end": "Ivan is dead, and Daisy is avenged. But the darkness in your heart remains."
+  },
+  "x": {
+    "_0": "You take Ivan hostage, using him as a shield as you make your escape. The tension is palpable as you move through the nightclub.",
+    "_1": "Kevin and his men follow at a distance, not daring to make a move.",
+    "_jmp": {
+      "chc_0": {
+        "br": "z",
+        "txt": "Release Ivan once you're safe."
+      },
+      "chc_1": {
+        "br": "aa",
+        "txt": "Kill Ivan once you're clear."
+      }
+    }
+  },
+  "y": {
+    "_0": "You decide to end it here and now. You shoot Ivan, the sound of the gun echoing through the room.",
+    "_0_dspr": "Ivan",
+    "_1": "Kevin and his men react, but you're already moving, fighting your way out of the nightclub.",
+    "_end": "You escape, covered in blood, but Ivan is dead. Daisy is avenged, but the darkness in your heart remains."
+  },
+  "z": {
+    "_0": "Once you're safe, you release Ivan, pushing him away from you. He stumbles, fear in his eyes.",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob, please! It wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_2": "You walk away, leaving Ivan to live with his fear. Daisy is avenged, but the darkness in your heart remains.",
+    "_end": "You leave the nightclub, the weight of your vengeance heavy on your shoulders. The city feels colder, but Daisy is avenged."
+  },
+  "aa": {
+    "_0": "Once you're clear, you turn to Ivan, your eyes cold and unfeeling.",
+    "_0_npc": {
+      "name": "Ivan",
+      "txt": "Bob, please! It wasn't personal!"
+    },
+    "_1_player": "It was personal to Daisy.",
+    "_2": "You pull the trigger, ending Ivan's life. The night is silent as you walk away.",
+    "_end": "Ivan is dead, and Daisy is avenged. But the darkness in your heart remains."
+  }
+}

@@ -1,13 +1,16 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ImageProcessor : MonoBehaviour
 {
-    public Texture2D RemoveWhiteBackground(Texture2D originalTexture)
+    private Color backgroundColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
+    public Texture2D RemoveBackgroundColor(Texture2D originalTexture)
     {
-        Color backgroundColor = Color.white;
+        Color targetColor = backgroundColor;
         int tolerance = 40; // Adjust this tolerance as needed
 
         // Create a copy of the texture to modify with the same format and mipmaps
@@ -33,7 +36,7 @@ public class ImageProcessor : MonoBehaviour
         {
             Vector2Int point = pixels.Dequeue();
             Color pixelColor = newTexture.GetPixel(point.x, point.y);
-            if (IsBackgroundColor(pixelColor, backgroundColor, tolerance))
+            if (IsTargetColor(pixelColor, targetColor, tolerance))
             {
                 newTexture.SetPixel(point.x, point.y, Color.clear);
                 EnqueueIfValid(pixels, point.x - 1, point.y, newTexture.width, newTexture.height);
@@ -47,11 +50,11 @@ public class ImageProcessor : MonoBehaviour
         return newTexture;
     }
 
-    private bool IsBackgroundColor(Color pixelColor, Color backgroundColor, int tolerance)
+    private bool IsTargetColor(Color pixelColor, Color targetColor, int tolerance)
     {
-        return Mathf.Abs(pixelColor.r - backgroundColor.r) * 255 <= tolerance &&
-               Mathf.Abs(pixelColor.g - backgroundColor.g) * 255 <= tolerance &&
-               Mathf.Abs(pixelColor.b - backgroundColor.b) * 255 <= tolerance;
+        return Mathf.Abs(pixelColor.r - targetColor.r) * 255 <= tolerance &&
+               Mathf.Abs(pixelColor.g - targetColor.g) * 255 <= tolerance &&
+               Mathf.Abs(pixelColor.b - targetColor.b) * 255 <= tolerance;
     }
 
     private void EnqueueIfValid(Queue<Vector2Int> queue, int x, int y, int width, int height)
@@ -77,21 +80,21 @@ public class ImageProcessor : MonoBehaviour
         File.WriteAllBytes(filePath, bytes); // Write to file
     }
 
-    public void tryout()
+    public IEnumerator DownloadAndSaveImage(string imageUrl, string savePath, Action<Texture2D> onSuccess, Action<string> onFailure)
     {
-        string userDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string pathImage = Path.Combine(userDocumentsPath, "cat.jpg");
-        string outputPath = Path.Combine(userDocumentsPath, "cat_cleaned.png");
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
+        yield return request.SendWebRequest();
 
-        Texture2D inputTexture = LoadTexture(pathImage);
-        if (inputTexture != null)
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            Texture2D outputTexture = RemoveWhiteBackground(inputTexture);
-            if (outputTexture != null)
-            {
-                SaveTexture(outputTexture, outputPath);
-                Debug.Log("Background removed and saved to " + outputPath);
-            }
+            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            SaveTexture(texture, savePath);
+            onSuccess?.Invoke(texture);
+        }
+        else
+        {
+            Debug.LogError($"Failed to download image from {imageUrl}. Error: {request.error}");
+            onFailure?.Invoke(request.error);
         }
     }
 

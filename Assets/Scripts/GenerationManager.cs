@@ -355,50 +355,38 @@ public class GenerationManager : MonoBehaviour
 
     private IEnumerator GetAndAssignPlayerPortrait(string imageUrl)
     {
-
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-
-            playerMaskPainter.UpdateBaseTexture(texture);
-
-            string path = Path.Combine(Application.dataPath, "Saves", "temp", "player.png");
-            imageProcessor.SaveTexture(texture, path);
-
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-
-            playerImageComponent.GetComponent<Image>().sprite = sprite;
-            loadingCircleManager.SetLoading(false, "player");
-
-        }
-        else
-        {
-            print(request.error);
-            loadingCircleManager.SetLoading(false, "player");
-        }
+        string path = Path.Combine(Application.dataPath, "Saves", "temp", "player.png");
+        yield return imageProcessor.DownloadAndSaveImage(imageUrl, path,
+                texture =>
+                {
+                    playerMaskPainter.UpdateBaseTexture(texture);
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                    playerImageComponent.sprite = sprite;
+                    loadingCircleManager.SetLoading(false, "player");
+                    loadingCircleManager.SetLoading(false, "playerRetouch");
+                },
+                error =>
+                {
+                    Debug.Log("failure during GetAndAssignPlayerPortrait: " + error);
+                    loadingCircleManager.SetLoading(false, "player");
+                    loadingCircleManager.SetLoading(false, "playerRetouch");
+                });
 
     }
 
     private IEnumerator GetAndSaveBackgroundImage(string imageUrl, string name)
     {
-
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-
-            string path = Path.Combine(GeneratedContentHolder.generatedStorySaveFolderPath, "images", name + ".png");
-            imageProcessor.SaveTexture(texture, path);
-        }
-        else
-        {
-            Debug.LogError($"Failed to download background image for {name}. Error: {request.error}");
-        }
+        string path = Path.Combine(GeneratedContentHolder.generatedStorySaveFolderPath, "images", name + ".png");
+        yield return imageProcessor.DownloadAndSaveImage(imageUrl, path,
+                texture =>
+                {
+                    imageProcessor.SaveTexture(texture, path);
+                    Debug.Log($"Background image for {name} saved successfully.");
+                },
+                error =>
+                {
+                    Debug.LogError($"Failed to download background image for {name}. Error: {error}");
+                });
     }
     private IEnumerator GenerateAndDisplayStory(string prompt)
     {
@@ -441,7 +429,7 @@ public class GenerationManager : MonoBehaviour
             }
         },
             ["temperature"] = 0.7,
-            ["max_tokens"] = 4004
+            ["max_tokens"] = 4025
         };
 
         string jsonContent = payload.ToString();

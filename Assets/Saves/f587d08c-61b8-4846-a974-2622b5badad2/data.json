@@ -1,0 +1,35 @@
+{
+  "story": {
+    "name": "Bob Wick",
+    "generationPrompt": "This is a Action/Adventure novel. The setting is life-like city, the main problem of the plot is hitman's dog is killed, and the goal is kill the dog's killers. The theme is Revenge, it should shine in the plot. The story should be Dark in its grimness/darkness. Is there romance in the story=False. Extra details: dog's name is Daisy and he was a gift from Bob's late wife. "
+  },
+  "player": {
+    "name": "Bob",
+    "generationPrompt": "Male Adult Hitman. Square face. Mid-length Black Straight hair. Black Deep-set eyes. Same as hair color Arched Normal eyebrows. Roman nose, Thin lips, Mid-tone skin. Average height, Fit weight. Muscled. wears plain but formal clothes. A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head! Character is from a Action/Adventure novel. Grimness/darkness of the novel is Dark. The art sytle is Animation. The setting of the novel is in life-like city, the main problem of the plot is hitman's dog is killed, and the goal is kill the dog's killers."
+  },
+  "NPCs": [
+    {
+      "name": "Vladimir",
+      "generationPrompt": "This NPC is Middle Age Male Mob boss. Their name is Vladimir . Physical details: classic mob boss appearance. Personality: relatively evil. Tries to get Bob killed when he targets his son Is this character a romance interest for the player: False. "
+    },
+    {
+      "name": "Ivan",
+      "generationPrompt": "This NPC is Young Adult Male mob boss son. Their name is Ivan . Physical details: Blonde mid length hair. Has a sleezy apperance.. Personality: the one who gave the order to kill Bob's dog. He is evil and dumb Is this character a romance interest for the player: False. "
+    },
+    {
+      "name": "Kevin",
+      "generationPrompt": "This NPC is Young Adult Male Bodyguard. Their name is Kevin . Physical details: classic bodyguard appearance with sunglasses.. Personality: Ivan's bodyguard. The one who killed the dog Is this character a romance interest for the player: True. "
+    }
+  ],
+  "backgrounds": {
+    "names": [
+      "city_night",
+      "nightclub",
+      "alley",
+      "docks",
+      "armory",
+      "docks",
+      "nightclub"
+    ]
+  }
+}
