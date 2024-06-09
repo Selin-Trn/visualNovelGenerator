@@ -16,19 +16,20 @@ public class NPCGenerationPanelManager : MonoBehaviour
 
     private List<GameObject> npcGenerationPanelFieldsObjects = new List<GameObject>();
     private List<GameObject> npcGenerationPanelButtons = new List<GameObject>();
+
+    /// <summary>
+    /// Adds NPCs to the generation panel by creating buttons and fields for each NPC.
+    /// </summary>
     public void AddNPCsToTheGenerationPanel()
     {
-
         foreach (GameObject npcForm in npcGenerationsManager.npcInputForms)
         {
-
             GameObject buttonObj = Instantiate(npcGenerationPanelButtonPrefab, npcGenerationPanelButtonContainer);
             buttonObj.name = npcForm.name + "_Button";  // Unique name for the button
             Button npcButton = buttonObj.GetComponent<Button>();
             npcButton.onClick.AddListener(() => ShowNPCFieldsObject(buttonObj.name));
 
             npcGenerationPanelButtons.Add(buttonObj);
-
 
             GameObject fieldsObject = Instantiate(npcGenerationPanelFieldsObjectPrefab, npcGenerationPanelContainer.transform);
             fieldsObject.name = buttonObj.name + "_Fields";
@@ -46,10 +47,8 @@ public class NPCGenerationPanelManager : MonoBehaviour
                     fieldsScript.npcName = data.GetNPCName();
                     fieldsScript.imageZoomScreen = imageZoomScreen;
                     fieldsScript.zoomImage = zoomImage;
-
                     fieldsScript.npcRetouchScreensContainer = npcRetouchScreensContainer;
                     npcButton.onClick.AddListener(() => ShowNPCFieldsObject(buttonObj.name));
-
                 }
             }
         }
@@ -57,6 +56,10 @@ public class NPCGenerationPanelManager : MonoBehaviour
         DeactivateAllForms();
     }
 
+    /// <summary>
+    /// Shows the NPC fields object corresponding to the given button name.
+    /// </summary>
+    /// <param name="buttonName">The name of the button to show fields for.</param>
     private void ShowNPCFieldsObject(string buttonName)
     {
         // Deactivate all other forms first
@@ -80,17 +83,22 @@ public class NPCGenerationPanelManager : MonoBehaviour
         fieldsObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Initializes form fields by finding all input fields and resetting their content.
+    /// </summary>
+    /// <param name="form">The form to initialize.</param>
     private void InitializeFormFields(GameObject form)
     {
-        // Find all input fields and reset their content
         var inputs = form.GetComponentsInChildren<TMP_InputField>();
         foreach (var input in inputs)
         {
             input.text = "";
         }
-
     }
 
+    /// <summary>
+    /// Deactivates all forms in the panel.
+    /// </summary>
     private void DeactivateAllForms()
     {
         foreach (GameObject fieldsObject in npcGenerationPanelFieldsObjects)
@@ -98,6 +106,10 @@ public class NPCGenerationPanelManager : MonoBehaviour
             fieldsObject.SetActive(false);
         }
     }
+
+    /// <summary>
+    /// Deletes all buttons and fields in the panel.
+    /// </summary>
     public void DeleteAllButtons()
     {
         // Destroy all fields objects

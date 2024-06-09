@@ -55,7 +55,9 @@ public class NarrativeManager : MonoBehaviour
     public Image endingPanel;
     public TextMeshProUGUI endingTypeText;
 
-    // Initialize narrative parser and start the story
+    /// <summary>
+    /// Initializes the narrative parser and starts the story.
+    /// </summary>
     void Start()
     {
         narrativeParser = GetComponent<NarrativeParser>();
@@ -67,7 +69,9 @@ public class NarrativeManager : MonoBehaviour
         StartStory();
     }
 
-    // Start the story by initializing story data and text, and setting the first branch and key
+    /// <summary>
+    /// Starts the story by initializing story data and text, and setting the first branch and key.
+    /// </summary>
     private void StartStory()
     {
         endingWindow.SetActive(false);
@@ -84,7 +88,9 @@ public class NarrativeManager : MonoBehaviour
         RefreshChoiceView();
     }
 
-    // Load story data from JSON
+    /// <summary>
+    /// Loads story data from JSON.
+    /// </summary>
     public void GetStoryData()
     {
         try
@@ -101,7 +107,9 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Load story text from JSON
+    /// <summary>
+    /// Loads story text from JSON.
+    /// </summary>
     public void GetStoryText()
     {
         try
@@ -119,7 +127,11 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Extract keys from a specified branch in the story JSON
+    /// <summary>
+    /// Extracts keys from a specified branch in the story JSON.
+    /// </summary>
+    /// <param name="branchKey">The branch key to extract keys from.</param>
+    /// <returns>A list of keys from the specified branch.</returns>
     public List<string> ExtractBranchKeys(string branchKey)
     {
         var keys = new List<string>();
@@ -150,7 +162,10 @@ public class NarrativeManager : MonoBehaviour
         return keys;
     }
 
-    // Jump to a new branch in the story
+    /// <summary>
+    /// Jumps to a new branch in the story.
+    /// </summary>
+    /// <param name="branchName">The name of the branch to jump to.</param>
     private void JumpToNewBranch(string branchName)
     {
         PropertyInfo propertyInfo = story.GetType().GetProperty(branchName);
@@ -168,7 +183,10 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Get the names of all branches in the story
+    /// <summary>
+    /// Gets the names of all branches in the story.
+    /// </summary>
+    /// <returns>A list of branch names.</returns>
     private List<string> GetBranchNames()
     {
         return story.GetType().GetProperties()
@@ -177,7 +195,9 @@ public class NarrativeManager : MonoBehaviour
                     .ToList();
     }
 
-    // Set the keys of all branches in the story
+    /// <summary>
+    /// Sets the keys of all branches in the story.
+    /// </summary>
     private void SetAllBranchesKeys()
     {
         var keys = new List<string>();
@@ -194,14 +214,19 @@ public class NarrativeManager : MonoBehaviour
         storyAllBranchesKeys = keys;
     }
 
-    // Set the keys of the current branch
+    /// <summary>
+    /// Sets the keys of the current branch.
+    /// </summary>
     private void SetCurrentBranchKeys()
     {
         var keys = ExtractBranchKeys(storyAllBranchesKeys[currentBranchIndex]);
         currentBranchKeys = keys;
     }
 
-    // Set the current branch by index
+    /// <summary>
+    /// Sets the current branch by index.
+    /// </summary>
+    /// <param name="index">The index of the branch to set as current.</param>
     private void SetCurrentBranch(int index)
     {
         if (index < 0 || index >= storyAllBranchesKeys.Count)
@@ -224,7 +249,10 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Set the current key by index
+    /// <summary>
+    /// Sets the current key by index.
+    /// </summary>
+    /// <param name="index">The index of the key to set as current.</param>
     private void SetCurrentKey(int index)
     {
         if (index < 0 || index >= currentBranchKeys.Count)
@@ -237,7 +265,11 @@ public class NarrativeManager : MonoBehaviour
         currentKey = currentBranchKeys[currentKeyIndex];
     }
 
-    // Check if the value is valid (not null and not default)
+    /// <summary>
+    /// Checks if the value is valid (not null and not default).
+    /// </summary>
+    /// <param name="value">The value to check.</param>
+    /// <returns>True if the value is valid; otherwise, false.</returns>
     private bool ValueIsValid(object value)
     {
         if (value == null)
@@ -250,7 +282,9 @@ public class NarrativeManager : MonoBehaviour
         return true;
     }
 
-    // Display the next line in the story
+    /// <summary>
+    /// Displays the next line in the story.
+    /// </summary>
     public void DisplayNextLine()
     {
         if (currentBranch != null && !string.IsNullOrEmpty(currentKey))
@@ -260,7 +294,6 @@ public class NarrativeManager : MonoBehaviour
                 if (narrativeParser.functionsKeys.Contains(currentKey))
                 {
                     // APR/DSPR MANAGEMENT
-
                     object value = getCurrentKeyValue();
                     if (value is string npcName) // Safe cast to NpcText
                     {
@@ -352,7 +385,10 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Create choice buttons for the player to make a decision
+    /// <summary>
+    /// Creates choice buttons for the player to make a decision.
+    /// </summary>
+    /// <param name="jumpChoices">The jump choices to create buttons for.</param>
     void CreateChoiceButtons(Jump jumpChoices)
     {
         foreach (Choice choice in jumpChoices.GetAllChoices())
@@ -368,7 +404,10 @@ public class NarrativeManager : MonoBehaviour
         choiceObjects.SetActive(true);
     }
 
-    // Handle choice button click
+    /// <summary>
+    /// Handles choice button click.
+    /// </summary>
+    /// <param name="choice">The choice that was clicked.</param>
     void OnClickChoiceButton(Choice choice)
     {
         Debug.Log(choice.br);
@@ -379,7 +418,9 @@ public class NarrativeManager : MonoBehaviour
         RefreshChoiceView();
     }
 
-    // Refresh the choice view by clearing existing buttons
+    /// <summary>
+    /// Refreshes the choice view by clearing existing buttons.
+    /// </summary>
     void RefreshChoiceView()
     {
         if (choiceButtonContainer != null)
@@ -392,7 +433,9 @@ public class NarrativeManager : MonoBehaviour
         choiceObjects.gameObject.SetActive(false);
     }
 
-    // Clear all text fields
+    /// <summary>
+    /// Clears all text fields.
+    /// </summary>
     public void ClearTextFields()
     {
         narrativeTextField.text = "";
@@ -402,7 +445,12 @@ public class NarrativeManager : MonoBehaviour
         npcNameField.text = "";
     }
 
-    // Handle updating text fields based on the speaker
+    /// <summary>
+    /// Handles updating text fields based on the speaker.
+    /// </summary>
+    /// <param name="speaker">The speaker type ("player", "npc", "narrative").</param>
+    /// <param name="speakerName">The name of the speaker.</param>
+    /// <param name="text">The text to display.</param>
     public void HandleTextFields(string speaker, string speakerName, string text)
     {
         ClearTextFields();
@@ -427,7 +475,10 @@ public class NarrativeManager : MonoBehaviour
         }
     }
 
-    // Get the value of the current key from the current branch
+    /// <summary>
+    /// Gets the value of the current key from the current branch.
+    /// </summary>
+    /// <returns>The value of the current key.</returns>
     private object getCurrentKeyValue()
     {
         PropertyInfo propertyInfo = currentBranch.GetType().GetProperty(currentKey);
@@ -435,13 +486,17 @@ public class NarrativeManager : MonoBehaviour
         return value;
     }
 
-    // Replay the game by loading the game scene
+    /// <summary>
+    /// Replays the game by loading the game scene.
+    /// </summary>
     public void ReplayGame()
     {
         SceneManager.LoadScene("Game");
     }
 
-    // Go back to the novels scene
+    /// <summary>
+    /// Goes back to the novels scene.
+    /// </summary>
     public void BackToNovels()
     {
         SceneManager.LoadScene("StoriesScene");

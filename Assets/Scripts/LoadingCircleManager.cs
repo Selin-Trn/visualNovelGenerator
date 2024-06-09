@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-// manager foor circles that turn when an iamge is being generated/retouched or novel text generated
+// Manager for circles that turn when an image is being generated/retouched or novel text is generated
 public class LoadingCircleManager : MonoBehaviour
 {
     public Image loadingCircleNovel;
@@ -13,15 +13,22 @@ public class LoadingCircleManager : MonoBehaviour
 
     private Coroutine rotationCoroutine;
 
+    /// <summary>
+    /// Initializes the loading circles by setting them to inactive.
+    /// </summary>
     void Start()
     {
-
         SetLoading(false, "novel");
         SetLoading(false, "player");
         SetLoading(false, "playerRetouch");
         SetLoading(false, "finish");
     }
 
+    /// <summary>
+    /// Sets the loading state for a specified area, starting or stopping the rotation of the loading circle.
+    /// </summary>
+    /// <param name="isLoading">Indicates whether loading is in progress.</param>
+    /// <param name="area">The area for which the loading state is being set ("novel", "player", "playerRetouch", "finish").</param>
     public void SetLoading(bool isLoading, string area)
     {
         Image loadingCircleImage = null;
@@ -43,10 +50,8 @@ public class LoadingCircleManager : MonoBehaviour
                 break;
         }
 
-
         if (isLoading)
         {
-
             loadingCircleImage.gameObject.SetActive(true);
             if (rotationCoroutine == null)
             {
@@ -65,6 +70,11 @@ public class LoadingCircleManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine to rotate the loading circle image.
+    /// </summary>
+    /// <param name="loadingCircleImage">The loading circle image to rotate.</param>
+    /// <returns>An IEnumerator for coroutine support.</returns>
     private IEnumerator RotateLoadingCircle(Image loadingCircleImage)
     {
         while (true)

@@ -52,7 +52,9 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         public string url;
     }
 
-    // Initialize the component
+    /// <summary>
+    /// Initializes the component.
+    /// </summary>
     void Start()
     {
         // Instantiate the retouch screen
@@ -82,7 +84,9 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         npcRetouchScreenScript.retouchNpcPortraitButton.onClick.AddListener(onRetouchNPCPortraitAsync);
     }
 
-    // Generate NPC portrait asynchronously
+    /// <summary>
+    /// Generates an NPC portrait asynchronously.
+    /// </summary>
     public async void onGenerateNPCPortraitAsync()
     {
         SetLoading(true);
@@ -98,7 +102,9 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Retouch NPC portrait asynchronously
+    /// <summary>
+    /// Retouches an NPC portrait asynchronously.
+    /// </summary>
     public async void onRetouchNPCPortraitAsync()
     {
         SetRetouchLoading(true);
@@ -114,7 +120,13 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Generate an image using a prompt
+    /// <summary>
+    /// Generates an image using a prompt.
+    /// </summary>
+    /// <param name="prompt">The prompt to generate the image with.</param>
+    /// <param name="width">The width of the image.</param>
+    /// <param name="height">The height of the image.</param>
+    /// <returns>The URL of the generated image.</returns>
     private async Task<string> generateImage(string prompt, string width, string height)
     {
         using (var client = new HttpClient())
@@ -141,7 +153,13 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Retouch an image using a prompt and mask
+    /// <summary>
+    /// Retouches an image using a prompt and mask.
+    /// </summary>
+    /// <param name="prompt">The prompt to retouch the image with.</param>
+    /// <param name="width">The width of the image.</param>
+    /// <param name="height">The height of the image.</param>
+    /// <returns>The URL of the retouched image.</returns>
     private async Task<string> retouchImage(string prompt, string width, string height)
     {
         byte[] imageBytes = GetImage(npcName);
@@ -191,7 +209,11 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Get and assign NPC portrait from a URL
+    /// <summary>
+    /// Gets and assigns the NPC portrait from a URL.
+    /// </summary>
+    /// <param name="imageUrl">The URL of the image to get and assign.</param>
+    /// <returns>An IEnumerator for coroutine support.</returns>
     private IEnumerator GetAndAssignNPCPortrait(string imageUrl)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
@@ -220,7 +242,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Set loading state for the main loading circle
+    /// <summary>
+    /// Sets the loading state for the main loading circle.
+    /// </summary>
+    /// <param name="isLoading">Indicates whether loading is in progress.</param>
     public void SetLoading(bool isLoading)
     {
         if (isLoading)
@@ -242,7 +267,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Set loading state for the retouch loading circle
+    /// <summary>
+    /// Sets the loading state for the retouch loading circle.
+    /// </summary>
+    /// <param name="isLoading">Indicates whether retouch loading is in progress.</param>
     public void SetRetouchLoading(bool isLoading)
     {
         if (isLoading)
@@ -264,7 +292,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Coroutine to rotate the main loading circle
+    /// <summary>
+    /// Coroutine to rotate the main loading circle.
+    /// </summary>
+    /// <returns>An IEnumerator for coroutine support.</returns>
     private IEnumerator RotateLoadingCircle()
     {
         while (true)
@@ -274,7 +305,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Coroutine to rotate the retouch loading circle
+    /// <summary>
+    /// Coroutine to rotate the retouch loading circle.
+    /// </summary>
+    /// <returns>An IEnumerator for coroutine support.</returns>
     private IEnumerator RotateRetouchLoadingCircle()
     {
         while (true)
@@ -284,7 +318,10 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Load and assign image to the NPC image component
+    /// <summary>
+    /// Loads and assigns an image to the NPC image component.
+    /// </summary>
+    /// <param name="npcName">The name of the NPC to load and assign the image for.</param>
     public void LoadAndAssignImage(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -316,7 +353,11 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Get image bytes from a file
+    /// <summary>
+    /// Gets the image bytes from a file.
+    /// </summary>
+    /// <param name="npcName">The name of the NPC to get the image for.</param>
+    /// <returns>The image bytes as a byte array.</returns>
     public byte[] GetImage(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -333,7 +374,11 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Get a Texture2D from a file
+    /// <summary>
+    /// Gets a Texture2D from a file.
+    /// </summary>
+    /// <param name="npcName">The name of the NPC to get the image for.</param>
+    /// <returns>The image as a Texture2D.</returns>
     public Texture2D GetImageTexture(string npcName)
     {
         string filePath = Path.Combine(Application.dataPath, "Saves", "temp", npcName + ".png");
@@ -360,7 +405,9 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Handle NPC image click to zoom the image
+    /// <summary>
+    /// Handles NPC image click to zoom the image.
+    /// </summary>
     private void OnNpcImageClick()
     {
         if (npcImageComponent.sprite != null)
@@ -374,20 +421,26 @@ public class NPCGenerationPanelObjectScript : MonoBehaviour
         }
     }
 
-    // Open the NPC retouch screen
+    /// <summary>
+    /// Opens the NPC retouch screen.
+    /// </summary>
     public void OpenRetouchNPCImage()
     {
         npcRetouchScreenScript.npcRetouchScreen.SetActive(true);
         npcRetouchScreenScript.npcMaskPainter.UpdateBaseTexture(GetImageTexture(npcName));
     }
 
-    // Close the NPC retouch screen
+    /// <summary>
+    /// Closes the NPC retouch screen.
+    /// </summary>
     public void CloseRetouchNPCImage()
     {
         npcRetouchScreenScript.npcRetouchScreen.SetActive(false);
     }
 
-    // Erase painted areas on the image
+    /// <summary>
+    /// Erases painted areas on the image.
+    /// </summary>
     public void EraseAreasOnImage()
     {
         Texture2D cleanedTexture = npcRetouchScreenScript.npcMaskPainter.ErasePaintedAreas();

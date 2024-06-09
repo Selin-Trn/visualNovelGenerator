@@ -1,29 +1,29 @@
 {
   "a": {
-    "_0_bg": "city_night",
-    "_0": "The city's neon lights flicker ominously as you walk its dark streets. You are Bob, a hitman with a dangerous reputation. Tonight, the city feels colder and crueler.",
+    "_0_bg": "city_night"
+    "_0": "The city's neon lights flicker ominously as you walk its dark streets. You are Bob, a hitman with a dangerous reputation. Tonight, the city feels colder and crueler."
     "_1": "Your heart aches as you think of Daisy, your loyal companion, who was brutally taken from you. She was a gift from your late wife, a symbol of the love and peace you once had.",
     "_2": "Now, there is only darkness and the burning desire for revenge. You know who is responsible: Ivan, the son of the ruthless mob boss Vladimir, and his bodyguard, Kevin, the one who killed Daisy.",
     "_0_player": "They will pay for what they've done. This city will run red with their blood.",
     "_3": "You tighten your grip on your weapon and set out to find your targets. The night is young, and your vengeance will be swift.",
     "_jmp": {
       "chc_0": {
-        "br": "b",
+        "br": "b"
         "txt": "Head to the nightclub where Ivan is known to hang out."
       },
       "chc_1": {
-        "br": "c",
+        "br": "c"
         "txt": "Gather intel from the streets."
       }
     }
   },
   "b": {
-    "_0_bg": "nightclub",
+    "_0_bg": "nightclub"
     "_0": "The nightclub is loud and chaotic, a stark contrast to the silence of your grief. You slip through the crowd, eyes scanning for Ivan.",
     "_1": "Underneath the flashing lights, you spot Kevin, Ivan's bodyguard, standing near the VIP section. He hasn't seen you yet.",
-    "_0_apr": "Kevin",
+    "_0_apr": "Kevin"
     "_0_npc": {
-      "name": "Kevin",
+      "name": "Kevin"
       "txt": "Stay alert. We can't let anyone through."
     },
     "_jmp": {
@@ -36,13 +36,13 @@
         "txt": "Sneak past Kevin to get to Ivan."
       }
     }
-  },
+  }
   "c": {
     "_0_bg": "alley",
     "_0": "The back alleys of the city are filled with whispers and secrets. You approach a known informant who owes you a favor.",
     "_0_apr": "Informant",
     "_0_npc": {
-      "name": "Informant",
+      "name": "Informant"
       "txt": "Bob, I heard about Daisy. I'm sorry. What do you need?"
     },
     "_0_player": "I need to know where Ivan is hiding. And I need to know now.",
@@ -54,7 +54,7 @@
     "_2": "With the information you need, you prepare to head to the docks. The thought of revenge fuels your every step.",
     "_jmp": {
       "chc_0": {
-        "br": "f",
+        "br": "f"
         "txt": "Head to the docks to confront Ivan."
       },
       "chc_1": {
@@ -66,7 +66,7 @@
   "d": {
     "_0": "You push through the crowd, eyes locked on Kevin. As you approach, he finally notices you, his hand moving to his gun.",
     "_1_npc": {
-      "name": "Kevin",
+      "name": "Kevin"
       "txt": "Bob! You shouldn't have come here."
     },
     "_1_player": "You killed Daisy. You're going to pay for that.",
@@ -79,7 +79,7 @@
         "txt": "Chase after Ivan."
       },
       "chc_1": {
-        "br": "i",
+        "br": "i"
         "txt": "Finish off Kevin first."
       }
     }
@@ -95,7 +95,7 @@
     "_1_player": "You know exactly why I'm here.",
     "_jmp": {
       "chc_0": {
-        "br": "j",
+        "br": "j"
         "txt": "Shoot Ivan on the spot."
       },
       "chc_1": {
@@ -115,7 +115,7 @@
         "txt": "Take out the guards silently."
       },
       "chc_1": {
-        "br": "m",
+        "br": "m"
         "txt": "Create a distraction to draw them away."
       }
     }

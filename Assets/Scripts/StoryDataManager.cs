@@ -8,7 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class StoryDataManager : MonoBehaviour
 {
-
+    /// <summary>
+    /// Saves JSON content to a specified file path.
+    /// </summary>
+    /// <param name="jsonContent">The JSON content to save.</param>
+    /// <param name="filePath">The file path to save the JSON content to.</param>
     public void SaveJsonToFile(string jsonContent, string filePath)
     {
         try
@@ -22,6 +26,11 @@ public class StoryDataManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Moves a file from the source file path to the destination folder path.
+    /// </summary>
+    /// <param name="sourceFilePath">The source file path.</param>
+    /// <param name="destinationFolderPath">The destination folder path.</param>
     public void MoveFile(string sourceFilePath, string destinationFolderPath)
     {
         try
@@ -48,6 +57,9 @@ public class StoryDataManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deletes all contents in the temporary folder.
+    /// </summary>
     public void DeleteAllContentsInTemp()
     {
         string folderPath = Path.Combine(Application.dataPath, "Saves", "temp");
@@ -80,7 +92,10 @@ public class StoryDataManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Creates a save folder with a unique UUID and returns the path to the new folder.
+    /// </summary>
+    /// <returns>The path to the new save folder.</returns>
     public string CreateSaveFolderWithUUID()
     {
         string parentFolderPath = Path.Combine(Application.dataPath, "Saves");
@@ -115,52 +130,60 @@ public class StoryDataManager : MonoBehaviour
         }
     }
 
-    public void moveNpcImages(string tempSavePath, string imagesPath)
+    /// <summary>
+    /// Moves NPC images from the temporary save path to the images path.
+    /// </summary>
+    /// <param name="tempSavePath">The temporary save path.</param>
+    /// <param name="imagesPath">The images path.</param>
+    public void MoveNpcImages(string tempSavePath, string imagesPath)
     {
-
         try
         {
             foreach (string npcName in GeneratedContentHolder.npcNames)
             {
                 string npcPortraitSavePath = Path.Combine(tempSavePath, npcName + ".png");
                 MoveFile(npcPortraitSavePath, imagesPath);
-
             }
         }
         catch (Exception e)
         {
             Debug.LogError($"Failed to move NPC images: {e.Message}");
         }
-
     }
 
-    public void movePlayerPortrait(string tempSavePath, string imagesPath)
+    /// <summary>
+    /// Moves the player portrait from the temporary save path to the images path.
+    /// </summary>
+    /// <param name="tempSavePath">The temporary save path.</param>
+    /// <param name="imagesPath">The images path.</param>
+    public void MovePlayerPortrait(string tempSavePath, string imagesPath)
     {
-
         try
         {
             string playerPortraitSavePath = Path.Combine(tempSavePath, "player.png");
             MoveFile(playerPortraitSavePath, imagesPath);
-
         }
         catch (Exception e)
         {
             Debug.LogError($"Failed to move player portrait: {e.Message}");
         }
     }
-    public void moveStoryJSON(string tempSavePath, string UUIDSavePath)
-    {
 
+    /// <summary>
+    /// Moves the story JSON file from the temporary save path to the UUID save path.
+    /// </summary>
+    /// <param name="tempSavePath">The temporary save path.</param>
+    /// <param name="UUIDSavePath">The UUID save path.</param>
+    public void MoveStoryJSON(string tempSavePath, string UUIDSavePath)
+    {
         try
         {
             string storyJsonPath = Path.Combine(tempSavePath, "story.json");
             MoveFile(storyJsonPath, UUIDSavePath);
-
         }
         catch (Exception e)
         {
             Debug.LogError($"Failed to move story.json: {e.Message}");
         }
     }
-
 }

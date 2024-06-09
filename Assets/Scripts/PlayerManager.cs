@@ -8,16 +8,23 @@ using TMPro;
 using System.Linq;
 using System.IO;
 
-// in-game player image manager
+// In-game player image manager
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] public Image playerPortait;
     [SerializeField] public GameObject playerPortaitObject;
 
+    /// <summary>
+    /// Initializes the component by loading the player's image.
+    /// </summary>
     void Start()
     {
         LoadPlayerImage();
     }
+
+    /// <summary>
+    /// Loads the player's image from the specified path and sets it to the portrait.
+    /// </summary>
     private void LoadPlayerImage()
     {
         string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"player.png");
@@ -32,6 +39,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads a texture from the specified file path.
+    /// </summary>
+    /// <param name="filePath">The path to the file to load the texture from.</param>
+    /// <returns>The loaded texture, or null if the load failed.</returns>
     private Texture2D LoadTexture(string filePath)
     {
         if (File.Exists(filePath))

@@ -9,7 +9,10 @@ public class BackgroundManager : MonoBehaviour
 {
     [SerializeField] public Image backgroundImage;
 
-    // takes the background image name, finds in the save folder and loads it
+    /// <summary>
+    /// Takes the background image name, finds it in the save folder, and loads it.
+    /// </summary>
+    /// <param name="backgroundName">The name of the background image to load.</param>
     public void SwitchBackgroundImage(string backgroundName)
     {
         string imagePath = Path.Combine(ChosenStoryManager.chosenStorySaveFolderPath, "images", $"{backgroundName}.png");
@@ -24,7 +27,11 @@ public class BackgroundManager : MonoBehaviour
         }
     }
 
-    // load texture utility function
+    /// <summary>
+    /// Utility function to load a texture from a file.
+    /// </summary>
+    /// <param name="filePath">The file path of the texture to load.</param>
+    /// <returns>The loaded texture, or null if loading fails.</returns>
     private Texture2D LoadTexture(string filePath)
     {
         if (File.Exists(filePath))

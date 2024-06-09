@@ -15,6 +15,10 @@ public class NPCManager : MonoBehaviour
         Right = 3
     }
 
+    /// <summary>
+    /// Creates NPCs based on the provided data and initializes their positions.
+    /// </summary>
+    /// <param name="npcDatas">Array of NPC data to create NPCs from.</param>
     public void CreateNPCs(StoryData.NPCJsonData[] npcDatas)
     {
         foreach (var npcData in npcDatas)
@@ -27,6 +31,10 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Determines the first available position for an NPC.
+    /// </summary>
+    /// <returns>The first available NPCPosition.</returns>
     private NPCPosition DeterminePosition()
     {
         // Find the first available position
@@ -35,6 +43,10 @@ public class NPCManager : MonoBehaviour
         return position;
     }
 
+    /// <summary>
+    /// Shows the NPC with the given name.
+    /// </summary>
+    /// <param name="name">The name of the NPC to show.</param>
     public void ShowNPC(string name)
     {
         if (npcs.TryGetValue(name, out NPC npc))
@@ -47,6 +59,10 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Hides the NPC with the given name.
+    /// </summary>
+    /// <param name="name">The name of the NPC to hide.</param>
     public void HideNPC(string name)
     {
         if (npcs.TryGetValue(name, out NPC npc))

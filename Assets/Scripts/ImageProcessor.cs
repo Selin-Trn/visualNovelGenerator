@@ -13,14 +13,11 @@ public class ImageProcessor : MonoBehaviour
 {
     private Color backgroundColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
 
-    /*
-    * This removes a specified background color from an image by making pixels with that color transparent 
-    * it starts by creating a new texture identical to the original and uses a flood fill algorithm to traverse and process pixels
-    * it enqueues all edge pixels and checks if their color matches the target color within a defined tolerance
-    * if a pixel matches, it is set to transparent, and its neighboring pixels are added to the queue for further processing
-    * this continues until all relevant pixels are processed
-    * finally, the changes are applied to the new texture, which is then returned with the background color removed
-    */
+    /// <summary>
+    /// Removes a specified background color from an image by making pixels with that color transparent.
+    /// </summary>
+    /// <param name="originalTexture">The original texture from which the background color will be removed.</param>
+    /// <returns>A new texture with the background color removed.</returns>
     public Texture2D RemoveBackgroundColor(Texture2D originalTexture)
     {
         // Define the target color and tolerance for background removal
@@ -65,7 +62,13 @@ public class ImageProcessor : MonoBehaviour
         return newTexture;
     }
 
-    // Check if a pixel color matches the target color within a given tolerance
+    /// <summary>
+    /// Checks if a pixel color matches the target color within a given tolerance.
+    /// </summary>
+    /// <param name="pixelColor">The color of the pixel to check.</param>
+    /// <param name="targetColor">The target color to match.</param>
+    /// <param name="tolerance">The tolerance level for color matching.</param>
+    /// <returns>True if the pixel color matches the target color within the tolerance; otherwise, false.</returns>
     private bool IsTargetColor(Color pixelColor, Color targetColor, int tolerance)
     {
         return Mathf.Abs(pixelColor.r - targetColor.r) * 255 <= tolerance &&
@@ -73,7 +76,14 @@ public class ImageProcessor : MonoBehaviour
                Mathf.Abs(pixelColor.b - targetColor.b) * 255 <= tolerance;
     }
 
-    // Add valid neighboring pixels to the queue
+    /// <summary>
+    /// Adds valid neighboring pixels to the queue for processing.
+    /// </summary>
+    /// <param name="queue">The queue of pixels to process.</param>
+    /// <param name="x">The x-coordinate of the neighboring pixel.</param>
+    /// <param name="y">The y-coordinate of the neighboring pixel.</param>
+    /// <param name="width">The width of the texture.</param>
+    /// <param name="height">The height of the texture.</param>
     private void EnqueueIfValid(Queue<Vector2Int> queue, int x, int y, int width, int height)
     {
         if (x >= 0 && x < width && y >= 0 && y < height)
@@ -82,7 +92,11 @@ public class ImageProcessor : MonoBehaviour
         }
     }
 
-    // Load a texture from a file
+    /// <summary>
+    /// Loads a texture from a file.
+    /// </summary>
+    /// <param name="filePath">The file path of the image to load.</param>
+    /// <returns>The loaded texture, or null if loading fails.</returns>
     public Texture2D LoadTexture(string filePath)
     {
         byte[] fileData = File.ReadAllBytes(filePath);
@@ -92,14 +106,25 @@ public class ImageProcessor : MonoBehaviour
         return null;
     }
 
-    // Save a texture to a file in PNG format
+    /// <summary>
+    /// Saves a texture to a file in PNG format.
+    /// </summary>
+    /// <param name="texture">The texture to save.</param>
+    /// <param name="filePath">The file path to save the texture to.</param>
     public void SaveTexture(Texture2D texture, string filePath)
     {
         byte[] bytes = texture.EncodeToPNG(); // Encode the texture into PNG format
         File.WriteAllBytes(filePath, bytes); // Write to file
     }
 
-    // Download an image from a URL and save it to a file
+    /// <summary>
+    /// Downloads an image from a URL and saves it to a file.
+    /// </summary>
+    /// <param name="imageUrl">The URL of the image to download.</param>
+    /// <param name="savePath">The file path to save the downloaded image to.</param>
+    /// <param name="onSuccess">Callback to invoke if the download succeeds.</param>
+    /// <param name="onFailure">Callback to invoke if the download fails.</param>
+    /// <returns>An IEnumerator for coroutine support.</returns>
     public IEnumerator DownloadAndSaveImage(string imageUrl, string savePath, Action<Texture2D> onSuccess, Action<string> onFailure)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
@@ -120,7 +145,12 @@ public class ImageProcessor : MonoBehaviour
         }
     }
 
-    // Generate a transparent mask with the specified width and height
+    /// <summary>
+    /// Generates a transparent mask with the specified width and height.
+    /// </summary>
+    /// <param name="width">The width of the mask.</param>
+    /// <param name="height">The height of the mask.</param>
+    /// <returns>The generated mask as a byte array.</returns>
     public byte[] GenerateTransparentMask(int width, int height)
     {
         // Create a new transparent texture with the same dimensions as the original image

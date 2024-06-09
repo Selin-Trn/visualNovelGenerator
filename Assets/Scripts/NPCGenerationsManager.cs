@@ -14,6 +14,9 @@ public class NPCGenerationsManager : MonoBehaviour
     private List<GameObject> npcButtons = new List<GameObject>();
     private int npcCounter = 0;  // Unique counter for each NPC
 
+    /// <summary>
+    /// Adds a new NPC button and input form to the UI.
+    /// </summary>
     public void AddNPC()
     {
         if (npcButtons.Count >= 3) return; // Limit to 3 NPCs
@@ -31,6 +34,10 @@ public class NPCGenerationsManager : MonoBehaviour
         npcButtons.Add(buttonObj);
     }
 
+    /// <summary>
+    /// Shows the NPC input form corresponding to the given button name.
+    /// </summary>
+    /// <param name="buttonName">The name of the button to show the input form for.</param>
     private void ShowNPCInputForm(string buttonName)
     {
         // Deactivate all other forms first
@@ -58,6 +65,10 @@ public class NPCGenerationsManager : MonoBehaviour
         inputForm.SetActive(true);
     }
 
+    /// <summary>
+    /// Initializes the input fields of the form by resetting their content.
+    /// </summary>
+    /// <param name="form">The form to initialize.</param>
     private void InitializeFormFields(GameObject form)
     {
         // Find all input fields and reset their content
@@ -75,6 +86,9 @@ public class NPCGenerationsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deactivates all NPC input forms.
+    /// </summary>
     private void DeactivateAllForms()
     {
         foreach (GameObject form in npcInputForms)
@@ -83,6 +97,11 @@ public class NPCGenerationsManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deletes the NPC corresponding to the given button and input form.
+    /// </summary>
+    /// <param name="buttonName">The name of the button to delete.</param>
+    /// <param name="inputForm">The input form to delete.</param>
     private void DeleteNPC(string buttonName, GameObject inputForm)
     {
         // Cleanup logic
@@ -97,6 +116,10 @@ public class NPCGenerationsManager : MonoBehaviour
         Destroy(inputForm);
     }
 
+    /// <summary>
+    /// Gets the novel prompts for all NPCs.
+    /// </summary>
+    /// <returns>A list of novel prompts for all NPCs.</returns>
     public List<string> GetAllNPCNovelPrompts()
     {
         List<string> prompts = new List<string>();
@@ -110,6 +133,11 @@ public class NPCGenerationsManager : MonoBehaviour
         }
         return prompts;
     }
+
+    /// <summary>
+    /// Gets the complete image prompts for all NPCs.
+    /// </summary>
+    /// <returns>A list of complete image prompts for all NPCs.</returns>
     public List<string> GetAllNPCCompleteImagePrompts()
     {
         List<string> prompts = new List<string>();
@@ -124,17 +152,21 @@ public class NPCGenerationsManager : MonoBehaviour
         return prompts;
     }
 
+    /// <summary>
+    /// Gets the names of all NPCs.
+    /// </summary>
+    /// <returns>A list of names for all NPCs.</returns>
     public List<string> GetAllNPCNames()
     {
-        List<string> prompts = new List<string>();
+        List<string> names = new List<string>();
         foreach (GameObject form in npcInputForms)
         {
             NPCGenerationOptions options = form.GetComponent<NPCGenerationOptions>();
             if (options != null)
             {
-                prompts.Add(options.GetNPCName());
+                names.Add(options.GetNPCName());
             }
         }
-        return prompts;
+        return names;
     }
 }
