@@ -1,4 +1,4 @@
-# My Visual Novel Motor Graduation Rroject
+# My Visual Novel Generator Graduation Rroject
 
 Uses OpenAI models:
 * DALL-E 3(image generation)
