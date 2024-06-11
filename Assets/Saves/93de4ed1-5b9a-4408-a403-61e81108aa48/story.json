@@ -1,0 +1,333 @@
+{
+  "a": {
+    "_0_bg": "space_ship",
+    "_0": "You are Captain James, a young and skilled leader of the spaceship 'Elysium'. As you navigate through the vastness of space, a sudden alarm blares, indicating an intrusion.",
+    "_0_player": "What in the universe is happening?",
+    "_1": "The lights flicker and the ship's AI announces: 'Warning. Alien entities have boarded the ship.'",
+    "_2": "Your heart races as you prepare to face the imminent threat. You glance at your crew, their faces mirroring your determination.",
+    "_0_apr": "Spack",
+    "_1_apr": "Uhura",
+    "_2_apr": "Leonard McCoy",
+    "_0_npc": {
+      "name": "Spack",
+      "txt": "Captain, the Sariels are a formidable foe. We must act swiftly."
+    },
+    "_0_player": "Uhura, can you establish communication with them? We need to understand their intentions.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "I'll try, Captain. But they might not be in the mood for talking."
+    },
+    "_3": "You nod, understanding the gravity of the situation. The ship trembles as the Sariels advance.",
+    "_jmp": {
+      "chc_0": {
+        "br": "b",
+        "txt": "Prepare for battle!"
+      },
+      "chc_1": {
+        "br": "c",
+        "txt": "Attempt to communicate with the Sariels."
+      },
+      "chc_2": {
+        "br": "d",
+        "txt": "Evacuate the non-essential crew."
+      }
+    }
+  },
+  "b": {
+    "_0": "You order the crew to prepare for combat. The sound of weapons being charged fills the air.",
+    "_1": "The Sariels breach the main door, their menacing forms looming over the crew.",
+    "_1_apr": "Sariel Warrior",
+    "_0_npc": {
+      "name": "Sariel Warrior",
+      "txt": "Surrender, humans, and your suffering will be short."
+    },
+    "_0_player": "We will never surrender! Elysium is our home!",
+    "_2": "A fierce battle ensues, with the crew fighting valiantly against the Sariel invaders.",
+    "_3": "Despite your efforts, the Sariels overpower your defenses.",
+    "_2_dspr": "Sariel Warrior",
+    "_died": "A searing pain shoots through your chest as a Sariel weapon strikes true. Darkness envelops you as the ship falls to the Sariels."
+  },
+  "c": {
+    "_0": "You instruct Uhura to attempt communication with the Sariels.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "This is the Elysium. Why have you boarded our ship?"
+    },
+    "_2": "There is a tense silence before a response crackles through the comms.",
+    "_0_apr": "Sariel Commander",
+    "_0_npc": {
+      "name": "Sariel Commander",
+      "txt": "We seek resources and territory. Your ship is now ours."
+    },
+    "_0_player": "We can negotiate. There's no need for violence.",
+    "_3": "The Sariel Commander hesitates, considering your offer.",
+    "_jmp": {
+      "chc_0": {
+        "br": "e",
+        "txt": "Offer to share resources."
+      },
+      "chc_1": {
+        "br": "f",
+        "txt": "Demand they leave immediately."
+      }
+    }
+  },
+  "d": {
+    "_0": "You decide to evacuate the non-essential crew. The ship's corridors fill with the frantic sounds of evacuation.",
+    "_1_npc": {
+      "name": "Leonard McCoy",
+      "txt": "James, we can't just abandon the ship! We need a plan!"
+    },
+    "_0_player": "We need to ensure their safety first, Bones. Then we can regroup and fight back.",
+    "_2": "The evacuation proceeds, but the Sariels close in rapidly.",
+    "_3": "You face a critical decision as the Sariels breach another section of the ship.",
+    "_jmp": {
+      "chc_0": {
+        "br": "g",
+        "txt": "Hold the line and buy time for the evacuation."
+      },
+      "chc_1": {
+        "br": "h",
+        "txt": "Lead a counter-attack to push the Sariels back."
+      }
+    }
+  },
+  "e": {
+    "_0": "You offer to share the ship's resources with the Sariels.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "Your offer is intriguing, but how can we trust you, human?"
+    },
+    "_0_player": "We have no reason to lie. Let us find a way to coexist peacefully.",
+    "_2": "The Sariel Commander contemplates your words, a flicker of hope in their eyes.",
+    "_3": "The tension in the air is palpable as you await their decision.",
+    "_jmp": {
+      "chc_0": {
+        "br": "i",
+        "txt": "Wait for the Sariel Commander's response."
+      },
+      "chc_1": {
+        "br": "j",
+        "txt": "Offer additional terms to ensure peace."
+      }
+    }
+  },
+  "f": {
+    "_0": "You demand that the Sariels leave immediately.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "Foolish human! You leave us no choice but to take what we need by force."
+    },
+    "_0_player": "We will not let you take our ship!",
+    "_2": "The Sariel Commander cuts the communication, and the battle begins anew.",
+    "_3": "Despite your best efforts, the Sariels overwhelm your defenses.",
+    "_died": "A Sariel weapon strikes you down, and the last thing you see is your ship falling into enemy hands."
+  },
+  "g": {
+    "_0": "You and a brave team hold the line, buying precious time for the evacuation.",
+    "_1": "The Sariels press on with relentless force, but your determination never wavers.",
+    "_2": "The evacuation is nearly complete when a Sariel warrior lunges at you.",
+    "_0_dspr": "Sariel Warrior",
+    "_died": "A sharp pain pierces your side, and you collapse. Your last thought is of your crew's safety as darkness consumes you."
+  },
+  "h": {
+    "_0": "You lead a counter-attack, rallying your crew to push back the Sariels.",
+    "_1": "The battle is fierce, with both sides suffering heavy losses.",
+    "_2": "Despite your efforts, the Sariels' numbers overwhelm your crew.",
+    "_3": "You make a final stand, but the odds are too great.",
+    "_died": "A Sariel weapon strikes you down, and the last thing you see is your ship falling into enemy hands."
+  },
+  "i": {
+    "_0": "You wait anxiously for the Sariel Commander's response.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "Very well, human. We will give peace a chance. But know this, if you betray us, there will be no mercy."
+    },
+    "_0_player": "Thank you. Let's work together for a better future.",
+    "_2": "The Sariels stand down, and an uneasy alliance is formed.",
+    "_end": "Though the path ahead is uncertain, you have taken the first step towards peace. The Elysium continues its journey with new allies by its side."
+  },
+  "j": {
+    "_0": "You offer additional terms to ensure peace, including shared technology and mutual protection.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "Your terms are generous, Captain. We accept."
+    },
+    "_0_player": "Together, we can achieve great things.",
+    "_2": "The Sariels stand down, and an alliance is formed.",
+    "_end": "With the Sariels as allies, the Elysium's mission continues with renewed purpose. Peace is a hard-won, but precious, victory."
+  },
+  "k": {
+    "_0_bg": "medbay",
+    "_0": "In the aftermath of the battle, you find yourself in the medbay, recovering from your injuries.",
+    "_1_npc": {
+      "name": "Leonard McCoy",
+      "txt": "You're lucky to be alive, James. Don't push yourself too hard."
+    },
+    "_0_player": "Thanks, Bones. I just did what needed to be done.",
+    "_2": "You reflect on the choices you've made and the lives saved.",
+    "_end": "Despite the scars, you know that you've made the right decisions. The Elysium sails on, guided by your leadership."
+  },
+  "l": {
+    "_0_bg": "bridge",
+    "_0": "On the bridge, you and your crew assess the damage and plan the next steps.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "Captain, we've received a transmission from the Sariel homeworld. They wish to discuss terms of peace."
+    },
+    "_0_player": "Let's hear them out. This might be our chance to end this conflict for good.",
+    "_2": "The bridge is filled with a sense of cautious optimism as you prepare for the negotiations.",
+    "_end": "With the promise of peace on the horizon, the Elysium continues its journey, ever vigilant and hopeful."
+  },
+  "m": {
+    "_0_bg": "quarters",
+    "_0": "In the quiet of your quarters, you reflect on the events that transpired.",
+    "_1_npc": {
+      "name": "Spack",
+      "txt": "Captain, you showed great wisdom today. The crew is grateful for your leadership."
+    },
+    "_0_player": "Thank you, Spack. I couldn't have done it without all of you.",
+    "_2": "As the ship sails through the stars, you feel a sense of unity and hope among your crew.",
+    "_end": "The Elysium remains a symbol of resilience and cooperation, with you at the helm."
+  },
+  "n": {
+    "_0_bg": "space_ship",
+    "_0": "As the Sariels board the ship, you remember a crucial piece of information about their culture.",
+    "_1_npc": {
+      "name": "Spack",
+      "txt": "Captain, the Sariels respect strength and honor. Perhaps we can challenge their leader."
+    },
+    "_0_player": "It's a risky move, but it might be our best shot.",
+    "_2": "You challenge the Sariel Commander to a duel, hoping to earn their respect and avoid further bloodshed.",
+    "_jmp": {
+      "chc_0": {
+        "br": "o",
+        "txt": "Fight the duel with honor."
+      },
+      "chc_1": {
+        "br": "p",
+        "txt": "Use cunning to win the duel."
+      }
+    }
+  },
+  "o": {
+    "_0": "You fight the duel with honor, displaying your skills and strength.",
+    "_1": "The Sariel Commander is impressed by your courage and prowess.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "You have earned our respect, Captain. We will negotiate terms."
+    },
+    "_0_player": "Thank you. Let's work together for a peaceful future.",
+    "_2": "With the duel concluded, an uneasy but hopeful alliance is formed.",
+    "_end": "Through honor and strength, you have secured a chance for peace. The Elysium continues its mission with new allies."
+  },
+  "p": {
+    "_0": "You use cunning and strategy to win the duel, outsmarting the Sariel Commander.",
+    "_1": "Though victorious, you sense a lingering resentment from the Sariels.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "You have won, but this is not over, human."
+    },
+    "_0_player": "We seek peace, not enmity. Let's find a way to coexist.",
+    "_2": "The Sariels reluctantly agree to negotiate, but the path ahead is fraught with tension.",
+    "_end": "With a tenuous peace established, the Elysium's journey continues. The future remains uncertain, but you hold onto hope."
+  },
+  "q": {
+    "_0_bg": "engine_room",
+    "_0": "In the engine room, you discover a way to disable the Sariels' weapons.",
+    "_1": "With Spack's help, you implement the plan, hoping to gain an advantage.",
+    "_1_npc": {
+      "name": "Spack",
+      "txt": "This should give us the upper hand, Captain. But we must act quickly."
+    },
+    "_0_player": "Let's do it. We can't let them take our ship.",
+    "_2": "You successfully disable the Sariels' weapons, buying time for your crew to regroup.",
+    "_jmp": {
+      "chc_0": {
+        "br": "r",
+        "txt": "Launch a counter-attack."
+      },
+      "chc_1": {
+        "br": "s",
+        "txt": "Open negotiations from a position of strength."
+      }
+    }
+  },
+  "r": {
+    "_0": "With the Sariels' weapons disabled, you launch a counter-attack.",
+    "_1": "Your crew fights with renewed vigor, pushing the Sariels back.",
+    "_2": "The battle is fierce, but your tactical advantage leads to victory.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "Captain, we've secured the ship. The Sariels are retreating."
+    },
+    "_0_player": "Well done, everyone. Let's ensure they don't come back.",
+    "_end": "With the ship secured, you reflect on the cost of victory. The Elysium sails on, ever vigilant."
+  },
+  "s": {
+    "_0": "With the Sariels' weapons disabled, you open negotiations from a position of strength.",
+    "_1_npc": {
+      "name": "Sariel Commander",
+      "txt": "You have proven resourceful, Captain. What do you propose?"
+    },
+    "_0_player": "We can share resources and technology. There's no need for further conflict.",
+    "_2": "The Sariel Commander considers your offer, seeing the wisdom in cooperation.",
+    "_3": "With mutual respect, an agreement is reached.",
+    "_end": "By turning the tide, you have forged a path to peace. The Elysium's journey continues with hope and new alliances."
+  },
+  "t": {
+    "_0_bg": "bridge",
+    "_0": "On the bridge, you strategize with your crew on the best course of action.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "Captain, we have limited time. The Sariels are advancing quickly."
+    },
+    "_0_player": "We need to find a way to stall them and gain the upper hand.",
+    "_2": "A plan is formed to create a diversion and strike at the Sariel's command center.",
+    "_jmp": {
+      "chc_0": {
+        "br": "u",
+        "txt": "Lead the diversion yourself."
+      },
+      "chc_1": {
+        "br": "v",
+        "txt": "Send a trusted team to create the diversion."
+      }
+    }
+  },
+  "u": {
+    "_0": "You decide to lead the diversion yourself, putting yourself in harm's way for the greater good.",
+    "_1": "With a small team, you create chaos in the Sariels' ranks, drawing their attention away from the main force.",
+    "_2": "The plan works, but you find yourself surrounded by Sariel warriors.",
+    "_1_apr": "Sariel Warrior",
+    "_died": "Despite your bravery, the Sariels overpower you. Your sacrifice was not in vain, but the cost was great."
+  },
+  "v": {
+    "_0": "You send a trusted team to create the diversion, allowing you to focus on the main objective.",
+    "_1": "The diversion works, and you lead the main force to strike at the Sariel command center.",
+    "_2": "The battle is intense, but your strategy pays off.",
+    "_1_npc": {
+      "name": "Spack",
+      "txt": "Captain, we've secured the command center. The Sariels are in disarray."
+    },
+    "_0_player": "Excellent work, everyone. Let's consolidate our position and ensure our victory.",
+    "_end": "With the Sariels' command center secured, the Elysium stands victorious. The journey ahead is filled with hope and new possibilities."
+  },
+  "w": {
+    "_0_bg": "quarters",
+    "_0": "In the quiet of your quarters, you find a moment of solace amidst the chaos.",
+    "_1_npc": {
+      "name": "Uhura",
+      "txt": "Captain, are you alright? You've been through so much."
+    },
+    "_0_player": "I'll be fine, Uhura. Thank you for your concern. We still have a mission to complete.",
+    "_2": "Uhura smiles, her presence a comforting reminder of the bonds you share with your crew.",
+    "_end": "In the face of adversity, you find strength in those around you. The Elysium's journey continues, guided by unity and hope."
+  },
+  "x": {
+    "_0_bg": "medbay",
+    "_0": "In the medbay, you check on the injured crew members, including Spack.",
+    "_1_npc": {
+      "name": "Spack",
+      "txt": "Captain, I will recover. Focus on the mission."
+    }}}

@@ -497,7 +497,7 @@ public class GenerationManager : MonoBehaviour
                 }
             },
             ["temperature"] = 0.7, // Set the temperature for the generation
-            ["max_tokens"] = 4020 // Set the maximum number of tokens
+            ["max_tokens"] = 4096 // Set the maximum number of tokens
         };
 
         // Convert the payload to a JSON string

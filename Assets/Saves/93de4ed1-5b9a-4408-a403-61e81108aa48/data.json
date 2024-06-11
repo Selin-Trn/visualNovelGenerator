@@ -1,0 +1,37 @@
+{
+  "story": {
+    "name": "Star Voyage",
+    "generationPrompt": "This is a Sci-fi novel. The setting is space-ship, the main problem of the plot is aliens board the ship, and the goal is stop the aliens. The theme is Mercy, it should shine in the plot. The story should be Life-like in its grimness/darkness. Is there romance in the story=True. Extra details: the attacking aliens, sariels, want to overtake the spaceship. The player should be able to choose to grant them mercy IF THE PLAYER WINS. There is also the possibility the aliens do overtake the ship. "
+  },
+  "player": {
+    "name": "James",
+    "generationPrompt": "Male Young Adult Captain. Square face. Short Blonde Straight hair. Blue Round eyes. Same as hair color Rounded Normal eyebrows. Straight nose, Full lips, Light skin. Average height, Fit weight. Lean. Wears a gold colored uniform. Is the captain of the ship. A portrait of this character from shoulders up. Black only background. No repetitive heads. There should be only one single head! Character is from a Sci-fi novel. Grimness/darkness of the novel is Life-like. The art sytle is Animation. The setting of the novel is in space-ship, the main problem of the plot is aliens board the ship, and the goal is stop the aliens."
+  },
+  "NPCs": [
+    {
+      "name": "Spack",
+      "generationPrompt": "This NPC is Young Adult Male Science Officer. Their name is Spack . Physical details: Short bowl cut black hair and brown eyes. Is a half alien, skin is tinted green. Wears a blue uniform. Ears are pointy.. Personality: Stoic and very logical. Extremely loyal to James Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Uhura",
+      "generationPrompt": "This NPC is Young Adult Female Officer. Their name is Uhura . Physical details: Communcations officer. Wears red uniform. Black african. Has long straight black hair. Personality: Smart and a problem-solver. Is this character a romance interest for the player: True. "
+    },
+    {
+      "name": "Leonard",
+      "generationPrompt": "This NPC is Adult Male Chief Doctor. Their name is Leonard McCoy. Physical details: Wears a blue uniform. Hazel eyes and brown eyes. I want the image from hips to head only!. Personality: Sarcastic and pessimist. Closest friend of James Is this character a romance interest for the player: False. "
+    }
+  ],
+  "backgrounds": {
+    "names": [
+      "space_ship",
+      "medbay",
+      "bridge",
+      "quarters",
+      "space_ship",
+      "engine_room",
+      "bridge",
+      "quarters",
+      "medbay"
+    ]
+  }
+}
